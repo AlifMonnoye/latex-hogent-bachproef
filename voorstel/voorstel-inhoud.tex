@@ -2,46 +2,41 @@
 
 \section{Introductie}%
 \label{sec:introductie}
-Veel bedrijven die werken met een mainframe hebben het probleem dat ze onvoldoende mensen vinden met de nodige kennis over deze technologie. De introductie van Unix systemen op de mainframe in het jaar 2000 (Mertic2020) had dit probleem wat verzacht maar zeker niet weggewerkt. De oorzaak van deze situatie is door de oude technieken die het gebruikt. COBOL en PL/1 zijn niet de meest voor de hand liggende programmeertalen en mensen verkiezen nogsteeds Bash als scriptingtaal in plaats van REXX. 
-De mainframe wereld zal zich dus moeten aanpassen aan de skills van de mensen en niet andersom. Python is een programmeertaal die meer en meer begint op te komen in veel verschillende projecten. Het is niet enkel bekend bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen steeds vaker voor Python. (Geen bron)
+In de huidige wereld van technologie is het moeilijk bij te houden welke mogelijkheden er zijn om bepaalde projecten uit te voeren. Zo heb je altijd nieuwe technieken die net iets efficiënter of krachtiger zijn dan een ander en is het moeilijk voor mensen om bij te houden welke opties er mogelijk zijn. Deze evolutie zorgt er niet alleen voor dat we niet direct mee zijn wat er nieuw is, maar het zorgt er ook voor dat we vergeten wat er nog is. Dit is vooral merkbaar in bij de IBM Z Systems die zo belangrijk maar zo onbekend zijn in de samenleving.
 
-Een bank is een voorbeeld van een bedrijf die gebruik maakt van IBM hun Mainframes met maar liefst 92 van de top 100 banken wereldwijd die op dit moment een mainframe gebruiken. (Wagle2017)
-Het bedrijf waar ik op ga focussen is Den Norske Bank met een hoofdvestiging in Oslo, Noorwegen. Zei hebben dezelfde problemen die eerder werden vernoemd en zoeken dus een manier om met beter gekende technologie te werken zoals Python.
-Het is enkel de vraag of dit mogelijk is en op welke manier. 
-Door de recente update van Java applicaties op mainframe 
+\subsection{Problemen met de Mainframe}
+Veel bedrijven die werken met een mainframe hebben het probleem dat ze onvoldoende mensen vinden met de nodige kennis over deze technologie. De introductie van Unix systemen op de mainframe in het jaar 2000 \autocite{Mertic2020} had dit probleem wat verzacht maar zeker niet weggewerkt. De oorzaak van deze situatie is door de oude technieken die het gebruikt. COBOL en PL/1 zijn niet de meest voor de hand liggende programmeertalen en mensen verkiezen nogsteeds Bash als scriptingtaal in plaats van REXX. 
 
+De mainframe wereld zal zich dus moeten aanpassen aan de vaardigheden van de mensen door over te schakelen naar meer bekende manier van werken. Python is een programmeertaal die meer en meer begint op te komen in veel verschillende projecten. Het is niet enkel bekend bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen steeds vaker voor Python. (Geen bron)
+IBM heeft dit opgemerkt en een Python compiler en interpreter ontwikkeld voor z/OS genaamd IBM Open Enterprise SDK for Python. Hierdoor kun je met Python interactie hebben met z/OS om bijvoorbeeld applicaties te ontwikkelen of de resources van het systeem gaan managen. Hoewel de programmeur nog steeds voldoende kennis moet hebben over de werken van een mainframe, kan hij tenminste werken in een gekende omgeving.
 
-Waarover zal je bachelorproef gaan? Introduceer het thema en zorg dat volgende zaken zeker duidelijk aanwezig zijn:
+\subsection{Bedrijven in het werkveld}
+Een bank is een voorbeeld van een bedrijf die gebruik maakt van IBM hun Mainframes met maar liefst 92 van de top 100 banken wereldwijd die op dit moment een mainframe gebruiken. \autocite{Wagle2017}
+Het bedrijf waar ik op ga focussen is Den Norske Bank met een hoofdvestiging in Oslo, Noorwegen. Zei hebben dezelfde problemen die eerder werden vernoemd en zoeken dus een manier om met beter gekende technologie te werken zoals Python. Door de Python compiler van IBM zal het uitvoeren van Python scripts geen probleem zijn. Maar er moet wel een goede manier zijn om scripts die niet op het mainframe draaien over te zetten zonder alles handmatig te moeten overtypen.
 
-\begin{itemize}
-  \item kaderen thema
-  \item de doelgroep
-  \item de probleemstelling en (centrale) onderzoeksvraag
-  \item de onderzoeksdoelstelling
-\end{itemize}
+Dit zal gedaan worden door een CI/CD Tool, wat bedoeld is voor het automatiseren van bouwen, testen en inzetten van software applicaties. 2 populaire tools hiervoor zijn Jenkins en Gitlab. \autocite{Mohanan2023} 
+Het laatste wordt ondersteund door IBM dus dit zullen we gebruiken in dit onderzoek.
 
-Denk er aan: een typische bachelorproef is \textit{toegepast onderzoek}, wat betekent dat je start vanuit een concrete probleemsituatie in bedrijfscontext, een \textbf{casus}. Het is belangrijk om je onderwerp goed af te bakenen: je gaat voor die \textit{ene specifieke probleemsituatie} op zoek naar een goede oplossing, op basis van de huidige kennis in het vakgebied.
+De resultaten van deze scripts moet natuurlijk ook worden opgeslaan
 
-De doelgroep moet ook concreet en duidelijk zijn, dus geen algemene of vaag gedefinieerde groepen zoals \emph{bedrijven}, \emph{developers}, \emph{Vlamingen}, enz. Je richt je in elk geval op it-professionals, een bachelorproef is geen populariserende tekst. Eén specifiek bedrijf (die te maken hebben met een concrete probleemsituatie) is dus beter dan \emph{bedrijven} in het algemeen.
-
-Formuleer duidelijk de onderzoeksvraag! De begeleiders lezen nog steeds te veel voorstellen waarin we geen onderzoeksvraag terugvinden.
-
-Schrijf ook iets over de doelstelling. Wat zie je als het concrete eindresultaat van je onderzoek, naast de uitgeschreven scriptie? Is het een proof-of-concept, een rapport met aanbevelingen, \ldots Met welk eindresultaat kan je je bachelorproef als een succes beschouwen?
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{State-of-the-art}%
 \label{sec:state-of-the-art}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+\subsection{De skill/age gap}
+Het is nogsteeds een grote moeilijkheid om nieuw talent aan te trekken tot de mainframe. Een onderzoek van Deloitte toont aan dat 79\% van de projectleiders moeilijkheden heeft met het zoeken naar mensen met de juiste skillset. Hetzelfde onderzoek toont ook aan dat er in de teams zelf een groot verschil is van kennis en skills. \textcite{Deloitte2020} \\ Hoewel dit systeem gebruikt wordt door 71\% van de fortune 500 companies \autocite{Tozzi2022} , is de skill gap nogsteeds te groot waardoor veel bedrijven vrezen voor een groot tekort aan werknemers om deze Z Systems te onderhouden.
+\\
+Volgens Petra Goude \textcite{Goude2023} zijn er verschillende manieren om dit probleem aan te pakken. Zo kunnen bedrijven lessen geven over Mainframe en hoe ze dit gebruiken. Ze vertelt ook dat de skills die nodig zijn beter gecomplimenteerd moeten worden en kunnen leiden naar een belonende en lange termijn carrière. Hoewel dit zou helpen, vind ze dit niet de kern van het probleem. Het zijn de oude technieken die mensen niet aantrekt. Ze stelt voor om meer te investeren in hedendaagse technologie en dit op te zetten op de mainframe. Dit kan gaan over dezelfde test- en deployment technieken, maar ook over hedendaagse programmeertalen zoals Java of Python. Dit zou kunnen door middel van APIs en zou een nieuwe, jongere werkkracht aantrekken.
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
-
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
-
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
+\subsection{Toch nog een kleurrijke toekomst}
+Hoewel er een grote nood is aan mensen met de juiste skillset voor Mainframe, ziet de toekomst er toch nog goed uit. Zo wordt er meer gemoderniseerd met bijvoorbeeld veel modernere programmeertalen. Er wordt ook voorspeld dat we een introductie van DevOps en self-service benaderingen gaan zien. \autocite{Pennaz2023} \\
+Momenteel is Java beschikbaar als programmeertaal op de mainframe naast PL/1, COBOL, REXX, ...
+Sinds de introductie werd al bepaald dat bijna 2/3de van gebruikers op de mainframe Java toepassen op een bepaalde manier. \autocite{Watts2018}
+Het is ook makkelijker om mensen te vinden die gespecialiseerd zijn in Java dan de oorspronkelijke programmeertalen in z/OS. 
+Python 
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -50,31 +45,87 @@ Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle no
 %   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
 %   ...'')
 
-Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
 \label{sec:methodologie}
+Deze paper zal als resultaat een Proof of Concept zijn over het installeren van een Gitlab pipeline om Python scripts uit te voeren op een mainframe in een bankomgeving. 
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+\subsection{Fase 1: Literatuurstudie}
+\begin{itemize}
+    \item \textbf{Doel:}
+          Verzamelen van informatie over Gitlab en Python scripts op het Mainframe
+    \item \textbf{Aanpak:}
+          \item[-] Zoeken naar vertrouwde bronnen en documentatie over de gekozen onderwerpen
+          \item[-] De werkomgeving zo specifiek mogelijk bespreken en onderzoeken op basis van vakjargon.
+          \item[-] Onderzoek doen naar soortgelijke projecten en use cases om specificaties voor de testomgeving en andere tools te specifiëren
+          
+     \item \textbf{Tijd:} 3 weken
+     \item \textbf{Opbrengst:}
+           Een volledig onderzoek naar vakliteratuur en een samenvatting van gelijkaardige projecten en hun manier van werken.  
+\end{itemize}
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+\subsection{Fase 2: Opstellen testomgeving}
+\begin{itemize}
+    \item \textbf{Doel:}
+    Een bruikbare test omgeving opstellen in het Mainframe systeem voor te gebruiken om de Gitlab pipeline op te zetten.
+    \item \textbf{Aanpak:}
+    \item[-] De opgezochte literatuur bestuderen met een expert
+    \item[-] Met de expert een testomgeving opstellen met de juiste vereisten
+    
+    \item \textbf{Tijd:} 2 weken
+    \item \textbf{Opbrengst:}
+    Een volledige testomgeving met de juiste vereisten om de PoC in uit te voeren.
+\end{itemize}
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
 
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+\subsection{Fase 3: Opstellen Gitlab pipeline en API}
+\begin{itemize}
+    \item \textbf{Doel:}
+    Een Gitlab pipeline opstellen waar we onze Python scripts op kunnen zetten om op de Mainframe uit te voeren. Verder ontwikkel ik nog een bruikbare API voor de gebruikers.
+    \item \textbf{Aanpak:}
+    \item[-] Geschikte werkwijze kiezen 
+    \item[-] Implementeren van de pipeline
+    \item[-] Ontwerpen API
+    \item[-] Implementeren API 
+    
+    \item \textbf{Tijd:} 3 weken
+    \item \textbf{Opbrengst:}
+    Een ontwerp van een pipeline die leidt naar de Mainframe met een bijhorende API.
+\end{itemize}
 
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
+
+\subsection{Fase 4: DB2 Configuratie voor de Python scripts}
+\begin{itemize}
+    \item \textbf{Doel:}
+    Zorgen dat de output van de scripts worden opgeslaan in de DB2 databank
+    \item \textbf{Aanpak:}
+    \item[-] Scripts runnen en kijken waar de output naar wordt weggeschreven
+    \item[-] Wijzigingen uitvoeren waar nodig
+    
+    \item \textbf{Tijd:} 2 weken
+    \item \textbf{Opbrengst:}
+    Een connectie tussen de Gitlab pipeline en de DB2 databank voor een correcte overzetting van data. 
+\end{itemize}
+
+\subsection{Fase 5: Evaluatie voorbereiding}
+\begin{itemize}
+    \item \textbf{Doel:}
+    Samenvatting van de bachelorproef in de vorm van een conclusie.
+    \item \textbf{Aanpak:}
+    \item[-] Het resultaat bespreken
+    \item[-] Het resultaat vergelijken met het verwachte resultaat
+    \item[-] Schrijven van een conclusie
+    
+    \item \textbf{Tijd:} 2 weken
+    \item \textbf{Opbrengst:}
+    Een volledig overzicht en conclusie van de gerealiseerde opdracht met bijhorende opmerkingen en analyses. 
+\end{itemize}
+
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de onderdelen van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet welk soort data je moet verzamelen en hoe je die moet meten.
-
-Wat heeft de doelgroep van je onderzoek aan het resultaat? Op welke manier zorgt jouw bachelorproef voor een meerwaarde?
-
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
-
+Het te verwachten resultaat is een werkende Gitlab pipeline die scripts zal laten uitvoeren op de Mainframe en de resultaten dan zal opslaan op een DB2 databank. Een gebruiker die zijn Python scripts op de pipeline wil zetten zal gebruik kunnen maken van een API die op de achtergrond alle technische functies zal uitvoeren. 
