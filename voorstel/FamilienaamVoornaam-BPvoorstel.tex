@@ -22,23 +22,23 @@
 
 \academicyear{2023 - 2024} 
 
-\title{Hosten van Python scripts op een Mainframe door een API dat achterliggend gebruik maakt van een Gitlab pipeline en de resulaten van de scripts opslaat op een DB2 databank.}
+\title{Gitlab vs Jenkins pipeline: een vergelijkende studie over het hosten van Python scripts op de IBM Z Systems}
 
 \author{Alif Monnoye}
 \email{alif.monnoye@student.hogent.be}
 
 % TODO: Geef de co-promotor op
-\supervisor[Co-promotor]{J. Doe (X, \href{mailto:sigrid.beekman@synalco.be}{sigrid.beekman@synalco.be})}
+\supervisor[Co-promotor]{ / } %J. Doe (X, \href{mailto:sigrid.beekman@synalco.be}{sigrid.beekman@synalco.be})}
 
 
 \specialisation{Mainframe Expert}
-\keywords{Python scripts, Mainframe, Gitlab Pipeline, DB2, API}
+\keywords{Python scripts, Mainframe, Gitlab Pipeline, Jenkins, CI/CD}
 
 \begin{document}
 
 \begin{abstract}
-  De IBM Z Systems hebben nood aan een opfrissing in technieken zonder zijn bruikbaarheid en kracht te verliezen. Python is één van de grootste programmeertalen ter wereld met veel functionaliteiten wat perfect is voor te draaien op de mainframe. Niet alleen voor zijn kracht en functionaliteit, maar ook voor zijn bekendheid onder programmeurs. \\
-  Deze paper zal een Proof of Concept geven over een manier om Python scripts uit te voeren in een Mainframe dat z/OS 3.1 draait. Dit zal gebeuren door een Gitlab pipeline met een bijhorende API voor de eenvoud voor de gebruiker. De resultaten worden opgeslagen op een DB2 databank dat al opgezet is in de mainframe.
+  De IBM Z Systems hebben nood aan een opfrissing in technieken zonder zijn bruikbaarheid en kracht te verliezen. Python is één van de grootste programmeertalen ter wereld met veel functionaliteiten wat perfect is voor te draaien op de mainframe. Niet alleen voor zijn kracht en functionaliteit, maar ook voor zijn bekendheid onder programmeurs. Deze scripts worden door een Continuous integration/continuous deployment (CI/CD) automatisch ingezet om te lopen op de mainframe. Hierdoor is dit makkelijker voor een DevOps teams zonder geavanceerde mainframe kennis om scripts te schrijven voor deze omgeving.   \\
+  Deze paper zal 2 verschillende CI/CD pipelines vergelijken namelijk Gitlab Pipeline en Jenkins. Er zal gekeken worden naar de gelijkenissen en verschillen voor het opstellen van deze technieken. Ook zal er bestudeerd hoe deze pipelines werken om de python scripts uit te voeren. Zo kunnen we evalueren welke het efficiëntst is voor welk soort project of opdracht.
 \end{abstract}
 
 \tableofcontents
@@ -51,10 +51,12 @@
 
 \cleardoublepage
 %\usepackage{graphicx}
-\begin{center}%[bp!]
+\begin{figure}[pt!]
     \centering
-    \includegraphics[width=550pt]{ScreenshotGantt.png}
-\end{center}
+    \includegraphics[width=550pt]{GanttChart.png}
+    \caption{Gantt Chart}
+    \label{fig}
+\end{figure}
 
 
 \end{document}
