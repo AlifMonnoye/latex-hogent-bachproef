@@ -2,28 +2,35 @@
 
 \section{Introductie}%
 \label{sec:introductie}
-In de huidige wereld van technologie is het moeilijk bij te houden welke mogelijkheden er zijn om bepaalde projecten uit te voeren. Zo heb je altijd nieuwe technieken die net iets efficiënter of krachtiger zijn dan een ander en is het moeilijk voor mensen om bij te houden welke opties er mogelijk zijn. Deze evolutie zorgt er niet alleen voor dat we niet direct mee zijn wat er nieuw is, maar het zorgt er ook voor dat we vergeten wat er nog is. Dit is vooral merkbaar in bij de IBM Z Systems die zo belangrijk maar zo onbekend zijn in de samenleving.
+In de huidige wereld van technologie is het moeilijk bij te houden welke mogelijkheden er zijn om bepaalde projecten uit te voeren. Zo heb je altijd nieuwe technieken die net iets efficiënter of krachtiger zijn dan een ander. Deze evolutie zorgt er niet alleen voor dat we niet direct mee zijn wat er nieuw is, maar het zorgt er ook voor dat we vergeten welke technieken nog gebruikt worden. Dit is vooral merkbaar bij de IBM Z Systems die zo belangrijk, maar zo snel vergeten worden in de IT wereld.
 
-\subsection{Problemen met de Mainframe}
-Veel bedrijven die werken met een mainframe hebben het probleem dat ze onvoldoende mensen vinden met de nodige kennis over deze technologie. De introductie van Unix systemen op de mainframe in het jaar 2000 \autocite{Mertic2020} had dit probleem wat verzacht maar zeker niet weggewerkt. De oorzaak van deze situatie is door de oude technieken die het gebruikt. COBOL en PL/1 zijn niet de meest voor de hand liggende programmeertalen en mensen verkiezen nogsteeds Bash als scriptingtaal in plaats van REXX. 
 
-De mainframe wereld zal zich dus moeten aanpassen aan de vaardigheden van de mensen door over te schakelen naar meer bekende manier van werken. Python is een programmeertaal die meer en meer begint op te komen in veel verschillende projecten. Het is niet enkel bekend bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen steeds vaker voor Python. (Geen bron)
-IBM heeft dit opgemerkt en een Python compiler en interpreter ontwikkeld voor z/OS genaamd IBM Open Enterprise SDK for Python. Hierdoor kun je met Python interactie hebben met z/OS om bijvoorbeeld applicaties te ontwikkelen of de resources van het systeem gaan managen. Hoewel de programmeur nog steeds voldoende kennis moet hebben over de werken van een mainframe, kan hij tenminste werken in een gekende omgeving.
+\subsection{Probleemstelling}
+Deze Proof of Concept zal een API opbrengen wat het mogelijk maakt om Python scripts te schrijven op een Mainframe met z/OS 3.1 als besturingssysteem. Dit zal mogelijk gemaakt worden door een Gitlab pipeline die als toegangspoort dient tussen de opgemaakte API en het besturingssysteem van de mainframe. De resultaten van van de scripts zullen opgeslagen worden op een DB2 databank die al geconfigureerd is op het systeem.
+ 
+Het bedrijf waar ik op ga focussen is Den Norske Bank met een hoofdvestiging in Oslo, Noorwegen. Ze zoeken een manier om met beter gekende technologie te werken zoals Python. Door de Python compiler van IBM zal het uitvoeren van Python scripts geen probleem zijn. Het is belangrijk dat de programmeurs direct kunnen testen of hun programma correct draait.
 
-\subsection{Bedrijven in het werkveld}
-Een bank is een voorbeeld van een bedrijf die gebruik maakt van IBM hun Mainframes met maar liefst 92 van de top 100 banken wereldwijd die op dit moment een mainframe gebruiken. \autocite{Wagle2017}
-Het bedrijf waar ik op ga focussen is Den Norske Bank met een hoofdvestiging in Oslo, Noorwegen. Zei hebben dezelfde problemen die eerder werden vernoemd en zoeken dus een manier om met beter gekende technologie te werken zoals Python. Door de Python compiler van IBM zal het uitvoeren van Python scripts geen probleem zijn. Maar er moet wel een goede manier zijn om scripts die niet op het mainframe draaien over te zetten zonder alles handmatig te moeten overtypen.
-
-Dit zal gedaan worden door een CI/CD Tool, wat bedoeld is voor het automatiseren van bouwen, testen en inzetten van software applicaties. 2 populaire tools hiervoor zijn Jenkins en Gitlab. \autocite{Mohanan2023} 
+Dit zal gedaan worden door een CI/CD Tool, wat bedoeld is voor het bouwen, testen en inzetten van software applicaties. Deze tool is vooral handig om in real-time te weten of je code werkt. Hierdoor zullen teams weinig tijd verliezen aan slechte code en constante fix requests terwijl ze ondertussen al aan een ander project bezig zijn. \autocite{Poberezhnyk2023} \\
+2 populaire tools hiervoor zijn Jenkins en Gitlab pipeline. \autocite{Mohanan2023} 
 Het laatste wordt ondersteund door IBM dus dit zullen we gebruiken in dit onderzoek.
 
-De resultaten van deze scripts moet natuurlijk ook worden opgeslaan
+De resultaten van deze scripts moet natuurlijk ook opgeslagen worden op een databank. Aangezien het bedrijf al een DB2 databank opgezet heeft zal dit niet uitgebreid aan bod komen.
 
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{State-of-the-art}%
 \label{sec:state-of-the-art}
+
+\subsection{Een andere manier van werken}
+Veel bedrijven die werken met een mainframe hebben het probleem dat ze onvoldoende mensen vinden met de nodige kennis over deze technologie. De introductie van Unix systemen op de mainframe in het jaar 2000 \autocite{Mertic2020} had dit probleem wat verminderd maar zeker niet weggewerkt. De oorzaak van deze situatie is door de oude technieken die het systeem gebruikt. COBOL en PL/1 zijn niet de meest voor de hand liggende programmeertalen om te leren en mensen kiezen liever Bash als scriptingtaal in plaats van REXX. Hoewel IBM veel inzet op documentatie en online leerplatformen zoals IBM Z Xplore, blijft het tekort van ervaren mensen nog steeds te laag. \\
+
+De mainframe wereld zal zich dus moeten aanpassen aan de vaardigheden van de mensen door over te schakelen naar bekendere manieren van werken. 
+Python bijvoorbeeld is een programmeertaal die steeds meer populariteit krijgt sinds zijn creatie in de vroege jaren 90s. Dit is niet enkel bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen hier steeds vaker voor. Dit is vooral door zijn begin vriendelijkheid, verschillende doeleinden en een actieve community. \autocite{Johnson2023}
+IBM heeft dit opgemerkt en een Python- compiler en interpreter ontwikkeld voor z/OS genaamd IBM Open Enterprise SDK for Python. Hierdoor kun je met Python interactie hebben met z/OS om bijvoorbeeld applicaties te ontwikkelen of de resources van het systeem gaan beheren. De programmeur heeft ook geen speciale z/OS skills nodig, als er toegang is tot een moderne DevOps omgeving. \autocite{Klaey2023}
+
+\subsection{Bedrijven in het werkveld}
+Een bank is een voorbeeld van een bedrijf die gebruik maakt van IBM hun Mainframes met maar liefst 92 van de top 100 banken wereldwijd die op dit moment een mainframe gebruiken. Dit is ook logisch aangezien er gemiddeld 12.6 \autocite{Wagle2017} 
 
 \subsection{De skill/age gap}
 Het is nogsteeds een grote moeilijkheid om nieuw talent aan te trekken tot de mainframe. Een onderzoek van Deloitte toont aan dat 79\% van de projectleiders moeilijkheden heeft met het zoeken naar mensen met de juiste skillset. Hetzelfde onderzoek toont ook aan dat er in de teams zelf een groot verschil is van kennis en skills. \textcite{Deloitte2020} \\ Hoewel dit systeem gebruikt wordt door 71\% van de fortune 500 companies \autocite{Tozzi2022} , is de skill gap nogsteeds te groot waardoor veel bedrijven vrezen voor een groot tekort aan werknemers om deze Z Systems te onderhouden.
@@ -56,13 +63,14 @@ Deze paper zal als resultaat een Proof of Concept zijn over het installeren van 
     \item \textbf{Doel:}
           Verzamelen van informatie over Gitlab en Python scripts op het Mainframe
     \item \textbf{Aanpak:}
-          \item[-] Zoeken naar vertrouwde bronnen en documentatie over de gekozen onderwerpen
-          \item[-] De werkomgeving zo specifiek mogelijk bespreken en onderzoeken op basis van vakjargon.
-          \item[-] Onderzoek doen naar soortgelijke projecten en use cases om specificaties voor de testomgeving en andere tools te specifiëren
+          \item[-] Opzoeken betrouwbare bronnen
+          \item[-] Werkomgeving definiëren
+          \item[-] Gelijke projecten onderzoeken
+          \item[-] Stappenplan opmaken + vereisten testomgeving
           
-     \item \textbf{Tijd:} 3 weken
+     \item \textbf{Tijd:} 4 weken
      \item \textbf{Opbrengst:}
-           Een volledig onderzoek naar vakliteratuur en een samenvatting van gelijkaardige projecten en hun manier van werken.  
+           Een volledig onderzoek naar vakliteratuur en een samenvatting van gelijkaardige projecten en hun manier van werken. Op basis van van de onderzochte projecten zal er ook een stappenplan gemaakt worden voor de PoC  
 \end{itemize}
 
 
@@ -74,37 +82,37 @@ Deze paper zal als resultaat een Proof of Concept zijn over het installeren van 
     \item[-] De opgezochte literatuur bestuderen met een expert
     \item[-] Met de expert een testomgeving opstellen met de juiste vereisten
     
-    \item \textbf{Tijd:} 2 weken
+    \item \textbf{Tijd:} 3 weken
     \item \textbf{Opbrengst:}
     Een volledige testomgeving met de juiste vereisten om de PoC in uit te voeren.
 \end{itemize}
 
 
-\subsection{Fase 3: Opstellen Gitlab pipeline en API}
+\subsection{Fase 3: Gitlab pipeline en API opstellen}
 \begin{itemize}
     \item \textbf{Doel:}
     Een Gitlab pipeline opstellen waar we onze Python scripts op kunnen zetten om op de Mainframe uit te voeren. Verder ontwikkel ik nog een bruikbare API voor de gebruikers.
     \item \textbf{Aanpak:}
-    \item[-] Geschikte werkwijze kiezen 
-    \item[-] Implementeren van de pipeline
-    \item[-] Ontwerpen API
+    \item[-] De opgezochte literatuur bestuderen met een expert
+    \item[-] Ontwerpen Gitlab Pipeline en API
+    \item[-] Implementeren Gitlab Pipeline
     \item[-] Implementeren API 
     
-    \item \textbf{Tijd:} 3 weken
+    \item \textbf{Tijd:} 4 weken
     \item \textbf{Opbrengst:}
-    Een ontwerp van een pipeline die leidt naar de Mainframe met een bijhorende API.
+    Volledige implementatie van Gitlab Pipeline en bijhorende API op basis van het ontwerp.
 \end{itemize}
 
 
-\subsection{Fase 4: DB2 Configuratie voor de Python scripts}
+\subsection{Fase 4: Nodige DB2 configuratie voor de Python scripts}
 \begin{itemize}
     \item \textbf{Doel:}
     Zorgen dat de output van de scripts worden opgeslaan in de DB2 databank
     \item \textbf{Aanpak:}
-    \item[-] Scripts runnen en kijken waar de output naar wordt weggeschreven
+    \item[-] Scripts runnen en output bekijken
     \item[-] Wijzigingen uitvoeren waar nodig
     
-    \item \textbf{Tijd:} 2 weken
+    \item \textbf{Tijd:} 1 week
     \item \textbf{Opbrengst:}
     Een connectie tussen de Gitlab pipeline en de DB2 databank voor een correcte overzetting van data. 
 \end{itemize}
@@ -114,9 +122,8 @@ Deze paper zal als resultaat een Proof of Concept zijn over het installeren van 
     \item \textbf{Doel:}
     Samenvatting van de bachelorproef in de vorm van een conclusie.
     \item \textbf{Aanpak:}
-    \item[-] Het resultaat bespreken
-    \item[-] Het resultaat vergelijken met het verwachte resultaat
-    \item[-] Schrijven van een conclusie
+    \item[-] Het resultaat bespreken, vergelijken en concluderen van de PoC
+    \item[-] Op orde stellen van het in te dienen document
     
     \item \textbf{Tijd:} 2 weken
     \item \textbf{Opbrengst:}
