@@ -6,13 +6,14 @@ In de huidige wereld van technologie is het moeilijk bij te houden welke mogelij
 
 
 \subsection{Probleemstelling}
+In deze vergelijkende studie zal er gekeken worden naar 2 verschillende CI/CD pipelines die gebruikt kunnen worden in een mainframe omgeving: Gitlab -en Jenkins pipeline. 
+Gitlab is een web-based Git repository en heeft een groot bereik van open, gratis en privé repoositories. Dit wordt vooral gebruikt voor het automatiseren van taken in een software project in een DevOps platform. Het heeft verschillende extra functies zoals managen, moonitoren en beveiliging de bron code. \autocite{Mo}
 Deze Proof of Concept zal een API opbrengen wat het mogelijk maakt om Python scripts te schrijven op een Mainframe met z/OS 3.1 als besturingssysteem. Dit zal mogelijk gemaakt worden door een Gitlab pipeline die als toegangspoort dient tussen de opgemaakte API en het besturingssysteem van de mainframe. De resultaten van van de scripts zullen opgeslagen worden op een DB2 databank die al geconfigureerd is op het systeem.
  
 Het bedrijf waar ik op ga focussen is Den Norske Bank met een hoofdvestiging in Oslo, Noorwegen. Ze zoeken een manier om met beter gekende technologie te werken zoals Python. Door de Python compiler van IBM zal het uitvoeren van Python scripts geen probleem zijn. Het is belangrijk dat de programmeurs direct kunnen testen of hun programma correct draait.
 
-Dit zal gedaan worden door een CI/CD Tool, wat bedoeld is voor het bouwen, testen en inzetten van software applicaties. Deze tool is vooral handig om in real-time te weten of je code werkt. Hierdoor zullen teams weinig tijd verliezen aan slechte code en constante fix requests terwijl ze ondertussen al aan een ander project bezig zijn. \autocite{Poberezhnyk2023} \\
+Een CI/CD tool is µ bedoeld voor het bouwen, testen en inzetten van software applicaties. Deze tool is vooral handig om in real-time te weten of je code werkt. Hierdoor zullen teams weinig tijd verliezen aan slechte code en constante fix requests terwijl ze ondertussen al aan een ander project bezig zijn. \autocite{Poberezhnyk2023} \\
 2 populaire tools hiervoor zijn Jenkins en Gitlab pipeline. \autocite{Mohanan2023} 
-Het laatste wordt ondersteund door IBM dus dit zullen we gebruiken in dit onderzoek.
 
 De resultaten van deze scripts moet natuurlijk ook opgeslagen worden op een databank. Aangezien het bedrijf al een DB2 databank opgezet heeft zal dit niet uitgebreid aan bod komen.
 
