@@ -155,6 +155,15 @@ Hierbij zullen we bespreken waar elke pipeline in uitblinkt en eerder wat stilva
 
 
 \part{Literatuurstudie}
+\section{CI/CD Pipeline}
+Eerst zullen we moeten bepalen wat een CI/CD pipeline is. CI staat voor Continuous Integration wat het maken en testen van de software automatiseert. Dit is dus verdeeld in een bouw -en teststage. In de bouwstage zullen development teams hun code ontwikkelen op hun lokale computer in een lokale omgeving. Als je het naar de repository wilt brengen kan dit natuurlijk wat fouten met zich meebrengen zoals een verschillende omgeving waar de code in is gemaakt, verschillende tools die gebruikt worden en de kwaliteit van de code. Het bouwproces bevat wel tools om de software kwaliteit en omgeving te automatiseren en onderhouden. \autocite{Fosco2022} \\
+
+De test stage is volledig geautomatiseerd door de pipeline omdat dit een redelijk repetitief proces is. Hierdoor slaan developers dit proces vaak over waardoor er niet kwalitatieve code gebruikt kan worden. De automatisatie van de pipeline vermijdt dit. \autocite{Fosco2022} \\
+
+CD kan voor 2 dingen staan, het eerste is Continuous delivery. Dit staat voor de verantwoordelijk van de pipeline om de code te plaatsen op een gedeelde repository. Het is dus van belang dat het integratie deel zo correct en zorgvuldig mogelijk wordt uitgevoerd. 
+
+CD kan ook voor Continuous Deployment staan. Dit is nog een stap verder dan delivery omdat het automatisch de wijzigingen op productie kan zetten waardoor het bruikbaar is voor de klant \autocite{RedHat2023}
+
 \section{Gitlab Pipeline}
 Aangezien DNB al een Gitlab pipeline heeft opgezet in hun DevOps omgeving, zullen we dit vooral gaan analyseren.
 
