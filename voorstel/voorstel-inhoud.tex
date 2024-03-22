@@ -2,28 +2,16 @@
 
 \section{Introductie}%
 \label{sec:introductie}
-In de huidige wereld van technologie is het moeilijk bij te houden welke mogelijkheden er zijn om bepaalde projecten uit te voeren. Zo heb je altijd nieuwe technieken die net iets efficiënter of krachtiger zijn dan een ander. Door deze voortgaande evolutie zullen individuen niet direct op de hoogte zijn van recente ontwikkelingen, maar vergeten ze ook de recente toepassingen van een bepaalde techniek. Dit is vooral merkbaar bij de IBM Z Systems die zo belangrijk, maar zo snel vergeten worden in de IT wereld. Hoewel het een zeer hoogwaardige technologie is, zijn de technieken nog steeds zeer oud. Hierdoor is het moeilijk om mensen te vinden met de juiste kwalificaties maar dit kan mogelijks weggewerkt worden door DevOps teams een weg te geven naar programmeren op de mainframe.
+In de huidige technologische wereld is het moeilijk bij te houden welke mogelijkheden er zijn om bepaalde projecten uit te voeren. Zo heb je altijd nieuwe technieken die net iets efficiënter of krachtiger zijn dan een ander. Door deze voortgaande evolutie zullen individuen niet direct op de hoogte zijn van recente ontwikkelingen, maar vergeten ze ook de recente toepassingen van een bepaalde techniek. Dit is vooral merkbaar bij de IBM Z Systems die zo belangrijk, maar zo snel vergeten worden in de IT wereld. Hoewel het een zeer hoogwaardige technologie is, zijn de technieken nog steeds zeer oud. Hier wordt wel op ingezet door modernere talen (zoals Java en Python) compatibel te maken met de mainframe. Een veel gebruikte tool, aangeboden door IBM, is de IBM Developer for z/OS. Dit is een Eclipse based programma geschreven in Java en kan een connectie maken met de Mainframe en zijn bestanden. Hoewel het makkelijk is om verschillende programma's te openen en wijzigen, heeft dit geen Python interpreter waardoor het voor developers nogsteeds niet zo efficiënt om mee te werken.
 
 
 \subsection{Probleemstelling}
-In deze vergelijkende studie zal er gekeken worden naar 2 verschillende CI/CD pipelines die gebruikt kunnen worden in een mainframe omgeving: een Gitlab -en Jenkins pipeline. 
-Gitlab is een web-based Git repository en heeft een groot bereik van open, gratis en privé repositories. Dit wordt vooral gebruikt voor het automatiseren van taken in een software project op een DevOps platform. Het heeft verschillende extra functies zoals managen, monitoren en beveiliging de bron code. \autocite{Mohanan2023} \\
-Jenkins langs de andere kant is een open-source automatisatie tool voor CI/CD. Dit is één van de meest gebruikte DevOps tools door zijn snelheid en kracht om software te bouwen, testen en inzetten. \autocite{Sharma2023} \\
+In Den Norske Bank (DNB) gebruiken ze IBM Developer for z/OS (verder gerefereerd als IDz) om scripts te schrijven of aan te passen zodat ze uitgevoerd kunnen worden op de mainframe. De developers in dit bedrijf kampen dus met het vastgelegde probleem en zoeken hier een oplossing voor. Momenteel passen ze Python scripts aan in een text editor van IDz en testen ze de code in een ssh connectie. \\
+Python scripts worden opgeslagen en uitgevoerd in de Unix System Services (USS) omgeving. Dit is een Unix omgeving op de mainframe. In IDz kunnen developers alle bestanden openen in de USS omgeving wat duidelijker is dan code aanpassen in een terminal via bijvoorbeeld de vim tool.  
+\\
+Het bedrijf waar ik op ga focussen is Den Norske Bank (DNB) met een hoofdvestiging in Oslo, Noorwegen. Hun developers zitten vast met het beschreven probleem en zoeken een efficiëntere manier om de Python scripts te schrijven en testen. 
 
-CI/CD is bedoeld voor het bouwen, testen en inzetten van software applicaties. Deze tool is vooral handig om in real-time te weten of je code werkt. Hierdoor zullen DevOps teams weinig tijd verliezen aan slechte code en constante fix requests terwijl ze ondertussen al aan een ander project bezig zijn. \autocite{Poberezhnyk2023} \\
-Deze pipelines dienen als toegangspoort tussen het DevOps team door een API en het besturingssysteem van de mainframe. De resultaten van de scripts worden opgeslagen op een DB2 databank die al geconfigureerd is op het systeem.
- 
-Het bedrijf waar ik op ga focussen is Den Norske Bank (DNB) met een hoofdvestiging in Oslo, Noorwegen. Ze zoeken een manier om met beter gekende technologie te werken zoals Python. Door de Python compiler van IBM zal het uitvoeren van Python scripts geen probleem zijn. \\
-Het is dan belangrijk om te weten wat de sterktes en zwaktes zijn van de verschillende pipelines zodat DNB hier een goed overzicht van heeft. Zo kunnen ze dan zelf bepalen wat ze het beste toepassen in hun systeem. Er zou mogelijks ook met een combinatie van de 2 gewerkt worden moesten Gitlab en Jenkins zich verschillend gedragen op verschillende type projecten. \\
 
-Het resultaat van de vergelijking zal zich baseren op de volgende punten:
-begin{itemize}
-    \item Sterktes van beide pipelines
-    \item Zwaktes van elke pipeline
-    \item Gebruiksvriendelijkheid
-    \item Beschikbare documentatie
-    \item Totale kost
-end{itemize}
 
 %---------- Stand van zaken ---------------------------------------------------
 
@@ -35,24 +23,24 @@ Veel bedrijven die werken met een mainframe hebben het probleem dat ze onvoldoen
 
 De mainframe wereld zal zich dus moeten aanpassen aan de vaardigheden van de mensen door over te schakelen naar bekendere manieren van werken. 
 Python bijvoorbeeld is een programmeertaal die steeds meer populariteit krijgt sinds zijn creatie in de vroege jaren 90. Dit is niet enkel bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen hier steeds vaker voor. Dit is vooral door zijn begin vriendelijkheid, verschillende doeleinden en een actieve community. \autocite{Johnson2023}
-IBM heeft dit opgemerkt en een Python- compiler en interpreter ontwikkeld voor z/OS genaamd IBM Open Enterprise SDK for Python. Hierdoor kun je met Python interactie hebben met z/OS om bijvoorbeeld applicaties te ontwikkelen of de resources van het systeem gaan beheren. De programmeur heeft ook geen speciale z/OS kennis nodig, als er toegang is tot een moderne DevOps omgeving. \autocite{Klaey2023}
+IBM heeft dit opgemerkt en een Python- compiler en interpreter ontwikkeld voor z/OS genaamd IBM Open Enterprise SDK for Python. Hierdoor kun je met Python interactie hebben met z/OS om bijvoorbeeld applicaties te ontwikkelen of de resources van het systeem gaan beheren. Door de Unix omgeving heeft de programmeur ook geen speciale z/OS kennis nodig. \autocite{Klaey2023}
 
 \subsection{Bedrijven in het werkveld}
 Een bank is een goed voorbeeld van een bedrijf die gebruik maakt van IBM hun Mainframes. Dit valt te concluderen door het feit dat maar liefst 92 van de top 100 banken wereldwijd een mainframe gebruikt. Dit is ook logisch aangezien er gemiddeld 12.6 miljard financiële transacties per dag zijn. \autocite{Wagle2017} \\
-Door dit aantal is de nood voor een mainframe toch niet te onderdrukken maar het is niet enkel het aantal transacties dat deze machine kan uitvoeren, het is ook de snelheid, schaalbaarheid en beveiliging dat een grote rol speelt. \\
+Door dit aantal is de nood voor een mainframe toch niet te onderdrukken maar het is niet enkel het aantal transacties dat deze machine kan uitvoeren, het is ook de snelheid, schaalbaarheid en beveiliging van deze systemen dat een grote rol speelt. \\
 Het zijn niet enkel banken die van deze technologie gebruik maken, maar ook  verzekeringsmaatschappijen bijvoorbeeld. De top 10 van deze soort bedrijven maken allemaal gebruik van een IBM Mainframe \autocite{Tozzi2022}
 
 \subsection{De Skill gap}
-Het is nog steeds moeilijk om nieuw talent aan te trekken in de mainframe wereld. Een onderzoek van \textcite{Deloitte2020} toont aan dat 79\% van de projectleiders moeilijkheden heeft met het zoeken naar mensen met de juiste skillset. Hetzelfde onderzoek toont ook aan dat er in de teams zelf een groot verschil is van kennis en vaardigheden.  \\ Hoewel dit systeem gebruikt wordt door 71\% van de fortune 500 companies \autocite{Tozzi2022} , is de Skill gap nog steeds te groot waardoor veel bedrijven vrezen voor een groot tekort aan werknemers om deze Z Systems te onderhouden.
+Het is nog steeds moeilijk om nieuw talent aan te trekken in de mainframe wereld. Een onderzoek van Deloitte, 2020 %\textcite{Deloitte2020} 
+toont aan dat 79\% van de projectleiders moeilijkheden heeft met het zoeken naar mensen met de juiste skillset. Hetzelfde onderzoek toont ook aan dat er in de teams zelf een groot verschil is van kennis en vaardigheden.  \\ Hoewel dit systeem gebruikt wordt door 71\% van de fortune 500 companies \autocite{Tozzi2022} , is de Skill gap nog steeds te groot waardoor veel bedrijven vrezen voor een groot tekort aan werknemers om deze Z Systems te onderhouden.
 \\
 Volgens Petra Goude zijn er verschillende manieren om dit probleem aan te pakken. Zo kunnen bedrijven lessen geven over Mainframe en hoe ze dit gebruiken. Ze vertelt ook dat de vaardigheden die nodig zijn beter gecomplimenteerd moeten worden en kunnen leiden naar een belonende en lange termijn carrière. \\ Hoewel dit zou helpen, vind ze dit niet de kern van het probleem. Het zijn de oude technieken die mensen niet aantrekt. Ze stelt voor om meer te investeren in hedendaagse technologie en dit te installeren op de mainframe. Dit kan gaan over dezelfde test -en deployment technieken, maar ook over hedendaagse programmeertalen zoals Java of Python. Dit zou kunnen door middel van APIs en zou een nieuwe, jongere werkkracht aantrekken. \autocite{Goude2023}
 
 
 \subsection{Toch nog een kleurrijke toekomst}
 Hoewel er een grote nood is aan mensen met de juiste vaardigheden voor Mainframe, ziet de toekomst er toch nog goed uit. Zo wordt er meer gemoderniseerd met bijvoorbeeld modernere programmeertalen. Er wordt ook voorspeld dat we een introductie van DevOps en self-service benaderingen gaan zien. \autocite{Pennaz2023} \\
-Momenteel is Java beschikbaar als programmeertaal op de mainframe naast PL/1 en COBOL.
-Sinds deze introductie tot nu zijn al bijna 2/3de van gebruikers op de mainframe Java aan het toepassen op een bepaalde manier. \autocite{Watts2018}
-
+Momenteel zijn Python en Java beschikbaar als programmeertaal op de mainframe naast PL/1 en COBOL.
+Sinds deze introductie zijn al bijna 2/3de van gebruikers op de mainframe Java aan het toepassen op een bepaalde manier. \autocite{Watts2018}
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
@@ -65,64 +53,65 @@ Sinds deze introductie tot nu zijn al bijna 2/3de van gebruikers op de mainframe
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
 \label{sec:methodologie}
-Deze paper zal als resultaat een volledige vergelijken geven over een Gitlab -en Jenkins pipeline om Python scripts uit te voeren op een mainframe in een bankomgeving. 
+Deze paper zal als resultaat een volledig stappenplan geven om Pydev op te stellen in IDz en verdere configuratie om de scripts uit te voeren in IDz.
 
 \subsection{Fase 1: Literatuurstudie}
 \begin{itemize}
     \item \textbf{Doel:}
-          Volledige werking van een CI/CD tools op de mainframe onderzoeken en bespreken.
+          Relevante informatie verzamelen van IDz, Pydev en de Unix System Services omgeving.
     \item \textbf{Aanpak:}
-          \item[-] Opzoeken betrouwbare bronnen
-          \item[-] Gelijke projecten onderzoeken
-          \item[-] Opstellen vereisten testomgeving
-          \item[-] Opmaken stappenplan voor installatie pipelines
-          
+            \item[-] Opzoeken betrouwbare bronnen
+            \item[-] Gelijke projecten onderzoeken
+            \item[-] Overzicht van nodige software
+            \item[-] Opmaken stappenplan voor installatie Pydev
      \item \textbf{Tijd:} 4 weken
      \item \textbf{Opbrengst:}
-           Een volledig onderzoek naar vakliteratuur en een samenvatting van gelijkaardige projecten en hun manier van werken. Op basis van de onderzochte projecten zal er ook een stappenplan gemaakt worden voor de pipelines op te zetten.  
+           Een volledig onderzoek naar vakliteratuur en nodige software die nodig is. Ook een volledige schets naar de omgeving waarin er wordt gewerkt.
 \end{itemize}
 
 
-\subsection{Fase 2: Opstellen testomgeving}
+\subsection{Fase 2: Opstellen Pydev}
 \begin{itemize}
     \item \textbf{Doel:}
-    Een bruikbare test omgeving opstellen in het Mainframe systeem om de Gitlab -en Jenkins pipeline op te zetten.
+    Opzetten van de Pydev plugin in IDz
     \item \textbf{Aanpak:}
     \item[-] De opgezochte literatuur bestuderen
-    \item[-] Een testomgeving opstellen met de juiste vereisten
+    \item[-] Pydev opstellen met de juiste vereisten
+    \item[-] Testen
     \item \textbf{Tijd:} 2 weken
     \item \textbf{Opbrengst:}
-    Een volledige testomgeving met de juiste vereisten om de pipelines in op te zetten.
+    Pydev voor functies zoals code completion, syntax check, code analysis, ... \\ 
+    Bij het openen van een Python programma zal dit ook gebeuren via een Python editor
 \end{itemize}
 
 
-\subsection{Fase 3: Pipelines + API opzetten}
+\subsection{Fase 3: Python interpreter opzetten}
 \begin{itemize}
     \item \textbf{Doel:}
-    Een Gitlab -en Jenkins pipeline opstellen waar we onze Python scripts op kunnen zetten om op de Mainframe uit te voeren. Verder ontwikkel ik nog een bruikbare API voor de gebruikers.
+    Python Interpreter opstellen om Python programma's uit te voeren in IDz.
     \item \textbf{Aanpak:}
     \item[-] De opgezochte literatuur bestuderen
-    \item[-] Ontwerpen pipelines + API
-    \item[-] Implementeren pipelines
-    \item[-] Implementeren API 
+    \item[-] Opzetten van de juiste interpreter
+    \item[-] Configuratie om output van de uitgevoerde code in de IDz console te kunnen zien
+    \item[-] Testen
     
-    \item \textbf{Tijd:} 5 weken
+    \item \textbf{Tijd:} 2 weken
     \item \textbf{Opbrengst:}
-    Volledige implementatie van Gitlab -en Jenkins pipeline en bijhorende API.
+    Python programma's kunnen uitvoeren in IDz.
 \end{itemize}
 
 
-\subsection{Fase 4: Bruikbaarheid van de pipelines testen}
+\subsection{Fase 4: Verdere configuratie om de output van de mainframe in de IDz console te krijgen}
 \begin{itemize}
     \item \textbf{Doel:}
-    Zorgen dat de output van de scripts worden opgeslagen in de DB2 databank
+    Zorgen dat de output van de scripts weergegeven wordt in de console van IDz
     \item \textbf{Aanpak:}
-    \item[-] Scripts runnen en output bekijken
-    \item[-] Wijzigingen uitvoeren waar nodig
+    \item[-] De opgezochte literatuur bestuderen
+    \item[-] Verdere configuraties toepassen
     
-    \item \textbf{Tijd:} 1 week
+    \item \textbf{Tijd:} 4 week
     \item \textbf{Opbrengst:}
-    Een connectie tussen de pipelines en de mainframe voor een correcte uitvoering van de scripts. 
+    Output in IDz om sneller code te testen. 
 \end{itemize}
 
 \subsection{Fase 5: Evaluatie voorbereiding}
@@ -141,17 +130,7 @@ Deze paper zal als resultaat een volledige vergelijken geven over een Gitlab -en
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
 \label{sec:verwachte_resultaten}
-Een volledig overzicht van de praktische verschillen tussen de Gitlab -en Jenkins pipeline. Dit zal verdeeld worden in verschillende onderdelen:
-
-\begin{itemize}
-    \item Sterktes van beide pipelines
-    \item Zwaktes van elke pipeline
-    \item Gebruiksvriendelijkheid
-    \item Beschikbare documentatie
-    \item Totale kost
-\end{itemize}
-
-Hierbij zullen we bespreken waar elke pipeline in uitblinkt en eerder wat stilvalt. Dit doen we zodat we kunnen concluderen voor welk soort projecten elk product het best voor gebruikt wordt. Dit maakt het makkelijker voor de software engineers bij bedrijven zoals DNB om te bepalen welk soort pipeline ze kunnen gebruiken op basis van de taken die er vooral uitgevoerd zullen worden door de pipeline. 
+Een volledig stappenplan voor de opstelling van Pydev en een Python interpreter die compatibel zijn met IDz. Ook zal er configuratie getoond worden om de output van de scripts te zien in IDz. Hierbij zal er bij elke stap uitleg gegeven worden over waarom we het op die manier doen. Ook zal er besproken worden wat er mogelijks mis zou kunnen gaan. Screenshots zullen gebruikt worden voor duidelijk te maken wat er gebeurd.
 
 
 \part{Literatuurstudie}

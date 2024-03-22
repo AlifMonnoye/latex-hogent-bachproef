@@ -22,7 +22,7 @@
 
 \academicyear{2023 - 2024} 
 
-\title{Gitlab vs Jenkins pipeline: een vergelijkende studie over het hosten van Python scripts op de IBM Z Systems}
+\title{PoC: Opzetten van Pydev in IBM Developer for z/OS om Python programma's uit te voeren op de mainframe}
 
 \author{Alif Monnoye}
 \email{alif.monnoye@student.hogent.be}
@@ -33,13 +33,15 @@
 
 
 \specialisation{Mainframe Expert}
-\keywords{Python scripts, Mainframe, Gitlab Pipeline, Jenkins, CI/CD}
+\keywords{Python, Mainframe, Pydev, IDz, USS}
 
 \begin{document}
 
 \begin{abstract}
-  De IBM Z Systems hebben nood aan een opfrissing in technieken zonder zijn bruikbaarheid en kracht te verliezen. Python is één van de meest gebruikte programmeertalen ter wereld met veel functionaliteiten wat perfect is voor te draaien op de mainframe. Niet alleen voor zijn kracht en functionaliteit, maar ook voor zijn bekendheid onder programmeurs. Deze scripts worden door een Continuous integration/continuous deployment (CI/CD) automatisch ingezet om gebruikt te worden op de mainframe. Hierdoor is dit makkelijker voor een DevOps teams zonder geavanceerde mainframe kennis om scripts te schrijven voor deze omgeving.   \\
-  Deze paper zal twee verschillende CI/CD pipelines vergelijken namelijk Gitlab Pipeline en Jenkins. Er zal gekeken worden naar de gelijkenissen en verschillen voor het opstellen van deze technieken. Ook zal er bestudeerd hoe deze pipelines werken om de python scripts uit te voeren. Zo kunnen we evalueren welke het efficiëntst is voor welk soort project of opdracht.
+    IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java en Python toegankelijk te maken op de Mainframe. Hoewel deze talen ondersteund worden, is het niet altijd even makkelijk om programma's hierin te schrijven. IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om in een bekend programma scripts te openen en aan te passen die opgeslagen zijn op mainframe. Aangezien dit Eclipse based is, is er geen Python interpreter waardoor Python scripts aangepast moeten worden in een text editor. \\
+    Deze paper zal een proof of concept zijn voor het opstellen van Pydev en een Python IDE in IBM Developer for z/OS. Hierdoor kunnen Python developers efficiënter code schrijven, aanpassen en submitten in de Unix System Services omgeving van de mainframe. Verder zal er ook nog onderzocht worden om de output van de Python programma's te zien in de console van IBM Developer for z/OS. Dit is belangrijk voor de programmeurs van DNB die werken in dit programma die nu hun Python code moeten testen in een ssh connectie. \\
+    In dit onderzoek zal er gewerkt worden met de Pydev plug-in voor Eclipse en zal er een stap voor stap instructie gegeven worden over hoe dit ingesteld moet worden. Ook zal er onderzocht worden of deze scripts uitgevoerd kunnen worden door IBM Developer for z/OS in de Mainframe omgeving. \\
+    Het resultaat zal een volledige Proof of concept zijn voor een Python interpreter op te zetten in dit programma. Dit is vooral relevant voor Python developers in bedrijven die IBM Developer for z/OS gebruiken in combinatie met een IBM Z Mainframe. 
 \end{abstract}
 
 \tableofcontents

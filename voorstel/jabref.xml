@@ -8,14 +8,14 @@
       <node name="jabref">
         <map>
           <entry key="bindings" value="ctrl+alt+A;ctrl+ENTER;ctrl+G;F7;;ctrl+F8;alt+F8;;ESCAPE;Esc;ctrl+W;ctrl+C;ctrl+K;ctrl+shift+K;ctrl+alt+K;ctrl+shift+alt+K;ctrl+shift+C;ctrl+shift+alt+T;ctrl+X;DELETE;;alt+F7;ctrl+T;alt+DOWN;ctrl+TAB;ctrl+PLUS;alt+UP;ctrl+shift+TAB;ctrl+MINUS;ctrl+ENTER;ctrl+alt+e;ctrl+shift+e;ctrl+DOWN;ctrl+UP;alt+1;F1;ctrl+I;ctrl+alt+I;;;ctrl+M;;;;;;;;;;;ctrl+shift+A;ctrl+shift+B;ctrl+N;ctrl+shift+N;ctrl+shift+I;;ctrl+shift+M;ctrl+shift+T;ctrl+shift+P;;ctrl+shift+U;ctrl+PAGE_DOWN;F9;ctrl+E;alt+0;F3;F4;ctrl+shift+O;ctrl+O;ctrl+shift+L;ctrl+V;alt+S;ctrl+PAGE_UP;shift+F9;ctrl+shift+R;ctrl+L;ctrl+Q;ctrl+Y;ctrl+alt+O;;;;ctrl+R;ctrl+shift+D;ctrl+alt+S;ctrl+S;ctrl+shift+S;ctrl+F;shift+F7;ctrl+A;HOME;END;;;ctrl+N;shift+DELETE;ctrl+shift+F7;alt+3;ctrl+alt+shift+A;ctrl+Z;alt+4;F6"/>
-          <entry key="autoCompleteFields" value="publisher;author;keywords;related;journal;entryset;crossref;title;editor"/>
+          <entry key="autoCompleteFields" value="publisher;editor;entryset;author;keywords;journal;title;related;crossref"/>
           <entry key="previewStyle" value="&lt;font face=&quot;sans-serif&quot;&gt;&lt;b&gt;\bibtextype&lt;/b&gt;&lt;a name=&quot;\citationkey&quot;&gt;\begin{citationkey} (\citationkey)&lt;/a&gt;\end{citationkey}__NEWLINE__\begin{author}&lt;BR&gt;&lt;BR&gt;\format[Authors(LastFirst, FullName,Sep= / ,LastSep= / ),HTMLChars]{\author}\end{author}__NEWLINE__\begin{editor &amp; !author}&lt;BR&gt;&lt;BR&gt;\format[Authors(LastFirst,FullName,Sep= / ,LastSep= / ),HTMLChars]{\editor} (\format[IfPlural(Eds.,Ed.)]{\editor})\end{editor &amp; !author}__NEWLINE__\begin{title}&lt;BR&gt;&lt;b&gt;\format[HTMLChars]{\title}&lt;/b&gt; \end{title}__NEWLINE__&lt;BR&gt;\begin{date}\date\end{date}\begin{edition}, \edition. edition\end{edition}__NEWLINE__\begin{editor &amp; author}&lt;BR&gt;&lt;BR&gt;\format[Authors(LastFirst,FullName,Sep= / ,LastSep= / ),HTMLChars]{\editor} (\format[IfPlural(Eds.,Ed.)]{\editor})\end{editor &amp; author}__NEWLINE__\begin{booktitle}&lt;BR&gt;&lt;i&gt;\format[HTMLChars]{\booktitle}&lt;/i&gt;\end{booktitle}__NEWLINE__\begin{chapter} \format[HTMLChars]{\chapter}&lt;BR&gt;\end{chapter}\begin{editor &amp; !author}&lt;BR&gt;\end{editor &amp; !author}\begin{!editor}&lt;BR&gt;\end{!editor}\begin{journal}&lt;BR&gt;&lt;i&gt;\format[HTMLChars]{\journal}&lt;/i&gt; \end{journal} \begin{volume}, Vol. \volume\end{volume}\begin{series}&lt;BR&gt;\format[HTMLChars]{\series}\end{series}\begin{number}, No. \format[HTMLChars]{\number}\end{number}__NEWLINE__\begin{school} \format[HTMLChars]{\school}, \end{school}__NEWLINE__\begin{institution} &lt;em&gt;\format[HTMLChars]{\institution}, &lt;/em&gt;\end{institution}__NEWLINE__\begin{publisher}&lt;BR&gt;\format[HTMLChars]{\publisher}\end{publisher}\begin{location}: \format[HTMLChars]{\location} \end{location}__NEWLINE__\begin{pages}&lt;BR&gt; p. \format[FormatPagesForHTML]{\pages}\end{pages}__NEWLINE__\begin{abstract}&lt;BR&gt;&lt;BR&gt;&lt;b&gt;Abstract: &lt;/b&gt;\format[HTMLChars]{\abstract} \end{abstract}__NEWLINE__\begin{owncitation}&lt;BR&gt;&lt;BR&gt;&lt;b&gt;Own citation: &lt;/b&gt;\format[HTMLChars]{\owncitation} \end{owncitation}__NEWLINE__\begin{comment}&lt;BR&gt;&lt;BR&gt;&lt;b&gt;Comment: &lt;/b&gt;\format[Markdown,HTMLChars]{\comment}\end{comment}__NEWLINE__&lt;/font&gt;__NEWLINE__"/>
           <entry key="columnNames" value="entrytype;author/editor;title;year;journal/booktitle;ranking;readstatus;priority"/>
           <entry key="columnWidths" value="100;100;100;100;100;100;100;100"/>
           <entry key="columnSortTypes" value=""/>
           <entry key="columnSortOrder" value=""/>
           <entry key="userId" value="c57d215a-3aaf-443b-9775-8a4b9a6f0462"/>
-          <entry key="sidePaneWidthFX" value="199.0"/>
+          <entry key="sidePaneWidthFX" value="197.0"/>
           <entry key="versionIgnoreUpdate" value="5.12"/>
           <entry key="askedCollectTelemetry" value="true"/>
           <entry key="bindNames" value="Abbreviate;Accept;Autogenerate citation keys;Automatically link files;Capitalize word;Check integrity;Cleanup;Clear read status;Clear search;Close dialog;Close library;Copy;Copy \\cite{citation key};Copy citation key;Copy citation key and link;Copy citation key and title;Copy preview;Copy title;Cut;Delete entry;Delete;Download full text documents;Edit strings;Entry editor, next entry;Entry editor, next panel;Entry editor, next panel 2;Entry editor, previous entry;Entry editor, previous panel;Entry editor, previous panel 2;Execute default action in dialog;Export;Export Selected;File list editor, move entry down;File list editor, move entry up;Focus entry table;Help;Import into current library;Import into new library;Lowercase word;Uppercase word;Merge entries;Move caret left;Move caret right;Move caret to beginning of line;Move caret to  of line;Move caret to next word;Move caret to previous word;Move caret down;Move caret to beginning of text;Move caret to end of text;Move caret up;New article;New book;New entry;New entry from plain text;New inbook;New inproceesings;New mastersthesis;New phdthesis;New proceedings;New technical report;New unpublished;Next library;Next preview layout;Open / close entry editor;Open OpenOffice/LibreOffice connection;Open URL or DOI;Open file;Open folder;Open library;Open terminal here;Paste;Preamble editor, store changes;Previous library;Previous preview layout;Pull changes from shared database;Push to application;Quit JabRef;Redo;Refresh OO;Remove characters until next word;Remove all characters caret to end of line;Characters until previous word;Replace string;Resolve duplicate citation keys;Save all;Save library;Save library as ...;Search;Search for unlinked local files;Select all;Select first entry;Select last entry;Set read status to read;Set read status to skimmed;String dialog, add string;String dialog, remove string;Synchronize files;Toggle groups interface;Unabbreviate;Undo;Web search;Write metadata to PDF files"/>
@@ -48,7 +48,7 @@
           <entry key="exportPriDescending" value="false"/>
           <entry key="exportSecDescending" value="false"/>
           <entry key="exportTerDescending" value="true"/>
-          <entry key="fetcherCustomKeyNames" value="IEEEXplore;Springer;Biodiversity Heritage;ScienceDirect;SAO/NASA ADS"/>
+          <entry key="fetcherCustomKeyNames" value="Biodiversity Heritage;ScienceDirect;SAO/NASA ADS;Springer;IEEEXplore"/>
           <entry key="fetcherCustomKeyUses" value="false;false;false;false;false"/>
           <entry key="fetcherCustomKeys" value=";;;;"/>
           <entry key="customTabName_0" value="General"/>
@@ -66,13 +66,13 @@
           <entry key="KeyPatternReplacement" value=""/>
           <entry key="defaultUnwantedBibtexKeyCharacters" value="-`ʹ:!;?^+"/>
           <entry key="defaultBibtexKeyPattern" value="[auth][year]"/>
-          <entry key="fileDirectory" value="C:\Users\Gebruiker\Desktop\HoGent\Jaar3\Semester2\ResearchMethods\PDF's"/>
+          <entry key="fileDirectory" value="C:\Users\Gebruiker\Documents\GitHub\latex-hogent-bachproef\Bronnen"/>
           <entry key="bibLocAsPrimaryDir" value="false"/>
-          <entry key="xmpPrivacyFilters" value="keywords;owner;pdf;review;note;timestamp"/>
-          <entry key="mainWindowPosX" value="723.0"/>
-          <entry key="mainWindowPosY" value="-1440.0"/>
-          <entry key="mainWindowSizeX" value="1736.0"/>
-          <entry key="mainWindowSizeY" value="1400.0"/>
+          <entry key="xmpPrivacyFilters" value="owner;timestamp;keywords;note;review;pdf"/>
+          <entry key="mainWindowPosX" value="-201.0"/>
+          <entry key="mainWindowPosY" value="-9.0"/>
+          <entry key="mainWindowSizeX" value="1938.0"/>
+          <entry key="mainWindowSizeY" value="1038.0"/>
           <entry key="biblatexMode" value="true"/>
           <entry key="memoryStickMode" value="true"/>
           <entry key="cyclePreviewPos" value="1"/>
@@ -86,7 +86,7 @@
           <entry key="lastUsedExport" value="BibO RDF"/>
           <entry key="exportWorkingDirectory" value="C:\Users\Gebruiker\Desktop"/>
           <entry key="lastEdited" value="C:\\Users\\Gebruiker\\Documents\\GitHub\\latex-hogent-bachproef\\voorstel\\voorstel.bib"/>
-          <entry key="windowMaximised" value="false"/>
+          <entry key="windowMaximised" value="true"/>
         </map>
         <node name="bibtexkeypatterns">
           <map/>
