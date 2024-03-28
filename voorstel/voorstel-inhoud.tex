@@ -134,36 +134,15 @@ Een volledig stappenplan voor de opstelling van Pydev en een Python interpreter 
 
 
 \part{Literatuurstudie}
-\section{CI/CD Pipeline}
-Eerst zullen we moeten bepalen wat een CI/CD pipeline is. CI staat voor Continuous Integration wat het maken en testen van de software automatiseert. Dit is verdeeld in een bouw -en teststage. In de bouwstage zullen development teams hun code ontwikkelen op hun lokale computer. Als je het naar de repository wilt brengen kan dit natuurlijk wat fouten met zich meebrengen vooral door de verschillende omgeving waar de code in is gemaakt met de verschillende tools die gebruikt worden. Het bouwproces bevat wel tools om de software kwaliteit en omgeving te automatiseren en onderhouden. \autocite{Fosco2022} \\
+\section{De IBM Mainframe omgeving}
+Het is belangrijk om te weten wat een mainframe is en wat de hoofdpunten van de technologie zijn. Het is moeilijk om een goede definitie te plakken op deze term maar het is ontwikkelt door IBM en het wordt vooral gebruikt door grote bedrijven om belangrijke applicaties te hosten of veel transacties te kunnen doorvoeren. Hoewel dit ook mogelijk is op een kleinschalige server, zou het resultaat niet hetzelfde zijn omdat Mainframes miljarden transacties per dag zou kunnen uitvoeren zonder enige vertraging. \autocite{BasuMallick2023} \\
+De Mainframe wordt vaak in vergelijking gebracht met een traditionele server die je vind in een datacenter. Deze vergelijking is niet onterecht omdat ze wel een gelijkaardige functie hebben. Een Mainframe zoals de hedendaagse IBM z16 heeft de mogelijkheid 19 miljard transacties per dag uit te voeren, wat ook verklaard waarom deze systemen gebruikt worden door 92 van de top 100 banken ter wereld. De z16 heeft ook 40 terabyte werkgeheugen wat 1200 keer het aantal is in hedendaagse high-performance computers. \autocite{Tozzi2022} \\ 
+De z16 is ook `Quantum safe`: de bedreiging van Quantum computers in de toekomst blijft groeien en er is nog geen directe oplossing voor. IBM heeft hiervoor geïnvesteerd in Crypto Express 8S hardware security modules om data op de Mainframe te beschermen en Quantum safe te maken. De nieuwe modules bevatten nieuwe quantum safe encryptie algoritmes die geëvalueerd zijn door de US National Institute of Standards and Technology. \autocite{Sayer2022}
+\\
+De software die wordt gebruikt is ook zeer verschillend. Hoewel er verschillende besturingssystemen mogelijk zijn, is z/OS wat ontwikkelt is door IBM nog steeds het meest gebruikt. Dit vooral omdat dit het meest compatibel is met de hardware componenten en het blijft ondersteund door IBM zelf. Dit bevat tools zoals Time Sharing Option (TSO), Interactive System Productivity Facility (ISPF) en System Display qnd Search Facility (SDSF) om er een paar op te noemen. z/OS heeft ook een andere manier om data op te slaan door middel van datasets. Hier bestaan verschillende 4 verschillende versies van: Sequentieel, Pqrtitioneel, 
 
-De test stage is volledig geautomatiseerd door de pipeline omdat dit een redelijk repetitief proces is. Hierdoor slaan developers dit vaak over waardoor er niet kwalitatieve code naar de gedeelde repository gestuurd kan worden. De automatisatie van de pipeline vermijdt dit. \autocite{Fosco2022} \\
-
-CD kan voor 2 dingen staan, het eerste is Continuous delivery. Dit staat voor de verantwoordelijk van de pipeline om code te plaatsen in een gedeelde repository. Het is dus van belang dat het integratie deel zo correct en zorgvuldig mogelijk wordt uitgevoerd. 
-
-CD kan ook voor Continuous Deployment staan. Dit is nog een stap verder dan delivery omdat het automatisch de wijzigingen op productie kan zetten waardoor het bruikbaar is voor de klant \autocite{RedHat2023} 
-
-\section{Gitlab Pipeline}
-Aangezien DNB al een Gitlab pipeline heeft opgezet in hun DevOps omgeving, zullen we dit vooral gaan analyseren. \\
-
-Voor het opstellen van de gitlab pipeline zullen we de handleiding van Mathieu Dalbin en Shabbir Moledina volgen.
-Aangezien de Gitlab CI/CD pipeline niet ondersteund wordt door de standaard Mainframe Operating system z/OS, zullen we moeten werken in een bash shell omgeving zoals de Unix Systems Services (USS). 
-Er zal een symbolische link naar de /bin/bash executable gedefinieerd moeten worden door het commando: ln -s *PathToBash* /bin/bash \\ 
-De /bin folder kan enkel op read-only ingesteld zijn dus dit moet aangepast worden door het commando chmount -w / \\
-Na de symbolische linke gemaakt is, zal de root directory terug read only gemaakt moeten worden door chmount -r /
-\autocite{Dalbin2023}
-
-
-
-\section{Jenkins Pipeline}
-Jenkins is een open source CI/CD pipeline die developers kunnen integreren in hun development omgeving. Het is geschreven in de programmeertaal Java en is beschikbaar over verschillende besturingssystemen zoals Linux en Windows in een GUI of CLI. Door de verschillende mogelijkheden is deze tool zeer populair om te gebruiken door DevOps teams. Niet alleen de flexibiliteit van systemen speelt een grote rol, maar ook het feit dat het volledig open-source is met een community van developers. Hierdoor zijn er veel verschillende plugins die je kunt gebruiken met voldoende documentatie waardoor iedereen er makkelijk gebruik van kan maken. \autocite{Khan2021} \\
-De steun komt niet enkel van developers die eraan werken in hun vrije tijd, maar ook door donaties van grote technologie bedrijven zoals Github, AWS, CloudBees, IBM en nog veel meer. Het is niet enkel geld dat deze bedrijven te bieden hebben, maar ook hun eigen services. Github steunt bijvoorbeeld meer dan 2600 repositories wat meer dan een miljoen lijnen code bevat. \autocite{CdFoundation2023} \\
-
-Deze tool was oorspronkelijk deel van een project genaamd Hudson door Oracle. Hier wordt niet meer aan gewerkt. Jenkins wordt gezien als een open source project onder begeleiding van de CD Foundation, wat valt onder de Linux Foundation. \autocite{Riglian2019} \\
-Vandaag de dag zijn er meer dan 1800 plugins beschikbaar en in 2022 heeft Jenkins 300.000 gekende installaties bereikt wat het de meest opgezette automation server maakt. Verder is het aantal maandelijkse Jenkins pipeline jobs met 79 gestegen van juni 2022 tot juni 2023.  \autocite{CdFoundation2023} \\
-Dit was eerst enkel een CI tool maar na verloop van tijd zijn de Continuous delivery -en deployment functies toegevoegd. Hierdoor zullen er minder fouten gebeuren voor het omzetten van de code naar de productie omgeving voor de klant. \autocite{Riglian2019} \\
-
-Voor het opstellen van de Jenkins pipeline zullen we ons focussen op de
+\section{IBM Developer for z/OS}
+De testomgeving waarin we zullen werken is IBM Developer for z/OS (IDz) versie 16.0.2. Dit programma is volgens de definitie van Joy Spohn een toolset voor het ontwikkelen en opzetten van hybride cloud applicaties op z/OS. \textcite{Spohn2023}. H
 
 
 \part{Opstellen testomgeving}
