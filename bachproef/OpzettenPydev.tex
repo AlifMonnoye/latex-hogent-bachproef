@@ -4,10 +4,20 @@
 
 \chapter{Opzetten Pydev}
 \label{ch:opzetten-pydev}
-Het opzetten van Pydev zoal gebeuren in IBM Developer for z/OS versie 16.0.2 met voorgeïnstalleerde programma's van DNB zelf. De huidige versie van Pydev is sinds 1 februari 2024 versie 12.0.0 . Dit zal enkel Python versie 3.8 en verder ondersteunen en bevat nog andere updates zoals sys.monitoring voor de debugger, ruff als een code formatter en betere code analyse. \\
-Voor de installatie van PyDev is een Eclipse (versie 4.6) based programma nodig en een Python executable. IDz is gebaseerd op Eclipse versie 4.23.0 dus dit is in orde. Een Python executable is nog niet beschikbaar door veiligheidsredenen. DNB heeft voor hun werknemers een laptop beschikbaar voor traditioneel gebruik genaamd een lightly managed (LM), en een laptop om een connectie te maken met hun mainframe en dit noemen ze een fully managed (FM). Op de LM machine kun je (bijna) alles installeren wat je wilt zonder enige restricties. Zo kun je dus bijvoorbeeld Visual Studio Code opzetten met alle extensies die je nodig hebt of op de microsoft store bepaalde apps installeren. Op de FM kun je zelfs bijna niets configureren of zelfs installeren op een paar uitzonderingen na.
-Bestanden die wijzigingen moeten aanbrengen aan het systeem zijn niet toegelaten maar een Word document bijvoorbeeld wel. Applicatiees zoals IDz zijn ook enkel te verkrijgen via DNB hun software center en alles wat daarop beschikbaar is hangt af van de persoon zijn of haar profiel. \\ 
-Een Python executable is dus niet beschikbaar maar het is wel mogelijk om dit aan te vragen. Tijdens het wachten op deze aanvraag kunnen we wel PyDev als plug-in instellen op IDz om functies zoals code completion en syntax checking te kunnen gebruiken.
+
+In dit onderzoek zullen we de nieuwste versie van Pydev installeren namelijk versie 12.0.0 .
+Dit bevat nog functionaliteiten zoals sys.monitoring voor de debugger, ruff als een code formatter en betere code analyse. Het is belangrijk om te weten dat IDz door IBM beschikbaar wordt gesteld en ze dus support zullen bezorgen waar nodig moesten er problemen zijn met hun programma. Dit is niet het geval met PyDev omdat dit door een externe partij is ontwikkeld en dus niet gesupport is door IBM. \\
+\section{prerequisites}
+Voor de installatie van PyDev is een Eclipse (versie 4.6) based programma nodig. Het programma waar het onderzoek in uitgevoerd zal worden is IBM Developer for z/OS (IDz) versie 16.0.2 met voorgeïnstalleerde programma's van DNB zelf. IDz is gebaseerd op Eclipse versie 4.23.0. \\
+
+Het is belangrijk dat Java 11 of hoger gebruikt wordt in IDz. Moest dit niet het geval zijn is er de mogelijkheid om oudere versies van Pydev te installeren. \\
+
+Een Python versie 3.8 of hoger wordt enkel ondersteund en is nodig om Python programma's uit te voeren in IDz.
+ 
 \\
 \\
-In IDz navigeer je naar help -> Eclipse Marketplace. Hierin vind je dus allemaal verschillende plug-ins die je kunut gebruiken in het programma. In de zoekbalk zoek je 'Pydev'
+\section{Installatie}
+Om Pydev te gebruiken moeten we het eerst installeren via hun Github repository \url{https://github.com/fabioz/Pydev/releases} . Dit zal een .zip installeren die je moet uitpakken en ergens moet opslaan. Het uitpakken kan een enige tijd duren. \\
+In IDz navigeer je naar help -> Eclipse Marketplace. Hierin vind je dus allemaal verschillende plug-ins die je kunt gebruiken in IDz. In de zoekbalk zoek je 'Pydev', klik je op enter en dan install. Bij confirm selected features krijg je 2 opties en deze moeten allebei aangeklikt zijn. Hierna klik je op confirm
+
+
