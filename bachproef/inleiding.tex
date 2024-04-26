@@ -7,21 +7,21 @@
 
 \section{Probleemstelling}%
 \label{sec:probleemstelling}
-IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java en Python toegankelijk te maken op de Mainframe. Hoewel deze talen ondersteund worden, is het niet altijd even makkelijk om programma's hierin te schrijven. IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om in een bekend programma scripts te openen en aan te passen die opgeslagen zijn op mainframe. Aangezien dit Eclipse based is, is er geen Python interpreter die gebruikt kan worden waardoor Python scripts enkel kunt openen en aanpassen in een text editor. Vanzelfsprekend komt dit niet met een syntaxcheck, code completion, etc \\
-Dit is een probleem voor developers zoals Stian Botnevik van DNB om Python code te schrijven in dit programma. Hoewel scripts vaak ook  lokaal worden geschreven in een programma zoals Visual Studio Code en dan worden overgezet naar de mainframe, moeten er nogsteeds aanpassingen gebeuren door de verschillende runtime environment. In een klein Python programma lukt dit wel nog in een text editor maar als ze wat groter zijn wat vaak het geval is, wordt dit veel moeilijker.
+IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java en Python toegankelijk te maken op de Mainframe. Hoewel deze talen ondersteund worden, is het niet altijd even makkelijk om programma's hierin te schrijven. IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om in een bekend programma scripts te openen en aan te passen die opgeslagen zijn op een mainframe. Aangezien dit Eclipse based is, is er geen Python interpreter die gebruikt kan worden waardoor Python scripts enkel geopend en aangepast kunnen worden in een text editor. Dit komt vanzelfsprekend niet met een syntaxcheck, code completion, etc \\ \\
+Dit is een probleem voor developers zoals Stian Botnevik van DNB om Python code te schrijven in dit programma. Hoewel scripts vaak ook  lokaal worden geschreven in een programma zoals Visual Studio Code en dan worden overgezet naar de mainframe, moeten er nogsteeds aanpassingen gebeuren door de verschillen in runtime environment. In een klein Python programma lukt dit wel nog in een text editor maar als ze wat groter zijn, wordt dit veel moeilijker.
 
 
 \section{Onderzoeksvraag}%
 \label{sec:onderzoeksvraag}
 
-In dit onderzoek zal er gewerkt worden met de Pydev plug-in voor Eclipse en zal er een stap voor stap instructie gegeven worden over hoe dit ingesteld wordt. Aangezien IBM Developer for z/OS toch nog verschillend is van Eclipse kunnen er verschillende problemen opkomen die niet gebeuren in het standaard Eclipse programma. \\
-Eens dit is opgezet, zal er onderzocht worden of deze scripts uitgevoerd kunnen worden  in de Mainframe omgeving via IBM's versie van Eclipse.
+In dit onderzoek zal er gewerkt worden met de Pydev plug-in voor Eclipse en zullen er een stap voor stap instructies gegeven worden over hoe dit opgezet wordt. Aangezien IBM Developer for z/OS toch nog verschillend is van Eclipse kunnen er verschillende problemen opkomen die niet gebeuren in het standaard Eclipse programma. \\ \\
+Eens dit is opgezet, zal er onderzocht worden of deze scripts uitgevoerd kunnen worden  in de Mainframe omgeving via IBM Developer for z/OS.
 
 
 \section{Onderzoeksdoelstelling}%
 \label{sec:onderzoeksdoelstelling}
 
-Het resultaat zal een volledige Proof of concept zijn voor een Python interpreter op te zetten in dit programma. Dit is vooral relevant voor Python developers in bedrijven die IBM Developer for z/OS gebruiken in combinatie met een IBM Z Mainframe. 
+Het resultaat zal een volledige proof of concept zijn voor een Python interpreter op te zetten in IBM Developer for z/OS. Dit is vooral relevant voor Python developers in bedrijven die dit programma gebruiken in combinatie met een IBM Z Mainframe. 
 
 \section{Opzet van deze bachelorproef}%
 \label{sec:opzet-bachelorproef}
@@ -30,12 +30,14 @@ Het resultaat zal een volledige Proof of concept zijn voor een Python interprete
 % geven van de opbouw van de rest van de tekst. Deze sectie bevat al een aanzet
 % die je kan aanvullen/aanpassen in functie van je eigen tekst.
 
-%De rest van deze bachelorproef is als volgt opgebouwd:
+De rest van deze bachelorproef is als volgt opgebouwd:
 
-%In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie.
+In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand van zaken binnen het onderzoeksdomein, op basis van een literatuurstudie. \\
 
-%In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen.
+In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen. \\
 
-% TODO: Vul hier aan voor je eigen hoofstukken, één of twee zinnen per hoofdstuk
+In Hoofdstuk~\ref{ch:literatuurstudie} wordt de gebruikte terminologie in detail besproken samen met andere onderwerpen relevant voor het onderzoek. \\
 
-%In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.
+In Hoofdstuk~\ref{ch:opzetten-pydev} wordt de proof of concept duidelijk weergegeven en besproken. \\
+
+In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein. \\
