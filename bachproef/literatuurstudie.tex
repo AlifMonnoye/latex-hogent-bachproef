@@ -34,26 +34,47 @@ z/OS heeft ook een andere manier om data op te slaan door middel van datasets. D
 Hier bestaan er verschillende soorten van:
 
 \begin{itemize}
-    \item Sequetiële dataset (Seq)
+    \item Sequentiële dataset (Seq)
     \item Partitionele dataset (Pds)
     \item Virtual storage access method (VSAM)
 \end{itemize} \\
 
 Sequentiële datasets bevatten eigenlijk records die achter elkaar opgeslagen zijn. Dit heeft als nadeel dat als je bijvoorbeeld record 20 wilt lezen, je eerst voorbij de voorgaande 19 records moet gaan. Dit is vooral nuttig om grote hoeveelheden data in op te slaan. \\
 
-Een partitionele dataset is meer voor programma's in te schrijven. Deze dataset bevat allemaal `members` die op hun beurt dan de effectieve data bevatten. Dit heeft als voordeel dat je in een pds de members kunt aanspreken in een willekeurige volgorde. Deze vorm van een dataset wordt ook wel een library genoemd.
+Een partitionele dataset is meer voor programma's in te schrijven. Deze dataset bevat allemaal `members` die op hun beurt dan de effectieve data bevatten. Dit heeft als voordeel dat je in een pds de members kunt aanspreken in een willekeurige volgorde. Deze vorm van een dataset wordt ook wel een library genoemd. \\
 
 Een VSAM biedt een complexere manier van toegang tot verschillende soorten data en is vooral bedoeld voor applicaties. Door hun complexiteit kunnen ze niet frequent bekeken of aangepast worden in ISPF in tegenstelling tot een Pds. Een VSAM kun je verdelen in 4 verschillende datasets:
 \begin{itemize}
-    \item Key Sequence Data Set (KSDS): \\ 
-    \space Dit is het meest voorkomend en slaat data op op basis van een key, value systeem
+    \item Key Sequence Data Set (KSDS): \\Dit is het meest voorkomend en slaat data op op basis van een key, value systeem
     \item Entry Sequence Data Set (ESDS): \\Dit houdt de records in een sequentiële volgorde bij en worden ook gelezen in deze volgorde. Dit is vooral gebruikt door IMS, DB2 en z/OS Unix.
     \item Relative Record Data Set (RRDS): \\Dit houdt records bij die je kunt ophalen op basis van een nummer. Zo heb je toegang tot records die opgeslagen zijn op plaats 100 zonder dat je door de eerste 99 records moet gaan. Dit is te vergelijken met een KSDS.
     \item Lineair Data Set (LDS): \\Dit houdt data bij in een byte stream en is de enige vorm van dit soort in een traditionele z/OS file
 \end{itemize}
 
 \subsection{Unix op een mainframe}
-IBM heeft veel ingezet op modernisatie. Zo is er een Unix Systems Services (USS) omgeving bijgekomen die naast de traditionele z/OS loopt. Dit is enkel een command line interface  Er is ook een volledige Mainframe die enkel Linux heeft als besturingssysteem namelijk de LinuxOne. In dit onderzoek zal er enkel gekeken worden naar een z16 die een USS omgeving heeft.
+IBM heeft veel ingezet op modernisatie. Zo is er een Unix Systems Services (USS) omgeving bijgekomen die geïntegreerd is in het traditionele besturingssysteem z/OS. Er is ook een volledige Mainframe die enkel Linux heeft als besturingssysteem namelijk de LinuxOne. In dit onderzoek zal er enkel gekeken worden naar een z15 die een USS omgeving heeft. \\
+
+Omdat de USS dus samenwerkt met z/OS heb je veel meer functies die je kunt gebruiken. Zo kun is er de mogelijkheid op XML parsing, OpenSSH, de IBM HTTP Server for z/OS, de z/OS SDK for Java en nog veel meer. \autocite{Dhawan2013} \\
+ 
+Dit systeem biedt een hierarchische bestandssysteem (HFS) samen met een zSeries bestandssysteem (zFS). \autocite{Precisely2020} De HFS is wel bekend voor de meeste UNIX gebruikers: Dit is een hierarchie van directories met bestanden of subdirectories die grafisch weergegeven kunnen worden in een tree view \autocite{HCLTechnologies2022}. \\ 
+zFS is iets minder bekend en kan gebruikt worden in pllaats van of als toevoeging op het traditionele HFS. Dit heeft vooral zijn waarde door zijn sterke performantie in bestanden die vaak worden gebruikt. Het verminderd ook het risico van het verlies in updates omdat het data asynchroon schrijft in plaats van te wachten op een sync interval. Bestanden in dit systeem kunnen aangepast worden door middel van een Application Programming Interface (API) en kunnen zelf in de HFS toegevoegd worden zonder enige problemen. \autocite{IBM2012} \\
+
+Unix bestanden op de mainframe worden bijna op dezelfde manier gebruikt als op een traditioneel unix systeem. Het kan een Java, C++ of Python programma's bevatten. Deze programma's kunnen ook bestanden schrijven of schrijven in bijvoorbeeld een JSON of YAML formaat. Die kunnen op hun beurt dan gebruikt worden om analyses te doen op bepaalde data. Het hangt dus allemaal af van de use case om te zien op welke manier deze unix bestanden gebruikt worden. \autocite{Precisely2020}
+
+\subsection{Andere besturingssystemen}
+Zoals eerder vermeld is z/OS niet het enige besturingssysteem dat beschikbaar is op de mainframe. Hoewel dit door IBM aangeboden wordt, zijn er andere mogelijkheden die elk hun eigen sterktes en zwaktes hebben. \\
+
+\begin{itemize}
+    \item z/Virtual Machine (z/VM)\\
+    Dit is een hypervisor type 1 en kan gebruikt worden om meerdere besturingssystemen in te hosten. Dit bestaat uit een control program (cp) en een conversation monitoring system (CMS). De cp is verantwoordelijk voor het creëren van meerdere virtuele machines op basis van de fysieke hardware middelen. Het zorgt ook voor data en applicatie beveiliging voor alle systemen die in het systeem zitten. De CMS zit in een eigen virtuele machine biedt een interactieve sessie tussen de andere virtuele machines en de eindgebruikers. \autocite{IBMb} \\
+    
+    \item z/Virual Storage Extended (z/VSE) \\
+    Dit besturingssysteem is vooral nuttig voor kleinere bedrijven die geen complexe batch -of transactie jobs moeten processen. Het is mogelijk dat naarmate ze groeien, ze overgaan naar z/OS als z/VSE niet genoeg blijkt te zijn. Het design van dit besturingssysteem maakt het perfect voor meer routine batch jobs parallel uit te voeren. Meestal wordt z/VM ook gebruikt als een teminal interface voor development en systeembeheer in z/VSE. \autocite{IBMb} \\
+    
+    \item Linux for System z \\
+    
+    \item z/Transaction Processing Facility (z/TPF) \\
+\end{itemize}
 
 
 \section{IBM Developer for z/OS}
@@ -65,6 +86,10 @@ Dit programma is vooral ontwikkelt om een envoudigere IDE te bieden om in te pro
 Zoals vermeld zal er gebruik worden gemaakt van IDz versie 16.0.2 . In het overzicht van \textcite{IBM2024}, ondersteund deze versie syntax veranderingen voor COBOL 6.4, PL/1 6.1 en REXX. Er is ook een ZUnit update wat vooral het gebruik van deze tool makkelijker maakt. \\
 
 ZUnit staat voor z/OS Automated Unit Testing en is een framework dat gebruikt wordt in IDz om COBOL en PL/1 programma's te testen. Hiervoor maakt het gebruik van verschillende `samples` die door IBM zijn ontworpen (bv. Enterprise COBOL CALL02.cbl sample test case). Het gebruik van deze tool maakt het makkelijker voor developers om hun code (geschreven in COBOL of Pl/1) te testen op de mainframe. Dit maakt het schrijven van code in IDz veel efficiënter. \autocite{IBM2024a}
+
+\subsection{Wizards}
+
+\subsection{Open source}
 
 
 \section{IBM Z in een bankomgeving}
