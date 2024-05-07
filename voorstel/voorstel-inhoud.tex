@@ -1,5 +1,5 @@
 %---------- Inleiding ---------------------------------------------------------
-
+\newpage
 \section{Introductie}%
 \label{sec:introductie}
 In de huidige technologische wereld is het moeilijk bij te houden welke mogelijkheden er zijn om bepaalde projecten uit te voeren. Zo heb je altijd nieuwe technieken die net iets efficiënter of krachtiger zijn dan een ander. Door deze voortgaande evolutie zullen individuen niet direct op de hoogte zijn van recente ontwikkelingen, maar vergeten ze ook de recente toepassingen van een bepaalde techniek. Dit is vooral merkbaar bij de IBM Z Systems die zo belangrijk, maar zo snel vergeten worden in de IT wereld. Hoewel het een zeer hoogwaardige technologie is, zijn de technieken nog steeds zeer oud. Hier wordt wel op ingezet door modernere talen (zoals Java en Python) compatibel te maken met de mainframe. Een veel gebruikte tool, aangeboden door IBM, is de IBM Developer for z/OS. Dit is een Eclipse based programma geschreven in Java en kan een connectie maken met de Mainframe en zijn bestanden. Hoewel het makkelijk is om verschillende programma's te openen en wijzigen, heeft dit geen Python interpreter waardoor het voor developers nogsteeds niet zo efficiënt om mee te werken.
@@ -22,7 +22,7 @@ Het bedrijf waar ik op ga focussen is Den Norske Bank (DNB) met een hoofdvestigi
 Veel bedrijven die werken met een mainframe hebben het probleem dat ze onvoldoende mensen vinden met de nodige kennis over deze technologie. De introductie van Unix systemen op de mainframe in het jaar 2000 \autocite{Mertic2020} had dit probleem wat verminderd maar zeker niet weggewerkt. De oorzaak van deze situatie is door de oude technieken die het systeem gebruikt. COBOL en PL/1 zijn niet de meest voor de hand liggende programmeertalen om te leren en mensen kiezen liever Bash als scriptingtaal in plaats van REXX. Hoewel IBM veel inzet op documentatie en online leerplatformen zoals IBM Z Xplore, blijft het tekort van ervaren mensen nog steeds te laag. \\
 
 De mainframe wereld zal zich dus moeten aanpassen aan de vaardigheden van de mensen door over te schakelen naar bekendere manieren van werken. 
-Python bijvoorbeeld is een programmeertaal die steeds meer populariteit krijgt sinds zijn creatie in de vroege jaren 90. Dit is niet enkel bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen hier steeds vaker voor. Dit is vooral door zijn begin vriendelijkheid, verschillende doeleinden en een actieve community. \autocite{Johnson2023}
+Python bijvoorbeeld is een programmeertaal die steeds meer populariteit krijgt sinds zijn creatie in de vroege jaren 90. Dit is niet enkel bij reeds ervaren programmeurs, maar mensen die net beginnen programmeren kiezen hier steeds vaker voor. Dit is vooral door zijn begin vriendelijkheid, verschillende doeleinden en een actieve community. \autocite{Johnson2023} \\
 IBM heeft dit opgemerkt en een Python- compiler en interpreter ontwikkeld voor z/OS genaamd IBM Open Enterprise SDK for Python. Hierdoor kun je met Python interactie hebben met z/OS om bijvoorbeeld applicaties te ontwikkelen of de resources van het systeem gaan beheren. Door de Unix omgeving heeft de programmeur ook geen speciale z/OS kennis nodig. \autocite{Klaey2023}
 
 \subsection{Bedrijven in het werkveld}
@@ -31,7 +31,7 @@ Door dit aantal is de nood voor een mainframe toch niet te onderdrukken maar het
 Het zijn niet enkel banken die van deze technologie gebruik maken, maar ook  verzekeringsmaatschappijen bijvoorbeeld. De top 10 van deze soort bedrijven maken allemaal gebruik van een IBM Mainframe \autocite{Tozzi2022}
 
 \subsection{De Skill gap}
-Het is nog steeds moeilijk om nieuw talent aan te trekken in de mainframe wereld. Een onderzoek van Deloitte, 2020 %\textcite{Deloitte2020} 
+Het is nog steeds moeilijk om nieuw talent aan te trekken in de mainframe wereld. Een onderzoek van \textcite{Deloitte2020}
 toont aan dat 79\% van de projectleiders moeilijkheden heeft met het zoeken naar mensen met de juiste skillset. Hetzelfde onderzoek toont ook aan dat er in de teams zelf een groot verschil is van kennis en vaardigheden.  \\ Hoewel dit systeem gebruikt wordt door 71\% van de fortune 500 companies \autocite{Tozzi2022} , is de Skill gap nog steeds te groot waardoor veel bedrijven vrezen voor een groot tekort aan werknemers om deze Z Systems te onderhouden.
 \\
 Volgens Petra Goude zijn er verschillende manieren om dit probleem aan te pakken. Zo kunnen bedrijven lessen geven over Mainframe en hoe ze dit gebruiken. Ze vertelt ook dat de vaardigheden die nodig zijn beter gecomplimenteerd moeten worden en kunnen leiden naar een belonende en lange termijn carrière. \\ Hoewel dit zou helpen, vind ze dit niet de kern van het probleem. Het zijn de oude technieken die mensen niet aantrekt. Ze stelt voor om meer te investeren in hedendaagse technologie en dit te installeren op de mainframe. Dit kan gaan over dezelfde test -en deployment technieken, maar ook over hedendaagse programmeertalen zoals Java of Python. Dit zou kunnen door middel van APIs en zou een nieuwe, jongere werkkracht aantrekken. \autocite{Goude2023}
@@ -51,6 +51,7 @@ Sinds deze introductie zijn al bijna 2/3de van gebruikers op de mainframe Java a
 
 
 %---------- Methodologie ------------------------------------------------------
+
 \section{Methodologie}%
 \label{sec:methodologie}
 Deze paper zal als resultaat een volledig stappenplan geven om Pydev op te stellen in IDz en verdere configuratie om de scripts uit te voeren in IDz.
@@ -58,15 +59,14 @@ Deze paper zal als resultaat een volledig stappenplan geven om Pydev op te stell
 \subsection{Fase 1: Literatuurstudie}
 \begin{itemize}
     \item \textbf{Doel:}
-          Relevante informatie verzamelen van IDz, Pydev en de Unix System Services omgeving.
+    Relevante informatie verzamelen van IDz, Pydev en de Unix System Services omgeving.
     \item \textbf{Aanpak:}
-            \item[-] Opzoeken betrouwbare bronnen
-            \item[-] Gelijke projecten onderzoeken
-            \item[-] Overzicht van nodige software
-            \item[-] Opmaken stappenplan voor installatie Pydev
-     \item \textbf{Tijd:} 4 weken
-     \item \textbf{Opbrengst:}
-           Een volledig onderzoek naar vakliteratuur en nodige software die nodig is. Ook een volledige schets naar de omgeving waarin er wordt gewerkt.
+    \item[-] Opzoeken betrouwbare bronnen
+    \item[-] Gelijke projecten onderzoeken
+    \item[-] Overzicht van nodige software
+    \item \textbf{Tijd:} 5 weken
+    \item \textbf{Opbrengst:}
+    Een volledig onderzoek naar vakliteratuur en nodige software die nodig is. Ook een volledige schets naar de omgeving waarin er wordt gewerkt.
 \end{itemize}
 
 
@@ -90,9 +90,8 @@ Deze paper zal als resultaat een volledig stappenplan geven om Pydev op te stell
     \item \textbf{Doel:}
     Python Interpreter opstellen om Python programma's uit te voeren in IDz.
     \item \textbf{Aanpak:}
-    \item[-] De opgezochte literatuur bestuderen
+    \item[-] De opgezochte literatuur bestuderen met expert
     \item[-] Opzetten van de juiste interpreter
-    \item[-] Configuratie om output van de uitgevoerde code in de IDz console te kunnen zien
     \item[-] Testen
     
     \item \textbf{Tijd:} 2 weken
@@ -104,26 +103,26 @@ Deze paper zal als resultaat een volledig stappenplan geven om Pydev op te stell
 \subsection{Fase 4: Verdere configuratie om de output van de mainframe in de IDz console te krijgen}
 \begin{itemize}
     \item \textbf{Doel:}
-    Zorgen dat de output van de scripts weergegeven wordt in de console van IDz
+    Onderzoeken welke functies er beschikbaar zijn in Pydev
     \item \textbf{Aanpak:}
-    \item[-] De opgezochte literatuur bestuderen
-    \item[-] Verdere configuraties toepassen
+    \item[-] Pydev documentatie bekijken
+    \item[-] Zelf onderzoeken in IDz
     
-    \item \textbf{Tijd:} 4 week
+    \item \textbf{Tijd:} 2 weken
     \item \textbf{Opbrengst:}
-    Output in IDz om sneller code te testen. 
+    Een overzicht van alle functies die beschikbaar zijn. 
 \end{itemize}
 
 \subsection{Fase 5: Evaluatie voorbereiding}
 \begin{itemize}
     \item \textbf{Doel:}
-    Een volledige vergelijking van de opgenomen resultaten.
+    Eind evaluatie voorbereiden
     \item \textbf{Aanpak:}
-    \item[-] Resultaat bespreken
+    \item[-] Resultaat bespreken, vergelijken en concluderen
     \item[-] Op orde stellen van nodige documenten
     \item \textbf{Tijd:} 2 weken
     \item \textbf{Opbrengst:}
-    Een volledig overzicht en conclusie van de gerealiseerde opdracht met bijhorende opmerkingen en analyses. 
+    Een eind evaluatie waarin de opdracht besproken wordt
 \end{itemize}
 
 

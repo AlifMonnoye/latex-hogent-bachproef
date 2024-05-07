@@ -122,6 +122,7 @@
 % hier thuis. Gebruik bijvoorbeeld de ``glossaries'' package.
 % https://www.overleaf.com/learn/latex/Glossaries
 
+
 %---------- Kern ---------------------------------------------------------------
 
 \mainmatter{}
@@ -158,13 +159,19 @@
 Het onderwerp van deze bachelorproef is gebaseerd op een onderzoeksvoorstel dat vooraf werd beoordeeld door de promotor. Dat voorstel is opgenomen in deze bijlage.
 
 %% TODO: 
-%\section*{Samenvatting}
+\section*{Samenvatting}
 
 % Kopieer en plak hier de samenvatting (abstract) van je onderzoeksvoorstel.
+IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java en Python toegankelijk te maken op de Mainframe. Hoewel deze talen ondersteund worden, is het niet altijd even makkelijk om programma's hierin te schrijven. IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om in een bekend programma scripts te openen en aan te passen die opgeslagen zijn op mainframe. Aangezien dit Eclipse based is, is er geen Python interpreter waardoor Python scripts aangepast moeten worden in een text editor. \\
 
+Deze paper zal een proof of concept zijn voor het opstellen van Pydev en een Python IDE in IBM Developer for z/OS. Hierdoor kunnen Python developers efficiënter code schrijven, aanpassen en submitten in de Unix System Services omgeving van de mainframe. Verder zal er ook nog onderzocht worden om de output van de Python programma's te zien in de console van IBM Developer for z/OS. Dit is belangrijk voor de programmeurs van DNB die werken in dit programma die nu hun Python code moeten testen in een ssh connectie. \\
+
+In dit onderzoek zal er gewerkt worden met de Pydev plug-in voor Eclipse en zal er een stap voor stap instructie gegeven worden over hoe dit ingesteld moet worden. Ook zal er onderzocht worden of deze scripts uitgevoerd kunnen worden door IBM Developer for z/OS in de Mainframe omgeving. \\
+
+Het resultaat zal een volledige Proof of concept zijn voor een Python interpreter op te zetten in dit programma. Dit is vooral relevant voor Python developers in bedrijven die IBM Developer for z/OS gebruiken in combinatie met een IBM Z Mainframe. 
 % Verwijzing naar het bestand met de inhoud van het onderzoeksvoorstel
 
-%%%%%%%%\input{../voorstel/voorstel-inhoud}
+\input{../voorstel/voorstel-inhoud}
 
 %%---------- Andere bijlagen --------------------------------------------------
 % TODO: Voeg hier eventuele andere bijlagen toe. Bv. als je deze BP voor de
