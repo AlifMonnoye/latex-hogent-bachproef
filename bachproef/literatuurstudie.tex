@@ -9,7 +9,7 @@
 \label{sec:De IBM Z Systems omgeving}
 Het is belangrijk om te weten wat een mainframe is en wat de hoofdpunten van de technologie zijn. Het is moeilijk om een goede definitie te plakken op deze term maar het is ontwikkelt door IBM en het wordt vooral gebruikt door grote bedrijven om belangrijke applicaties te hosten of veel transacties te kunnen doorvoeren. Hoewel dit ook mogelijk is op een kleinschalige server, zou het resultaat niet hetzelfde zijn omdat mainframes miljarden transacties per dag zou kunnen uitvoeren zonder enige vertraging. \autocite{BasuMallick2023} \\
 
-De mainframe wordt vaak in vergelijking gebracht met een traditionele server die je vind in een datacenter. Deze vergelijking is niet onterecht omdat ze wel een gelijkaardige functie hebben. Een mainframe zoals de hedendaagse IBM \GLS{z16} heeft de mogelijkheid 19 miljard transacties per dag uit te voeren, wat ook verklaard waarom deze systemen gebruikt worden door 92 van de top 100 banken ter wereld. De z16 heeft ook 40 terabyte werkgeheugen wat 1200 keer het aantal is in hedendaagse high-performance computers. \autocite{Tozzi2022} \\
+De mainframe wordt vaak in vergelijking gebracht met een traditionele server die je vind in een datacenter. Deze vergelijking is niet onterecht omdat ze wel een gelijkaardige functie hebben. Een mainframe zoals de hedendaagse IBM \GLS{z16} heeft de mogelijkheid 19 miljard transacties per dag uit te voeren, wat ook verklaard waarom deze systemen gebruikt worden door 71\% van de Fortune 500 bedrijven wereldwijd. Deze machine heeft ook 40 terabyte werkgeheugen wat 1200 keer het aantal is in hedendaagse high-performance computers. \autocite{Tozzi2022} \\
 
 De \Gls{z16} is ook `Quantum safe`: de bedreiging van Quantum computers in de toekomst blijft groeien en er is nog geen directe oplossing voor. IBM heeft hiervoor geïnvesteerd in Crypto Express 8S hardware security modules om data op de Mainframe te beschermen en Quantum safe te maken. De nieuwe modules bevatten nieuwe quantum safe encryptie algoritmes die geëvalueerd zijn door de US National Institute of Standards and Technology. \autocite{Sayer2022} \\
 
@@ -65,9 +65,9 @@ Unix bestanden op de mainframe worden bijna op dezelfde manier gebruikt als op e
 \subsection{Python AI toolkit for z/OS}
 Omdat we een Python interpreter zullen opzetten, zal er hier vooral gefocust worden op Python in z/OS. In Python wordt er vaak gebruik gemaakt van externe packages die publiek beschikbaar zijn. Deze moeten wel geïnstalleerd zijn op het systeem om er gebruik van te maken en dit kan een probleem zijn in USS. Door de beveiliging in een mainframe is het niet altijd even makkelijk om packages of andere direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
 
-In de aankondiging door Evan \textcite{Rivera2023} werd deze toolkit beschreven als een bekende en flexibele ervaring voor developers tijdens het ontwerpen van AI oplossingen. Het biedt open source software en deze kunnen eenvoudig geïnstalleerd worden doorr de Package Installer for Python (pip) \\
+In de aankondiging door Evan \textcite{Rivera2023} werd deze toolkit beschreven als een bekende en flexibele ervaring voor developers tijdens het ontwerpen van AI oplossingen. Het biedt open source software en deze kunnen eenvoudig geïnstalleerd worden door de Package Installer for Python (pip). \\
 
-Dit is een bibliotheek met verschillende wereldwijd gebruikte Python packages voor AI en Machine learning workloads bijvoorbeeld NumPy, SciPy, Jupyter, etc. Elk van deze packages is volledig onderzocht geweest voor potentiële problemen in het systeem waardoor alles in deze toolkit voldoet aan de beveiligingsvoorwaarden zoals andere z/OS producten. \autocite{Bostian2023}
+De Python AI toolkit is dus een bibliotheek met verschillende, wereldwijd gebruikte Python packages voor AI en Machine learning workloads bijvoorbeeld NumPy, SciPy, Jupyter, etc. Elk van deze packages is volledig onderzocht geweest voor potentiële problemen in het systeem waardoor alles in deze toolkit voldoet aan de beveiligingsvoorwaarden zoals andere z/OS producten. \autocite{Bostian2023}
 
 \subsection{Andere besturingssystemen}
 Zoals eerder vermeld is z/OS niet het enige besturingssysteem dat beschikbaar is op de mainframe. Hoewel dit door IBM aangeboden wordt, zijn er andere mogelijkheden die elk hun eigen sterktes en zwaktes hebben. \\
@@ -112,4 +112,42 @@ Een programma zoals IDz heeft veel mogelijkheden om instellingen aan te passen d
 
 \section{IBM Z in een bankomgeving}
 Dit onderzoek wordt uitgevoerd in een bankomgeving dus is het wel interessant om te bekijken welke voordelen deze technologie heeft in zo een omgeving. \\ 
-Volgens \textcite{Turner2022} gebruiken de meeste banken een IBM mainframe omdat ze de rekenkracht kunnen bieden die banken nodig hebben om efficiënt te kunnen werken. Kenmerken zoals robuustheid, betrouwbaarheid en snelle processing kracht spelen ook een grote rol aangezien het van groot belang is dat het systeem bijna altijd actief moeten zijn. De mainframe toont hier zijn sterkte door de 8 nines oftwel 99,999999\% van de tijd beschikbaar per jaar. \autocite{IBMa}
+Volgens \textcite{Turner2022} gebruiken de meeste banken een IBM mainframe omdat ze de rekenkracht kunnen bieden die banken nodig hebben om efficiënt te kunnen werken. Kenmerken zoals robuustheid, betrouwbaarheid en snelle processing kracht spelen ook een grote rol aangezien het van groot belang is dat het systeem bijna altijd actief moeten zijn. De mainframe toont hier zijn sterkte door de 8 nines oftwel 99,999999\% van de tijd beschikbaar per jaar. \autocite{IBMa} \\
+
+Dit is niet de enige reden waarom het gebruikt wordt door 92 van de top 100 banken ter wereld \autocite{Tozzi2022}. In een aankondiging van \textcite{IBM2022} over hun nieuw systeem de IBM z16, werd er gezegd dat 70\% van wereldwijde transacties door een mainframe verwerkt worden. Beveiliging speelt ook een grote rol, een studie van IBM en \textcite{MorningConsult2022} toont aan dat krediet kaart fraude het meest voorkomende type fraude is onder klanten in 7 verschillende landen waaronder Duitsland, de Verenigde Staten en China. de IBM zSystems heeft al een goede transactie beveiliging zonder teveel vertraging maar de z16 brengt hier nog een AI model bij. Hierdoor kunnen banken transacties controleren op een veel grotere schaal: 300 miljard door AI beveiligde transacties per dag met maar 1 milliseconde vertraging. Andere zaken zoals belastingsfraude kunnen ook vermeden worden hiermee. \autocite{IBM2022} \\
+
+IBM doet dit door middel van een nieuwe Telum Processor. Het is ontworpen om deep learning algoritmes naar workloads te brengen voor bedrijvenn om in real-time fraude te detecteren en verwerpen. Dit is de eerste processor van IBM dat gebruik maakt van AI terwijl de transactie wordt uitgevoerd. Naast het detecteren van fraude is deze chip nog nuttig voor loan processing, het tegengaan van witwassen van geld en risico analyse. \autocite{IBM2021a}
+
+Batch processen is ook een belangrijk voordeel dat een mainframe te bieden heeft. Dit zijn jobs die uitgevoerd kunnen worden met weinig of geen interactie van een gebruiker \autocite{IBM}. Dit is vooral nuttig voor taken die op vaste momenten moeten uitgevoerd worden. In figuur 4.1 is een duidelijk voorbeel over hoe een batch job te werk gaat:
+
+\begin{figure}[pt!]
+    \centering
+    \includegraphics[width=400pt]{./graphics/BatchJobVB.png}
+    \caption{Batch Job \autocite{IBMb}}
+    \label{fig}
+\end{figure}
+
+\begin{itemize}
+    \item[1] De batch job wordt opgestart door de mainframe
+    \item[2] De job genereert statistieken van het bedrijf
+    \item[3] Er wordt een backup gemaakt van de kritische bestanden en de database voor en na de job
+    \item[4] De statistieken worden verstuurd naar een specifieke plaats zodat het geanalyseerd kan worden
+    \item[5] Fouten of uitzonderingen in de statistieken worden in een andere locatie geplaatst
+    \item[6] Informatie van klanten hun bankrekening wordt gemaakt en verstuurd.
+    \item[7] Een verslag van de processing tijd wordt verstuurd naar de partners van de bank
+    \item[8] De partner ontvangt het verslag
+    \item[9] Het systeem monitort de uitkomst van de batch job
+    \item[10] Jobs en transacties updaten de database zodat de progressie wordt opgeslagen
+\end{itemize}
+\\
+
+Batch jobs zijn niet de enige vorm van jobs die uitgevoerd worden op een mainframe. Online transaction processing of OLTP is zeer belangrijk in een bank. In contrast met batch processing, heeft dit een eindgebruiker nodig die de job opstart. Het heeft ook geen vast moment waarop de job uitgevoerd wordt maar kan altijd doorheen de dag. Meestal duren deze transacties niet lang maar de systemen die verantwoordelijk zijn om deze jobs uit te voeren moeten veel verschillende gebruikers op hetzelfde moment moeten ondersteunen zonder enige vertraging. \autocite{IBMb} \\
+Een grafische voorstelling van de verschillen tussen een batch job en een online transaction job vind u in figuur 4.2. \\ \\
+
+
+\begin{figure}[pt!]
+    \centering
+    \includegraphics[width=400pt]{./graphics/BatchVSOnline.png}
+    \caption{Grafisch verschil tussen batch en OLTP \autocite{IBMb}}
+    \label{fig}
+\end{figure}
