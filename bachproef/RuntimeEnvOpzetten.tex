@@ -1,0 +1,35 @@
+%%=============================================================================
+%% Runtime environment opzetten
+%%=============================================================================
+
+\chapter{Runtime environment opzetten}
+\label{ch:runtime-environment}
+\section{Instellen Python Interpreter}
+Om Python scripts uit te voeren in IDz is er een Python executable nodig op de machine. Deze moet je installeren en in IDz kun je dan verwijzen naar die executable. \\
+
+DNB heeft strenge regels op het installeren van externe software op laptops die een connectie kunnen maken met de mainframe door veiligheidsredenen. Hierdoor kan Python niet geïnstalleerd worden en kan deze stap ook niet uitgevoerd worden. \\
+
+Moest dit kunnen navigeer je in IDz naar \textit{Window -> preferences -> Pydev -> Interpreters -> Python Interpreter}. \\
+Hier klik je op \textit{New...} en dan verschijnt er een Wizard om de interpreter te kiezen. Zoek de geïnstalleerde Python Interpreter en klik op \textit{Apply}. \\
+
+Als je rechtsklikt op een Python bestand en naar \textit{Run} navigeert, zie je de Python interpreter staan. \\
+Vermoedelijk zal dit het Python script uitvoeren op je gebruikte computer en niet in de USS omgeving op de mainframe. 
+
+
+\section{Uitvoeren van Python scripts in de USS omgeving via IDz}
+De Python interpreter is niet nodig op de lokale machine voor het uitvoeren van Python programma's in de USS omgeving. Hiervoor moeten we de remote systems explorer prespectief openen via \textit{Window -> Perspective -> Open Perspective -> Other -> Remote System Explorer}. \\
+
+Maak een connectie met de USS omgeving met de juiste inloggegevens en navigeer naar het tablad \textit{Remote Shell}. \\
+
+Deze zal leeg zijn maar door te klikken op de 3 puntjes met als naam \textit{View Menu} kunnen we de connectie toevoegen. Klik op \textit{Launch} en kies de juiste connectie. Dit zou 2 connecties moeten tonen. De eerste is de connectie met de lokale machine en de tweede is die met de USS omgeving. Als je de connectie met de USS omgeving kiest zal het 2 keuzes geven:
+
+\begin{itemize}
+    \item[1] z/OS UNIX Shells
+    \item[2] TSO Commands
+\end{itemize}
+
+Om met de USS omgeving connectie te maken kiezen we optie 1: \textit{z/OS UNIX Shells}. De tweede optie is om TSO commando's te geven in de z/OS omgeving waarmee we verbonden zijn. \\
+
+Nu zal er een kleine terminal opstarten waar we zijn ingelogd op de mainframe in de USS omgeving. Hierin kunnen we dus navigeren naar verschillende directories met Python bestanden in en uitvoeren met het Python commando. We kunnen ook directories of bestanden aanmaken in deze terminal zonder een externe ssh connectie nodig te hebben. \\
+
+Belangrijk om te vermelden is dat de Python installer moet zijn gedefinieerd anders kun je geen Python bestanden uitvoeren in USS. Dit is een globale variabele die je moet initializeren.
