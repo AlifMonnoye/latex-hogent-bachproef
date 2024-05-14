@@ -1,6 +1,198 @@
 %%=============================================================================
 %% Analyse Pydev in IDz
 %%=============================================================================
+\chapter{Testen Runtime environment}
+\label{ch:test-runtime}
+In dit hoofdstuk zal er onderzocht worden hoe krachtig de ingebouwde terminal van IDz is wat zijn limitaties zijn. Dit doe ik voor hoofdstuk \ref{ch:test-pydev} omdat er hier de omgeving wordt opgegezet om de het testscript in uit te voeren. \\
 
-\chapter{Analyse Pydev}
-\label{ch:analyse-pydev}
+
+\section{Opzetten testomgeving}
+Alle bestanden die worden geschreven om te testen zullen aangemaakt worden in de directorie \textit{/tmp/BPtestfolder}. 
+Deze wordt aangemaakt via het Bash commando: 
+
+\begin{lstlisting}
+    $ mkdir /tmp/BPtestfolder
+    $ cd /tmp/BPtestfolder
+\end{lstlisting}
+
+Er wordt verwacht dat Python correct is geïnstalleerd in de USS omgeving.
+
+\section{Test script aanmaken en uitvoeren}
+Een Python script heeft een plaats nodig waar het opgeslagen is. 
+
+\begin{lstlisting}
+    $ mkdir /tmp/BPtestfolder
+    $ touch test.py
+    $ echo `print('Hello World')` >> test.py
+    $ python test.py
+\end{lstlisting}
+
+Dit programma geeft \textit{Hello World} terug en werkt dus perfect.
+
+\section{Opzetten Python virtuele omgeving}
+Een Python virtuele omgeving wordt vaak gebruikt om toegangsrechten te ontwijken en een eigen omgeving opzetten waar de gebruiker toegang heeft tot alle functies zoals bijvoorbeeld packages installeren. Deze virtuele omgeving zullen we proberen opzetten en activeren in IDz. Als dit lukt zullen we packages installeren en testen of we deze kunnen gebruiken.
+
+\begin{lstlisting}
+    $ python -m venv --system-site-packages ./virtual_env
+    $ cd virtual_env/bin
+    $ activate
+    $ pip list
+\end{lstlisting}
+
+Hoewel de virtuele omgeving aangemaakt wordt, kan deze niet opgestart worden met het source commando wat wel gaat in een ssh connectie. In IDz moeten we naar de \textit{bin} directorie gaan en het \textit{activate} programma uitvoeren. We moeten in de \textit{bin} directorie blijven om te kunnen werken in de virtuele omgeving.
+Het commando \textit{pip list} wordt gebruikt om te testen of de virtuele omgeving actief is. Moest het niet actief zijn, zou dit commando niet lukken. Hierin zien we een lijst met geïnstalleerde packages die op het root systeem geïnstalleerd zijn. Dit hebben we gedaan door de \textit{--system-site-packages} optie bij het aanmaken van de virtuele omgeving.
+
+\section{Installeren van packages}
+In deze virtuele omgeving zijn er nog packages nodig waar Python programma's gebruik van kunnen maken. Deze zullen we halen uit de Python AI toolkit for z/OS van IBM of van de Pypi website.
+
+\begin{lstlisting}
+    $ mkdir packages
+\end{lstlisting}
+
+\begin{lstlisting}
+    $ pip install ./packages/annotated_types-0.4.0-py3-none-any.whl --no-index
+    $ pip install ./packages/typing_extensions-4.10.0-py3-none-any.whl --no-index
+    $ pip install ./packages/pydantic-1.10.15-py3-none-any.whl --no-index
+    $ pip install ./packages/idna-3.6-py3-none-any.whl --no-index
+    $ pip install ./packages/sniffio-1.3.1-py3-none-any.whl --no-index
+    $ pip install ./packages/anyio-4.3.0-py3-none-any.whl --no-index
+    $ pip install ./packages/starlette-0.35.1-py3-none-any.whl --no-index
+    $ pip install ./packages/fastapi-0.109.0-py3-none-any.whl --no-index
+\end{lstlisting}
+
+\begin{lstlisting}
+    $ pip install ./packages/attrs-23.2.0-py3-none-any.whl --no-index
+    $ pip install ./packages/pyrsistent-0.20.0-py3-none-any.whl --no-index
+    $ pip install ./packages/jsonschema-4.17.3-py3-none-any.whl --no-index
+\end{lstlisting}
+
+De packages die geïnstalleerd zijn, zijn nodig voor het testprogramma die wordt geschreven in hoofdstuk \ref{ch:test-pydev}. Deze packges zijn \textit{FastApi} en \textit{Jsonschema}. Er zal ook gebruik worden gemaakt van de ZOAU.
+
+\chapter{Testen Pydev}
+\label{ch:test-pydev}
+
+Om Pydev te testen zullen we een FastAPI schrijven in IDz. Deze API heeft als functie om van een batch job, de 2 JCL programma's aan elkaar te binden en te schrijven in een PDS member. Hierdoor testen we het gebruik van de packages die geïnstalleerd zijn, alsook de verbinding met z/OS. \\
+
+Het doel van dit hoofdstuk blijft nog steeds de ervaring testen van een volledig Python programma schrijven door middel van Pydev en zien hoe efficiënt dit eigenlijk is.
+
+\section{Schrijven van een test API}
+Dit is de API die ik heb geschreven. Het bevat 1 functie die 2 JCL's van een meegegeven job aan elkaar schrijft in een dataset die gedefinieerd is in de variabele \textit{dsMemberPath}. 
+\begin{lstlisting}
+    from fastapi import FastAPI
+    import json
+    from zoautil_py import zsystem, datasets
+    from zoautil_py.zoau_io import zopen
+    
+    app = FastAPI()
+    
+    @app.get("/api/v1/{environment}/proc/{proc}")
+    def get_jcl(environment: str, proc: str):
+        # ======================================================== #
+        # ================= Declaring variables ================== #
+        # ======================================================== #
+        
+        # uppercase the given environment variable
+        environment = environment.upper()
+        
+        # header_path = path of the jobcard
+        # body_path = path of the procedure
+        header_path, body_path = get_values(environment)
+        
+        # List to store the lines in of both the job card and procedure
+        records = []
+        
+        # Output dataset
+        outds = "AD12215.API.OUT" # Dataset
+        member = proc # Dataset member
+        dsMemberPath = f"{outds}({member})" # Full path of the dataset member
+        
+        
+        # ======================================================== #
+        # ============ Check if input datasets exist ============= #
+        # ======================================================== #
+        # Both files exist
+        if (proc in datasets.list_members(header_path)) & (proc in datasets.list_members(body_path)):
+            print(f"Both members found ({member}), returning both the job card and procedure")
+        
+            # Reading and appending JOB file
+            with zopen(f"//'{header_path}({proc})'", 'r', "cp1047") as record_stream:
+                for record in record_stream:
+                    records.append(record.upper())
+        
+            # Reading and appending PROC file
+            with zopen(f"//'{body_path}({proc})'", 'r', "cp1047") as record_stream:
+                for record in record_stream:
+                    records.append(record.upper())
+        
+        # Only header file exists
+        elif (proc in datasets.list_members(header_path)) & (proc not in datasets.list_members(body_path)):
+            print(f"Member {body_path}({proc}) not found in procedure path, returning only {header_path}({proc})")
+            
+            # Reading and appending JOB file
+            with zopen(f"//'{header_path}({proc})'", 'r', "cp1047") as record_stream:
+                for record in record_stream:
+                    records.append(record.upper())
+        
+        # Only body file exists
+        elif (proc not in datasets.list_members(header_path)) & (proc in datasets.list_members(body_path)):
+            print(f"Member {header_path}({proc}) not found in job card, returning only {body_path}({proc})")
+            
+            # Reading and appending PROC file
+            with zopen(f"//'{body_path}({proc})'", 'r', "cp1047") as record_stream:
+                for record in record_stream:
+                    records.append(record.upper())
+                    
+        # No files exist 
+        else:
+            return "files don't exist"
+        
+        # ======================================================== #
+        # ============ Writing output into a dataset ============= #
+        # ======================================================== #
+        
+        # Deleting older output written if it exists
+        if member in datasets.list_members(outds):
+            datasets.delete_members(f"{dsMemberPath}")
+            if member in datasets.list_members(outds):
+                return f"Dataset member {dsMemberPath} can't be deleted because it is open"
+                
+        # Writing the content of "records" into the dataset "dsMemberPath"   
+        return write_into_dataset(dsMemberPath, records)
+    
+    
+    def get_values(environment: str):
+    
+        # Opening the json file with the file paths 
+        with open("config.json", 'r', encoding="utf-8") as test_file:
+        
+            # Loading the json in the variable json_data
+            json_data = json.load(test_file)
+            
+            # Assign the return values with the correct filepaths
+            header_path = json_data[environment]["HEADER"]
+            body_path = json_data[environment]["BODY"] 
+            return header_path, body_path
+    
+    
+    def write_into_dataset(dsname: str, records: list):
+        for record in records:
+            # Remove all control characters for the record
+            mapping = dict.fromkeys(range(32))
+            res = record.translate(mapping)
+            # Writing record into dataset
+            datasets.write(dsname, res, append=True)
+            
+        return f"Output written in PDS {dsname}"
+    
+    
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
+

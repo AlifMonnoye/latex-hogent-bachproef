@@ -17,17 +17,17 @@ Het is belangrijk om te weten dat de data niet wordt opgeslagen in de \GLS{ASCII
 
 
 \subsection{Het hoofdbesturingssysteem z/OS}
-Een IBM Mainframe ondersteund meerdere besturingssystemen maar de meest gebruikte is \GLS{z/OS}. Dit is, samen met de IBM Z Systems, ontwikkeld door IBM waardoor dit het meest compatibel is met de hardware componenten en het blijft ondersteund door IBM zelf. Deze heeft verschillende karakteristieken zoals workload manager (WLM) om het uitvoeren van jobs in te plannen. Dit besturingssysteem kan gezien worden als hybride omdat het moderne taken van andere besturingssystemen neemt en combineerd met de architectuur van een IBM mainframe. Het heeft ook de mogelijkheid om terug te draaien naar een vorige versie zonder dat dit problemen zal veroorzaken met het systeem. \autocite{Rupp2022} 
+Een IBM Mainframe ondersteund meerdere besturingssystemen maar de meest gebruikte is \GLS{z/OS}. Dit is, samen met de IBM Z Systems, ontwikkeld door IBM waardoor dit het meest compatibel is met de hardware componenten en het blijft ondersteund door IBM zelf. Deze heeft verschillende karakteristieken zoals \acrlong{wlm} (\acrshort{wlm}) om het uitvoeren van jobs in te plannen. Dit besturingssysteem kan gezien worden als hybride omdat het moderne taken van andere besturingssystemen neemt en combineerd met de architectuur van een IBM mainframe. Het heeft ook de mogelijkheid om terug te draaien naar een vorige versie zonder dat dit problemen zal veroorzaken met het systeem. \autocite{Rupp2022} 
 
 \subsection{Software in z/OS}
-Dit besturingssysteem bevat tools zoals TSO, ISPF en SDSF om er een paar op te noemen. Via een 3270 terminal kan een gebruiker inloggen op de mainframe en gebruik maken van deze tools. \\
+Dit besturingssysteem bevat tools zoals \acrshort{tso}, \acrshort{ispf} en \acrshort{sdsf} om er een paar op te noemen. Via een 3270 terminal kan een gebruiker inloggen op de mainframe en gebruik maken van deze tools. \\
 
-TSO staat voor Time Sharing Option en is in principe de command line interface op de mainframe. Dit laat meerdere gebruikers toe om een interactieve sessie op te starten met z/OS via hun eigen inloggegevens. Zoals een traditionele CLI bestaat dit uit een prompt waar je commando's kunt ingeven om acties uit te voeren op het systeem. In TSO wordt dit een `READY` prompt genoemd omdat het een READY melding geeft als je commando's kunt invoeren. \autocite{IBM} \\
+\acrlong{tso} staat voor \acrlong{tso} en is in principe de command line interface op de mainframe. Dit laat meerdere gebruikers toe om een interactieve sessie op te starten met z/OS via hun eigen inloggegevens. Zoals een traditionele CLI bestaat dit uit een prompt waar je commando's kunt ingeven om acties uit te voeren op het systeem. In \acrlong{tso} wordt dit een `READY` prompt genoemd omdat het een READY melding geeft als je commando's kunt invoeren. \autocite{IBM} \\
 
-Hoewel TSO vrij krachtig is, zal dit door de meeste eindgebruikers gebruikt worden in combinatie met ISPF of \textit{Interactive System Productivity Facility}. Dit is een GUI dat bestaat uit menu's en panelen die allemaal verschillende functies kunnen uitvoeren \autocite{IBM}. Veel gebruikte functies zijn het aanmaken en schrijven van COBOL of PL/1 programma's. ISPF biedt nog meer verschillende functies zoals het aanmaken van datasets tot een connectie maken met de database op de mainframe. Hierin kun je dus eigenlijk alles doen wat het platform te bieden heeft maar wel in de lijnen van de rechten die je hebt als gebruiker. \autocite{IBM} \\
+Hoewel TSO vrij krachtig is, zal dit door de meeste eindgebruikers gebruikt worden in combinatie met \acrshort{ispf} of \acrlong{ispf}. Dit is een GUI dat bestaat uit menu's en panelen die allemaal verschillende functies kunnen uitvoeren \autocite{IBM}. Veel gebruikte functies zijn het aanmaken en schrijven van COBOL of PL/1 programma's. \acrshort{ispf} biedt nog meer verschillende functies zoals het aanmaken van datasets tot een connectie maken met de database op de mainframe. Hierin kun je dus eigenlijk alles doen wat het platform te bieden heeft maar wel in de lijnen van de rechten die je hebt als gebruiker. \autocite{IBM} \\
 
-System Display and Search Facility of SDSF is volgens de \textcite{IBM2023} documentatie een interface om jobs en hun output te kunnen zien. Zo is er ook de mogelijkheid om een job te doen stoppen, bijhouden of vrijgeven. Met bijhouden bedoelen we niet laten uitvoeren tot iemand een teken geef dat het uitgevoerd mag worden. Vrijgeven wordt gebruikt om de fysieke middelen zoals de CPU vrij te geven zodat een andere job deze kan gebruiken. \\ 
-Het biedt ook informatie over het z/OS systeem zodat u dit kan monitoren, managen en controleren. Hoewel het vooral gebruikt wordt om de status van een uitgevoerde job te zien, wordt deze tool ook gebruikt om fysieke toestellen te controleren (zoals een printer), de fysieke middelen zoals CPU of geheugen beheren en de system log en messages bekijken.
+\acrlong{sdsf} of \acrshort{sdsf} is volgens de \textcite{IBM2023} documentatie een interface om jobs en hun output te kunnen zien. Zo is er ook de mogelijkheid om een job te doen stoppen, bijhouden of vrijgeven. Met bijhouden wordt er bedoeld niet laten uitvoeren tot iemand een teken geef dat het uitgevoerd mag worden. Vrijgeven wordt gebruikt om de fysieke middelen zoals de CPU vrij te geven zodat een andere job deze kan gebruiken. \\ 
+Het biedt ook informatie over het \gls{z/OS} systeem zodat u dit kan monitoren, managen en controleren. Hoewel het vooral gebruikt wordt om de status van een uitgevoerde job te zien, wordt deze tool ook gebruikt om fysieke toestellen te controleren (zoals een printer), de fysieke middelen zoals CPU of geheugen beheren en de system log en messages bekijken.
 
 \subsection{Datasets}
 z/OS heeft ook een andere manier om data op te slaan door middel van datasets. Dit is volgens de documentatie van \textcite{IBM} een collectie van gerelateerde data records dat opgeslagen en opgehaald wordt door een toegewezen naam. Dit zou u kunnen zien als een bestand in andere besturingssystemen zoals in Windows of Linux. \\
@@ -35,16 +35,16 @@ z/OS heeft ook een andere manier om data op te slaan door middel van datasets. D
 Hier bestaan er verschillende soorten van:
 
 \begin{itemize}
-    \item Sequentiële dataset (Seq)
-    \item Partitionele dataset (Pds)
-    \item Virtual storage access method (VSAM)
+    \item Sequentiële dataset
+    \item \acrlong{pds} (\acrshort{pds})
+    \item \acrlong{vsam} (\acrshort{vsam})
 \end{itemize} \\
 
 Sequentiële datasets bevatten records die achter elkaar opgeslagen zijn. Dit heeft als nadeel dat als een gebruiker bijvoorbeeld record 20 wilt lezen, moet hij eerst voorbij de voorgaande 19 records gaan. Deze soort datasets worden vooral gebruikt om grote hoeveelheden data in op te slaan. \autocite{IBM} \\
 
-Een partitionele dataset is meer voor programma's in te schrijven. Deze dataset bevat allemaal `members` die op hun beurt dan de effectieve data bevatten. Dit heeft als voordeel dat je in een pds de members kunt aanspreken in een willekeurige volgorde. Deze vorm van een dataset wordt ook wel een library genoemd. \autocite{IBM} \\
+Een partitionele dataset is meer voor programma's in te schrijven. Deze dataset bevat allemaal `members` die op hun beurt dan de effectieve data bevatten. Dit heeft als voordeel dat je in een \acrshort{pds} de members kunt aanspreken in een willekeurige volgorde. Deze vorm van een dataset wordt ook wel een library genoemd. \autocite{IBM} \\
 
-Een VSAM biedt een complexere manier van toegang tot verschillende soorten data en is vooral bedoeld voor applicaties. Door hun complexiteit kunnen ze niet frequent bekeken of aangepast worden zoals in ISPF. Een VSAM kun je verdelen in 4 verschillende datasets:
+Een \acrshort{vsam} biedt een complexere manier van toegang tot verschillende soorten data en is vooral bedoeld voor applicaties. Door hun complexiteit kunnen ze niet frequent bekeken of aangepast worden zoals in \acrshort{ispf}. Een \acrshort{vsam} kun je verdelen in 4 verschillende datasets:
 \begin{itemize}
     \item Key Sequence Data Set (KSDS): \\Dit komt het meest voor en zal data opslaan op basis van een key, value systeem
     \item Entry Sequence Data Set (ESDS): \\Dit houdt de records in een sequentiële volgorde bij en worden ook gelezen in deze volgorde. Dit is vooral gebruikt door databanken en z/OS Unix bestanden.
@@ -53,9 +53,9 @@ Een VSAM biedt een complexere manier van toegang tot verschillende soorten data 
 \end{itemize}
 \autocite{IBM}
 \subsection{Unix op een mainframe}
-IBM heeft veel ingezet op modernisatie. Zo is er een Unix Systems Services (USS) omgeving bijgekomen die geïntegreerd is in het traditionele besturingssysteem z/OS. Er is ook een volledige mainframe die enkel Linux heeft als besturingssysteem namelijk de LinuxOne. In dit onderzoek zal er enkel gekeken worden naar een mainframe met z/OS die een USS omgeving heeft. \\
+IBM heeft veel ingezet op modernisatie. Zo is er een \acrlong{uss} (\acrshort{uss}) omgeving bijgekomen die geïntegreerd is in het traditionele besturingssysteem z/OS. Er is ook een volledige mainframe die enkel Linux heeft als besturingssysteem namelijk de LinuxOne. In dit onderzoek zal er enkel gekeken worden naar een mainframe met z/OS die een \acrshort{uss} omgeving heeft. \\
 
-Omdat de USS dus samenwerkt met z/OS heb je veel meer functies die je kunt gebruiken. Zo is er de mogelijkheid op XML parsing, OpenSSH, de IBM HTTP Server for z/OS, de z/OS SDK for Java en nog veel meer. \autocite{Dhawan2013} \\
+Omdat de \acrshort{uss} dus samenwerkt met z/OS heb je veel meer functies die je kunt gebruiken. Zo is er de mogelijkheid op XML parsing, OpenSSH, de IBM HTTP Server for z/OS, de z/OS SDK for Java en nog veel meer. \autocite{Dhawan2013} \\
  
 Dit systeem biedt een hierarchisch bestandssysteem (HFS) samen met een zSeries bestandssysteem (zFS). \autocite{Precisely2020} \\ De HFS is wel bekend voor de meeste UNIX gebruikers: Dit is een hierarchie van directories met bestanden of subdirectories die grafisch weergegeven kunnen worden in een tree view \autocite{HCLTechnologies2022}. \\ 
 
@@ -82,7 +82,7 @@ In figuur \ref{fig:zFS} worden de bestanden opgehaald vanuit het zFS bestandsyst
 Unix bestanden op de mainframe worden bijna op dezelfde manier gebruikt als op een traditioneel unix systeem. Het kan een Java, C++ of Python programma bevatten. Deze programma's kunnen ook bestanden lezen of schrijven in een JSON of YAML formaat. Die kunnen op hun beurt dan gebruikt worden om analyses te doen op bepaalde data. Het hangt dus allemaal af van de use case om te zien op welke manier deze unix bestanden het best gebruikt worden. \autocite{Precisely2020}
 
 \subsection{Python AI toolkit for z/OS}
-Omdat we een Python interpreter zullen opzetten, zal er hier vooral gefocust worden op Python in z/OS. In Python wordt er vaak gebruik gemaakt van externe packages die publiek beschikbaar zijn. Deze moeten wel geïnstalleerd zijn op het systeem om er gebruik van te maken en dit kan een probleem zijn in USS. Door de beveiliging in een mainframe is het niet altijd even makkelijk om packages of andere direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
+Omdat we een Python interpreter zullen opzetten, zal er hier vooral gefocust worden op Python in z/OS. In Python wordt er vaak gebruik gemaakt van externe packages die publiek beschikbaar zijn. Deze moeten wel geïnstalleerd zijn op het systeem om er gebruik van te maken en dit kan een probleem zijn in \acrshort{uss}. Door de beveiliging in een mainframe is het niet altijd even makkelijk om packages of andere direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
 
 In de aankondiging door Evan \textcite{Rivera2023} werd deze toolkit beschreven als een bekende en flexibele ervaring voor developers tijdens het ontwerpen van AI oplossingen. Het biedt open source software en deze kunnen eenvoudig geïnstalleerd worden door de Package Installer for Python (pip). \\
 
@@ -111,8 +111,8 @@ Zoals eerder vermeld is z/OS niet het enige besturingssysteem dat beschikbaar is
 \label{sec:IBM Developer for z/OS (IDz)}
 \subsection{IDz}
 De testomgeving waarin we zullen werken is IBM Developer for z/OS (IDz) versie 16.0.2. Dit programma is volgens de definitie van \textcite{Spohn2023} een toolset voor het ontwikkelen en opzetten van hybride cloud applicaties op z/OS. \\
-Het is een Eclipse based programma met de mogelijkheid om een connectie te maken met verschillende omgevingen op de mainframe (bv de USS of z/OS omgeving). Zo kunt u alle bestanden zien, openen en aanpassen. Omdat de data nogsteeds op de mainframe staat, kunnen wijzigingen direct gezien worden ookal bekijkt u het in een ander programma. Als u bijvoorbeeld een bestand wijzigt via IDz, kunt u de wijzigingen direct zien in ISPF. \\
-Dit programma is vooral ontwikkelt om een envoudige IDE te bieden om in te programmeren aangezien niet iedereen bekend is met ISPF. \\
+Het is een Eclipse based programma met de mogelijkheid om een connectie te maken met verschillende omgevingen op de mainframe (bv de \acrshort{uss} of z/OS omgeving). Zo kunt u alle bestanden zien, openen en aanpassen. Omdat de data nogsteeds op de mainframe staat, kunnen wijzigingen direct gezien worden ookal bekijkt u het in een ander programma. Als u bijvoorbeeld een bestand wijzigt via IDz, kunt u de wijzigingen direct zien in \acrshort{ispf}. \\
+Dit programma is vooral ontwikkelt om een envoudige IDE te bieden om in te programmeren aangezien niet iedereen bekend is met \acrshort{ispf}. \\
 
 Zoals vermeld zal er gebruik worden gemaakt van IDz versie 16.0.2 . In het overzicht van \textcite{IBM2024}, ondersteund deze versie syntax veranderingen voor COBOL 6.4, PL/1 6.1 en REXX. Er is ook een ZUnit update wat vooral het gebruik van deze tool makkelijker maakt. \\
 

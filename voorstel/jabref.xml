@@ -18,10 +18,10 @@
           <entry key="collectTelemetry" value="false"/>
           <entry key="askedCollectTelemetry" value="true"/>
           <entry key="windowMaximised" value="false"/>
-          <entry key="mainWindowPosX" value="-31.0"/>
-          <entry key="mainWindowPosY" value="-1440.0"/>
-          <entry key="mainWindowSizeX" value="1734.0"/>
-          <entry key="mainWindowSizeY" value="1399.0"/>
+          <entry key="mainWindowPosX" value="-6.400000095367432"/>
+          <entry key="mainWindowPosY" value="0.0"/>
+          <entry key="mainWindowSizeX" value="580.0"/>
+          <entry key="mainWindowSizeY" value="330.3999938964844"/>
           <entry key="columnNames" value="entrytype;author/editor;title;year;journal/booktitle;ranking;readstatus;priority"/>
           <entry key="columnWidths" value="100;100;100;100;100;100;100;100"/>
           <entry key="columnSortTypes" value=""/>

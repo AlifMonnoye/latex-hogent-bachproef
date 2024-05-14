@@ -4,20 +4,20 @@
 
 \chapter{Runtime environment opzetten}
 \label{ch:runtime-environment}
-\section{Instellen Python Interpreter}
-Om Python scripts uit te voeren in IDz is er een Python executable nodig op de machine. Deze moet je installeren en in IDz kun je dan verwijzen naar die executable. \\
+\section{Uitvoeren van Python scripts op een lokale machine via IDz}
+In IDz is er de mogelijkheid om programma's uit te voeren op de lokale machine waarop IDz uitgevoerd wordt. Hiervoor is er een Python executable nodig op deze machine. Deze moet geïnstalleerd zijn en in IDz moet er een vewijzing naar gedaan worden. \\
 
-DNB heeft strenge regels op het installeren van externe software op laptops die een connectie kunnen maken met de mainframe door veiligheidsredenen. Hierdoor kan Python niet geïnstalleerd worden en kan deze stap ook niet uitgevoerd worden. \\
+DNB heeft strenge regels op het installeren van externe software op laptops die een connectie kunnen maken met de mainframe. Door deze veiligheidsredenen is er geen mogelijkheid om Python te installeren en kan deze stap ook niet uitgevoerd worden. \\
 
-Moest dit kunnen navigeer je in IDz naar \textit{Window -> preferences -> Pydev -> Interpreters -> Python Interpreter}. \\
-Hier klik je op \textit{New...} en dan verschijnt er een Wizard om de interpreter te kiezen. Zoek de geïnstalleerde Python Interpreter en klik op \textit{Apply}. \\
+Moest dit kunnen kan er naar de Python executable verwezen worden in IDz via \textit{Window -> preferences -> Pydev -> Interpreters -> Python Interpreter}. \\
+Hier klik je op \textit{New...} en dan verschijnt er een wizard om de interpreter te kiezen. Zoek de geïnstalleerde Python interpreter en klik op \textit{Apply}. \\
 
 Als je rechtsklikt op een Python bestand en naar \textit{Run} navigeert, zie je de Python interpreter staan. \\
-Vermoedelijk zal dit het Python script uitvoeren op je gebruikte computer en niet in de USS omgeving op de mainframe. 
+Vermoedelijk zal dit het Python script uitvoeren op de gebruikte machine en niet in de USS omgeving op de mainframe. 
 
 
 \section{Uitvoeren van Python scripts in de USS omgeving via IDz}
-De Python interpreter is niet nodig op de lokale machine voor het uitvoeren van Python programma's in de USS omgeving. Hiervoor moeten we de remote systems explorer prespectief openen via \textit{Window -> Perspective -> Open Perspective -> Other -> Remote System Explorer}. \\
+De Python interpreter is niet nodig op de lokale machine voor het uitvoeren van Python programma's in de USS omgeving. Hiervoor moeten we de remote systems explorer perspectief openen via \textit{Window -> Perspective -> Open Perspective -> Other -> Remote System Explorer}. \\
 
 Maak een connectie met de USS omgeving met de juiste inloggegevens en navigeer naar het tablad \textit{Remote Shell}. \\
 

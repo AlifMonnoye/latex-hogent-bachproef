@@ -1,0 +1,448 @@
+\glsdefs@newdocentry{z/OS}%
+{%
+name={z/OS},%
+sort={z/OS},%
+type={main},%
+first={z/OS},%
+firstplural={z/OSs},%
+text={z/OS},%
+plural={z/OSs},%
+description={Het hoofdbesturingssysteem voor de mainframe ontwikkeld door IBM},%
+descriptionplural={Het hoofdbesturingssysteem voor de mainframe ontwikkeld door IBM},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{z16}%
+{%
+name={z16},%
+sort={z16},%
+type={main},%
+first={z16},%
+firstplural={z16s},%
+text={z16},%
+plural={z16s},%
+description={De nieuwste versie van IBM hun mainframes.},%
+descriptionplural={De nieuwste versie van IBM hun mainframes.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ASCII}%
+{%
+name={ASCII},%
+sort={ASCII},%
+type={main},%
+first={ASCII},%
+firstplural={ASCIIs},%
+text={ASCII},%
+plural={ASCIIs},%
+description={De meest voorkomende karakter encoding formaat voor tekst data in computers.},%
+descriptionplural={De meest voorkomende karakter encoding formaat voor tekst data in computers.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{EBCDIC}%
+{%
+name={EBCDIC},%
+sort={EBCDIC},%
+type={main},%
+first={EBCDIC},%
+firstplural={EBCDICs},%
+text={EBCDIC},%
+plural={EBCDICs},%
+description={De meest voorkomende karakter encoding formaat voor tekst data in mainframes.},%
+descriptionplural={De meest voorkomende karakter encoding formaat voor tekst data in mainframes.},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{pds}%
+{%
+name={\acronymfont {\glsentryshort {pds}}},%
+sort={PDS},%
+type={main},%
+first={PDS},%
+firstplural={PDSs},%
+text={PDS},%
+plural={PDSs},%
+description={Partitionele dataset},%
+descriptionplural={Partitionele dataset},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Partitionele dataset},%
+longplural={Partitionele datasets},%
+short={PDS},%
+shortplural={PDSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{vsam}%
+{%
+name={\acronymfont {\glsentryshort {vsam}}},%
+sort={VSAM},%
+type={main},%
+first={VSAM},%
+firstplural={VSAMs},%
+text={VSAM},%
+plural={VSAMs},%
+description={Virtual Storage Access Method},%
+descriptionplural={Virtual Storage Access Method},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Virtual Storage Access Method},%
+longplural={Virtual Storage Access Methods},%
+short={VSAM},%
+shortplural={VSAMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{uss}%
+{%
+name={\acronymfont {\glsentryshort {uss}}},%
+sort={USS},%
+type={main},%
+first={USS},%
+firstplural={USSs},%
+text={USS},%
+plural={USSs},%
+description={Unix System Services},%
+descriptionplural={Unix System Services},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Unix System Services},%
+longplural={Unix System Servicess},%
+short={USS},%
+shortplural={USSs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{wlm}%
+{%
+name={\acronymfont {\glsentryshort {wlm}}},%
+sort={WLM},%
+type={main},%
+first={WLM},%
+firstplural={WLMs},%
+text={WLM},%
+plural={WLMs},%
+description={Workload Manager},%
+descriptionplural={Workload Manager},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Workload Manager},%
+longplural={Workload Managers},%
+short={WLM},%
+shortplural={WLMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ispf}%
+{%
+name={\acronymfont {\glsentryshort {ispf}}},%
+sort={ISPF},%
+type={main},%
+first={ISPF},%
+firstplural={ISPFs},%
+text={ISPF},%
+plural={ISPFs},%
+description={Interactive System Productivity Facility},%
+descriptionplural={Interactive System Productivity Facility},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Interactive System Productivity Facility},%
+longplural={Interactive System Productivity Facilitys},%
+short={ISPF},%
+shortplural={ISPFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{tso}%
+{%
+name={\acronymfont {\glsentryshort {tso}}},%
+sort={TSO},%
+type={main},%
+first={TSO},%
+firstplural={TSOs},%
+text={TSO},%
+plural={TSOs},%
+description={Time Sharing Option},%
+descriptionplural={Time Sharing Option},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Time Sharing Option},%
+longplural={Time Sharing Options},%
+short={TSO},%
+shortplural={TSOs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{idz}%
+{%
+name={\acronymfont {\glsentryshort {idz}}},%
+sort={IDz},%
+type={main},%
+first={IDz},%
+firstplural={IDzs},%
+text={IDz},%
+plural={IDzs},%
+description={IBM Developer for z/OS},%
+descriptionplural={IBM Developer for z/OS},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={IBM Developer for z/OS},%
+longplural={IBM Developer for z/OSs},%
+short={IDz},%
+shortplural={IDzs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{sdsf}%
+{%
+name={\acronymfont {\glsentryshort {sdsf}}},%
+sort={SDSF},%
+type={main},%
+first={SDSF},%
+firstplural={SDSFs},%
+text={SDSF},%
+plural={SDSFs},%
+description={System Display and Search Facility},%
+descriptionplural={System Display and Search Facility},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={System Display and Search Facility},%
+longplural={System Display and Search Facilitys},%
+short={SDSF},%
+shortplural={SDSFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{z/vse}%
+{%
+name={\acronymfont {\glsentryshort {z/vse}}},%
+sort={z/VSE},%
+type={main},%
+first={z/VSE},%
+firstplural={z/VSEs},%
+text={z/VSE},%
+plural={z/VSEs},%
+description={z/Virtual Storage Extended},%
+descriptionplural={z/Virtual Storage Extended},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={z/Virtual Storage Extended},%
+longplural={z/Virtual Storage Extendeds},%
+short={z/VSE},%
+shortplural={z/VSEs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{z/vm}%
+{%
+name={\acronymfont {\glsentryshort {z/vm}}},%
+sort={z/VM},%
+type={main},%
+first={z/VM},%
+firstplural={z/VMs},%
+text={z/VM},%
+plural={z/VMs},%
+description={z/Virtual Machine},%
+descriptionplural={z/Virtual Machine},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={z/Virtual Machine},%
+longplural={z/Virtual Machines},%
+short={z/VM},%
+shortplural={z/VMs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{z/tpf}%
+{%
+name={\acronymfont {\glsentryshort {z/tpf}}},%
+sort={z/TPF},%
+type={main},%
+first={z/TPF},%
+firstplural={z/TPFs},%
+text={z/TPF},%
+plural={z/TPFs},%
+description={z/Transaction Processing Facility},%
+descriptionplural={z/Transaction Processing Facility},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={z/Transaction Processing Facility},%
+longplural={z/Transaction Processing Facilitys},%
+short={z/TPF},%
+shortplural={z/TPFs},%
+counter={page},%
+parent={},%
+%
+}%
+
+\glsdefs@newdocentry{ide}%
+{%
+name={\acronymfont {\glsentryshort {ide}}},%
+sort={IDE},%
+type={main},%
+first={IDE},%
+firstplural={IDEs},%
+text={IDE},%
+plural={IDEs},%
+description={lntegrated Development Environment},%
+descriptionplural={lntegrated Development Environment},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={lntegrated Development Environment},%
+longplural={lntegrated Development Environments},%
+short={IDE},%
+shortplural={IDEs},%
+counter={page},%
+parent={},%
+%
+}%
+
