@@ -17,11 +17,11 @@
           <entry key="versionIgnoreUpdate" value="5.13"/>
           <entry key="collectTelemetry" value="false"/>
           <entry key="askedCollectTelemetry" value="true"/>
-          <entry key="windowMaximised" value="false"/>
-          <entry key="mainWindowPosX" value="-6.400000095367432"/>
-          <entry key="mainWindowPosY" value="0.0"/>
-          <entry key="mainWindowSizeX" value="580.0"/>
-          <entry key="mainWindowSizeY" value="330.3999938964844"/>
+          <entry key="windowMaximised" value="true"/>
+          <entry key="mainWindowPosX" value="-7.199999809265137"/>
+          <entry key="mainWindowPosY" value="-7.199999809265137"/>
+          <entry key="mainWindowSizeX" value="1550.4000244140625"/>
+          <entry key="mainWindowSizeY" value="830.4000244140625"/>
           <entry key="columnNames" value="entrytype;author/editor;title;year;journal/booktitle;ranking;readstatus;priority"/>
           <entry key="columnWidths" value="100;100;100;100;100;100;100;100"/>
           <entry key="columnSortTypes" value=""/>
@@ -30,7 +30,7 @@
           <entry key="workingDirectory" value="C:\Users\Gebruiker\Documents\GitHub\latex-hogent-bachproef\bachproef"/>
           <entry key="recentDatabases" value="C:\\Users\\Gebruiker\\Documents\\GitHub\\latex-hogent-bachproef\\bachproef\\bachproef.bib;C:\\Users\\Gebruiker\\Documents\\GitHub\\latex-hogent-bachproef\\voorstel\\voorstel.bib;C:\\Users\\Gebruiker\\Documents\\GitHub\\rm-2223-paper-rmmonnoyea\\voorstel\\references.bib;C:\\Users\\Gebruiker\\Desktop\\HoGent\\Jaar3\\Semester2\\ResearchMethods\\latex-hogent-bachproef-main\\voorstel\\bibliografie.bib;C:\\Users\\Gebruiker\\Desktop\\HoGent\\Jaar3\\Semester2\\ResearchMethods\\latex-hogent-bachproef-main\\voorstel\\voorstel.bib;C:\\Users\\Gebruiker\\Desktop\\HoGent\\Jaar3\\Semester2\\ResearchMethods\\latex-hogent-bachproef-main\\bachproef\\bachproef.bib"/>
           <entry key="lastEdited" value="C:\\Users\\Gebruiker\\Documents\\GitHub\\latex-hogent-bachproef\\voorstel\\voorstel.bib;C:\\Users\\Gebruiker\\Documents\\GitHub\\latex-hogent-bachproef\\bachproef\\bachproef.bib"/>
-          <entry key="lastFocused" value="C:\Users\Gebruiker\Documents\GitHub\latex-hogent-bachproef\voorstel\voorstel.bib"/>
+          <entry key="lastFocused" value="C:\Users\Gebruiker\Documents\GitHub\latex-hogent-bachproef\bachproef\bachproef.bib"/>
           <entry key="bindNames" value="Abbreviate;Accept;Autogenerate citation keys;Automatically link files;Capitalize word;Check integrity;Cleanup;Clear read status;Clear search;Close dialog;Close library;Copy;Copy \\cite{citation key};Copy citation key;Copy citation key and link;Copy citation key and title;Copy preview;Copy title;Cut;Delete entry;Delete;Download full text documents;Edit strings;Entry editor, next entry;Entry editor, next panel;Entry editor, next panel 2;Entry editor, previous entry;Entry editor, previous panel;Entry editor, previous panel 2;Execute default action in dialog;Export;Export Selected;File list editor, move entry down;File list editor, move entry up;Focus entry table;Help;Import into current library;Import into new library;Lowercase word;Uppercase word;Merge entries;Move caret left;Move caret right;Move caret to beginning of line;Move caret to  of line;Move caret to next word;Move caret to previous word;Move caret down;Move caret to beginning of text;Move caret to end of text;Move caret up;New article;New book;New entry;New entry from plain text;New inbook;New inproceesings;New mastersthesis;New phdthesis;New proceedings;New technical report;New unpublished;Next library;Next preview layout;Open / close entry editor;Open OpenOffice/LibreOffice connection;Open URL or DOI;Open file;Open folder;Open library;Open terminal here;Paste;Preamble editor, store changes;Previous library;Previous preview layout;Pull changes from shared database;Push to application;Quit JabRef;Redo;Refresh OO;Remove characters until next word;Remove all characters caret to end of line;Characters until previous word;Replace string;Resolve duplicate citation keys;Save all;Save library;Save library as ...;Search;Search for unlinked local files;Select all;Select first entry;Select last entry;Set read status to read;Set read status to skimmed;String dialog, add string;String dialog, remove string;Synchronize files;Toggle groups interface;Unabbreviate;Undo;Web search;Write metadata to PDF files"/>
           <entry key="mainTableColumnNames" value="groups;files;linked_id;field:entrytype;field:author/editor;field:title;field:year;field:journal/booktitle;special:ranking;special:readstatus;special:priority"/>
           <entry key="mainTableColumnWidths" value="28.0;28.0;28.0;75.0;300.0;495.60000000000014;60.0;130.0;80.0;28.0;28.0"/>
@@ -84,7 +84,7 @@
           <entry key="memoryStickMode" value="true"/>
           <entry key="cyclePreviewPos" value="1"/>
           <entry key="grobidEnabled" value="true"/>
-          <entry key="entryEditorHeightFX" value="0.5395942408376964"/>
+          <entry key="entryEditorHeightFX" value="0.5390070921985816"/>
           <entry key="sidePaneComponentNames" value="GROUPS;WEB_SEARCH"/>
           <entry key="sidePaneComponentPreferredPositions" value="0;1"/>
           <entry key="lastUsedExport" value="BibO RDF"/>

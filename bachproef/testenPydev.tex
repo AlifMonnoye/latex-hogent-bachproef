@@ -7,7 +7,7 @@ In dit hoofdstuk zal er onderzocht worden hoe krachtig de ingebouwde terminal va
 
 
 \section{Opzetten testomgeving}
-Alle bestanden die worden geschreven om te testen zullen aangemaakt worden in de directorie \textit{/tmp/BPtestfolder}. 
+Alle bestanden die worden geschreven om te testen zullen aangemaakt worden in de directory \textit{/tmp/BPtestfolder}. 
 Deze wordt aangemaakt via het Bash commando: 
 
 \begin{lstlisting}
@@ -18,7 +18,7 @@ Deze wordt aangemaakt via het Bash commando:
 Er wordt verwacht dat Python correct is geïnstalleerd in de USS omgeving.
 
 \section{Test script aanmaken en uitvoeren}
-Een Python script heeft een plaats nodig waar het opgeslagen is. 
+Om het Python bestand op te slaan, zal er een directory gemaakt worden genaamd \textit{/tmp/BPtestfolder}. Hierin wordt er een testt.py bestand aangemaakt die \textit{Hello World} zal afdrukken op het scherm. Aangezien dit geen groot programma is, zal dit met het \textit{echo} commando geschreven worden in het Python bestand als volgt:\
 
 \begin{lstlisting}
     $ mkdir /tmp/BPtestfolder
@@ -39,44 +39,77 @@ Een Python virtuele omgeving wordt vaak gebruikt om toegangsrechten te ontwijken
     $ pip list
 \end{lstlisting}
 
-Hoewel de virtuele omgeving aangemaakt wordt, kan deze niet opgestart worden met het source commando wat wel gaat in een ssh connectie. In IDz moeten we naar de \textit{bin} directorie gaan en het \textit{activate} programma uitvoeren. We moeten in de \textit{bin} directorie blijven om te kunnen werken in de virtuele omgeving.
+Hoewel de virtuele omgeving aangemaakt wordt, kan deze niet opgestart worden met het source commando wat wel gaat in een ssh connectie. In IDz moeten we naar de \textit{bin} directory gaan en het \textit{activate} programma uitvoeren. We moeten in de \textit{bin} directory blijven om te kunnen werken in de virtuele omgeving.
 Het commando \textit{pip list} wordt gebruikt om te testen of de virtuele omgeving actief is. Moest het niet actief zijn, zou dit commando niet lukken. Hierin zien we een lijst met geïnstalleerde packages die op het root systeem geïnstalleerd zijn. Dit hebben we gedaan door de \textit{--system-site-packages} optie bij het aanmaken van de virtuele omgeving.
 
 \section{Installeren van packages}
-In deze virtuele omgeving zijn er nog packages nodig waar Python programma's gebruik van kunnen maken. Deze zullen we halen uit de Python AI toolkit for z/OS van IBM of van de Pypi website.
+In deze virtuele omgeving zijn er nog packages nodig waar Python programma's gebruik van kunnen maken. Deze zullen we halen uit de Python AI toolkit for z/OS van IBM of van de Pypi website. De packages die geïnstalleerd zullen worden, zijn nodig voor het testprogramma die wordt geschreven in hoofdstuk \ref{ch:test-pydev}. Deze packages zijn \textit{FastApi}, \textit{Uvicorn} en \textit{Jsonschema}. \\
+
+FastAPI en Uvicorn maken geen onderdeel uit van de Python AI toolkit dus zal er een .whl file geïnstalleerd moeten worden van \url{https://pypi.org/}. Het is belangrijk om alle packages waarvan FastAPI gebruik maakt, ook geïnstalleerd moeten zijn. Via drag and drop is het mogelijk om het .whl installatiebestand in de USS omgeving te krijgen vanaf de lokale machine. Dit moet in `binary` gebeuren omdat het anders foutmeldingen zal geven tijdens het installeren. Dit kan ingesteld worden in IDz via \textit{Windoz -> Preferences -> Remote Systems -> Files}. Hier wordt een lijst van extensies weergegeven en hoe ze worden overgezet naar de USS omgeving. Om een .whl bestand correct over te zetten naar de mainframe klik je op \textit{Add...} en geef je .whl in. Dit bestandstype komt in de lijst terecht en als dit geselecteerd is, moet de \textit{Default File Transfer Mode} op \textit{Binary} staan. \\
+
+Jsonschema is beschikbaar via de Python AI toolkit en staan dus al op de mainframe. Dit zijn ook .whl bestanden. \\
+
+Er zal ook gebruik worden gemaakt van de ZOAU maar deze zijn al geïnstalleerd op het systeem en hebben geen verdere configuratie nodig. \\
+
+Alle nodige packages zullen opgeslagen worden in de directory \textit{/tmp/BPtestfolder/virtual\_env/packages}. Via het \textit{cp} commando worden de packages uit de Python AI toolkit gekopiëerd naar de aangemaakte directory: \\
 
 \begin{lstlisting}
-    $ mkdir packages
+    $ mkdir /tmp/BPtestfolder/virtual_env/packages
+    $ cp /Path/To/AI/Toolkit/jsonschema-4.17.3-py3-none-any.whl \
+                                         /tmp/BPtestfolder/virtual_env/packages
+\end{lstlisting} 
+
+Al deze packages moeten apart geïnstalleerd worden via het \textit{pip install} commando. Aangezien deze bestanden op het systeem staan en we ze niet via het internet willen installeren, wordt de optie \textit{--no-index} toegevoegd. Dit laat het systeem weten dat we het niet online willen installeren. De installatie van de pypi packages gebeurd als volgt:\\
+\begin{lstlisting}
+    $ pip install ../packages/annotated_types-0.4.0-py3-none-any.whl --no-index
+    $ pip install ../packages/typing_extensions-4.10.0-py3-none-any.whl --no-index
+    $ pip install ../packages/pydantic-1.10.15-py3-none-any.whl --no-index
+    $ pip install ../packages/idna-3.6-py3-none-any.whl --no-index
+    $ pip install ../packages/sniffio-1.3.1-py3-none-any.whl --no-index
+    $ pip install ../packages/anyio-4.3.0-py3-none-any.whl --no-index
+    $ pip install ../packages/starlette-0.35.1-py3-none-any.whl --no-index
+    $ pip install ../packages/fastapi-0.109.0-py3-none-any.whl --no-index
+    
+    $ pip install ../packages/h11-0.14.0-py3-none-any.whl --no-index
+    $ pip install ../packages/uvicorn-0.25.0-py3-none-any.whl --no-index
 \end{lstlisting}
 
 \begin{lstlisting}
-    $ pip install ./packages/annotated_types-0.4.0-py3-none-any.whl --no-index
-    $ pip install ./packages/typing_extensions-4.10.0-py3-none-any.whl --no-index
-    $ pip install ./packages/pydantic-1.10.15-py3-none-any.whl --no-index
-    $ pip install ./packages/idna-3.6-py3-none-any.whl --no-index
-    $ pip install ./packages/sniffio-1.3.1-py3-none-any.whl --no-index
-    $ pip install ./packages/anyio-4.3.0-py3-none-any.whl --no-index
-    $ pip install ./packages/starlette-0.35.1-py3-none-any.whl --no-index
-    $ pip install ./packages/fastapi-0.109.0-py3-none-any.whl --no-index
+    $ pip install ../packages/attrs-23.2.0-py3-none-any.whl --no-index
+    $ pip install ../packages/pyrsistent-0.20.0-py3-none-any.whl --no-index
+    $ pip install ../packages/jsonschema-4.17.3-py3-none-any.whl --no-index
 \end{lstlisting}
+
+\section{Omgevingsvariabelen instellen}
+Zoals eerder vermeld, zal er gebruik worden gemaakt van ZOAU om datasets te lezen en schrijven. Deze package is al geïnstalleerd maar er zullen nog omgevingsvariabelen ingesteld moeten worden zodat dit correct functioneert. De omgeveringsvariabelen die gewijzigd moeten worden zijn \textit{ZOAU\_HOME}, \textit{PATH} en \textit{LIBPATH}. Hiervoor gebruiken we het \textit{export} commando als volgt: \\
 
 \begin{lstlisting}
-    $ pip install ./packages/attrs-23.2.0-py3-none-any.whl --no-index
-    $ pip install ./packages/pyrsistent-0.20.0-py3-none-any.whl --no-index
-    $ pip install ./packages/jsonschema-4.17.3-py3-none-any.whl --no-index
+    $ export ZOAU_HOME=/pp/idz/v16r0/zoautil/
+    $ export PATH=$ZOAU_HOME/bin:$PATH
+    $ export LIBPATH=$ZOAU_HOME/lib:$LIBPATH
 \end{lstlisting}
 
-De packages die geïnstalleerd zijn, zijn nodig voor het testprogramma die wordt geschreven in hoofdstuk \ref{ch:test-pydev}. Deze packges zijn \textit{FastApi} en \textit{Jsonschema}. Er zal ook gebruik worden gemaakt van de ZOAU.
+Moesten deze variabelen niet gewijzigd zijn, zou het volgende foutmelding geven:
+\begin{lstlisting}
+    CEE3201S The system detected an operation exception 
+                                        (System Completion Code=0C1).
+    From entry point _zoau_io_zopen at compile unit offset +0000000029B242B4 
+                 at entry offset +00000000000002D4 at address 0000000029B242B4.
+    Killed
+\end{lstlisting}
+
 
 \chapter{Testen Pydev}
 \label{ch:test-pydev}
 
 Om Pydev te testen zullen we een FastAPI schrijven in IDz. Deze API heeft als functie om van een batch job, de 2 JCL programma's aan elkaar te binden en te schrijven in een PDS member. Hierdoor testen we het gebruik van de packages die geïnstalleerd zijn, alsook de verbinding met z/OS. \\
 
-Het doel van dit hoofdstuk blijft nog steeds de ervaring testen van een volledig Python programma schrijven door middel van Pydev en zien hoe efficiënt dit eigenlijk is.
+Het doel van dit hoofdstuk blijft nog steeds de ervaring testen van een volledig Python programma schrijven door middel van Pydev en zien hoe efficiënt dit eigenlijk is. Hier zal er ook gezorgd worden dat deze API gebruik maakt van de ZOAU om datasets te lezen en schrijven. Er is ook een kleine JSON file aanwezig die de naam van de header -en procedure JCL bevat. \\
+
+Door deze verschillende technologieën te gebruiken testen we niet enkel hoe complexe programma's err geschreven kunnen worden in Pydev, maar ook hoe efficiënt het is om op de mainframe gebruik te maken van deze moderne technieken in combinatie met de oudere.
 
 \section{Schrijven van een test API}
-Dit is de API die ik heb geschreven. Het bevat 1 functie die 2 JCL's van een meegegeven job aan elkaar schrijft in een dataset die gedefinieerd is in de variabele \textit{dsMemberPath}. 
+Verder staat de test API die geschreven werd. Het bevat 1 functie die 2 JCL's uit het JSON bestand van een meegegeven job ophaald en aan elkaar schrijft in een dataset die gedefinieerd is in de variabele \textit{dsMemberPath}. 
 \begin{lstlisting}
     from fastapi import FastAPI
     import json
@@ -111,34 +144,44 @@ Dit is de API die ik heb geschreven. Het bevat 1 functie die 2 JCL's van een mee
         # ============ Check if input datasets exist ============= #
         # ======================================================== #
         # Both files exist
-        if (proc in datasets.list_members(header_path)) & (proc in datasets.list_members(body_path)):
-            print(f"Both members found ({member}), returning both the job card and procedure")
+        if (proc in datasets.list_members(header_path)) \
+                            & (proc in datasets.list_members(body_path)):
+            print(f"Both members found ({member}), \
+                returning both the job card and procedure")
         
             # Reading and appending JOB file
-            with zopen(f"//'{header_path}({proc})'", 'r', "cp1047") as record_stream:
+            with zopen(f"//'{header_path}({proc})'", 'r', "cp1047") \
+                            as record_stream:
                 for record in record_stream:
                     records.append(record.upper())
         
             # Reading and appending PROC file
-            with zopen(f"//'{body_path}({proc})'", 'r', "cp1047") as record_stream:
+            with zopen(f"//'{body_path}({proc})'", 'r', "cp1047") \
+                            as record_stream:
                 for record in record_stream:
                     records.append(record.upper())
         
         # Only header file exists
-        elif (proc in datasets.list_members(header_path)) & (proc not in datasets.list_members(body_path)):
-            print(f"Member {body_path}({proc}) not found in procedure path, returning only {header_path}({proc})")
+        elif (proc in datasets.list_members(header_path)) \
+                            & (proc not in datasets.list_members(body_path)):
+            print(f"Member {body_path}({proc}) not found in procedure path, \
+                            returning only {header_path}({proc})")
             
             # Reading and appending JOB file
-            with zopen(f"//'{header_path}({proc})'", 'r', "cp1047") as record_stream:
+            with zopen(f"//'{header_path}({proc})'", 'r', "cp1047") \
+                            as record_stream:
                 for record in record_stream:
                     records.append(record.upper())
         
         # Only body file exists
-        elif (proc not in datasets.list_members(header_path)) & (proc in datasets.list_members(body_path)):
-            print(f"Member {header_path}({proc}) not found in job card, returning only {body_path}({proc})")
+        elif (proc not in datasets.list_members(header_path)) \
+                            & (proc in datasets.list_members(body_path)):
+            print(f"Member {header_path}({proc}) not found in job card, \
+                            returning only {body_path}({proc})")
             
             # Reading and appending PROC file
-            with zopen(f"//'{body_path}({proc})'", 'r', "cp1047") as record_stream:
+            with zopen(f"//'{body_path}({proc})'", 'r', "cp1047") \
+                            as record_stream:
                 for record in record_stream:
                     records.append(record.upper())
                     
@@ -154,7 +197,8 @@ Dit is de API die ik heb geschreven. Het bevat 1 functie die 2 JCL's van een mee
         if member in datasets.list_members(outds):
             datasets.delete_members(f"{dsMemberPath}")
             if member in datasets.list_members(outds):
-                return f"Dataset member {dsMemberPath} can't be deleted because it is open"
+                return f"Dataset member {dsMemberPath} \
+                            can't be deleted because it is open"
                 
         # Writing the content of "records" into the dataset "dsMemberPath"   
         return write_into_dataset(dsMemberPath, records)
@@ -186,9 +230,30 @@ Dit is de API die ik heb geschreven. Het bevat 1 functie die 2 JCL's van een mee
     
     
 \end{lstlisting}
+\vspace{10 mm}
+Om de datasets te lezen, wordt er gebruik gemaakt van het \textit{zopen} statement van ZOAU. Dit is het equivalent van het traditionele \textit{open} statement in Python om een bestand te openen. Hier gebruiken we 3 positionele parameters: 
+\begin{itemize}
+    \item[1] Het te openen bestand. Dit bevat de naam van de dataset.
+    \item[2] Dit bepaald wat er gebeurd wordt met het bestand. \textit{'r'} voor te lezen en \textit{'w'} om te schrijven
+    \item[3] De encoding van het meegegeven bestand
+\end{itemize} 
+Het is belangrijk om de encoding mee te geven bij het oproepen van deze functie. Datasets worden opgeslagen in de encoding \textit{IBM-1047} en dit wordt gedefinieerd als \textit{'cp1047'}
 
 
+\chapter{Testen van de volledige applicatie}
+\label{ch:test-app}
+Om de API uit te voeren zal er gebruikt worden van de Uvicorn package met het volgende commando:
 
+\begin{lstlisting}
+    $ python -m uvicorn main:app
+\end{lstlisting}
+
+De API zou hierdoor moeten luisteren op poort 8000 van het loopback adres van z/OS voor inkomende verzoeken. 
+
+
+\chapter{Evaluatie test}
+\label{ch:eval-test}
+Bij het uitvoeren van de API gaf dit een foutmelding in IDz maar niet in de ssh connectie. Er lijkst
 
 
 
