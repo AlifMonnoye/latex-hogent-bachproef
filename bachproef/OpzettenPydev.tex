@@ -5,7 +5,7 @@
 \chapter{Opzetten Pydev}
 \label{ch:opzetten-pydev}
 
-Het programma waarin het onderzoek uitgevoerd zal worden is IBM Developer for z/OS (IDz) versie 16.0.2 met voorgeïnstalleerde programma's van DNB zelf. IDz is gebaseerd op Eclipse versie 4.23.0 . \\ In dit onderzoek zullen we versie 8.2.0 van PyDev installeren. Dit is een iets oudere versie maar het best compatibel met IDz, de andere versies kunnen problemen met zich meebrengen tijdens en na de installatie.
+Het programma waarin het onderzoek uitgevoerd zal worden is IBM Developer for z/OS (IDz) versie 16.0.2. IDz is gebaseerd op Eclipse versie 4.23.0 . \\ In dit onderzoek zal versie 8.2.0 van PyDev geïnstalleerd worden. Dit is een oudere versie maar het best compatibel met IDz, de andere versies brengen problemen met zich mee tijdens en na de installatie.
 Versie 8.2.0 bevat onder andere een debugger, een code formatter en code analyse. Het is belangrijk om te weten dat IDz door IBM beschikbaar wordt gesteld en ze dus support zullen bezorgen waar nodig moesten er problemen zijn met hun programma. Dit is niet het geval met PyDev omdat dit door een externe partij is ontwikkeld en dus niet ondersteund wordt door IBM. \\
 
 \section{Vereisten voor installatie} 
@@ -19,15 +19,15 @@ Versie 8.2.0 bevat onder andere een debugger, een code formatter en code analyse
 
 \section{Installatie} 
 \\ \\
-Om Pydev te gebruiken moeten we het eerst installeren via hun Github repository \url{https://github.com/fabioz/Pydev/releases}. \\Dit zal een .zip installeren die je moet uitpakken en ergens moet opslaan. Het uitpakken kan een enige tijd duren. \\
+Pydev kan geïnstalleerd worden via de Github repository \url{https://github.com/fabioz/Pydev/releases}. \\Dit zal een .zip installeren die uitgepakt moet worden in een directory naar keuze. Het uitpakken kan een enige tijd duren. \\
 
-In IDz navigeer je naar  \textit{help -> install New Software}  \\
+In IDz wordt er genavigeerd naar \textit{help -> install New Software}  \\
 
-Je zult een installatie wizard te zien krijgen en hierin klik je op \textit{add -> local} \\
+Hier komt er een installatie wizard waar Pydev geïnstalleerd kan worden in IDz via \textit{add -> local} \\
 
-Selecteer de map waar Pydev in is uitgepakt. klik op \textit{add} \\
+De map waar Pydev in is uitgepakt wordt geselecteerd. Verder wordt er geklikt op \textit{add} \\
 
-Je krijgt weer een scherm te zien met de opties die je kunt installeren. Het kan zijn dat het eerst leeg is en dit verander je door in de checkbox de Group items by category uit te vinken. Hierna krijg je 3 opties.
+Een scherm met de installatie opties komt tevoorschijn. Moest dit leeg zijn, kan dit veranderd worden door de checkbox \textquote{Group items by category} uit te vinken. Hierna komen 3 opties tevoorschijn:
 
 \begin{itemize}
     \item PyDev for Eclipse 8.2.0.202102211157
@@ -39,25 +39,25 @@ De eerste is noodzakelijk en de tweede optioneel. De derde mag niet aangevinkt w
 
 Klik op \textit{next}, dit zal alles opzetten en kan even duren. \\
 
-Als dit gedaan is wordt er een overzicht gegeven van de installatie details. Hier klik je op \textit{finish}. \\
+Als dit gedaan is, wordt er een overzicht gegeven van de installatie details. Om de installatie te beginnen wordt er geklikt op \textit{finish}. \\
 
 In de balk rechtsonder wordt de status van de installatie weergegeven. \\
 
-Als het klaar is met installeren zal het een pop-up geven om IDz herop te starten. Als u nog open projecten heeft is het best om deze eerst op te slaan en dan zelf te herstarten. Anders klikt u op \textit{Restart Now} \\ 
+Als het klaar is met installeren zal IDz een pop-up geven om het programma herop te starten. Moesten er nog niet opgeslagen projecten open staan, worden deze best opgeslaan voor het heropstarten. Anders wordt er geklikt op \textit{Restart Now} \\ 
 
-Om te zien of de installatie gelukt is navigeert u naar \textit{help -> about -> Installation details} \\
+Om te zien of de installatie gelukt is wordt er genavigeert naar \textit{help -> about -> Installation details} \\
 
-Geef in de zoekbalk \textquote{Pydev}. Hier zou u de geïnstalleerde software moeten zien \\ 
+Geef in de zoekbalk \textquote{Pydev}. Hier zou de geïnstalleerde software moeten staan \\ 
 
-Als je een Python script opent zal het nogsteeds gebeuren in de interne text editor. Om dit te wijzigen moeten we de file associations bekijken. Deze zullen bepalen welke editor er gebruikt wordt bij een bepaalde extensie. Hier zullen we dus de Python editor van Pydev linken aan de .py extensie. \\
+Als er een Python script geopend wordt, zal dit nogsteeds gebeuren in de interne text editor. Om dit te wijzigen moet de file associations aangepast worden. Deze zullen bepalen welke editor er gebruikt wordt bij een bepaalde extensie. Hier wordt de Python editor van Pydev gelinkt aan de .py extensie. \\
 
 Ga naar \textit{Window -> Preferences -> General -> Editors -> File Associations} \\
 
-Hier is een lijst met allemaal extensies en het programma waarmee ze geopend worden. IDz heeft niet standaard een python editor dus deze moet toegevoegd worden. Klik bij \textquote{file types} op \textit{add} \\
+Hier komt een lijst met allemaal extensies en het programma waarmee ze geopend worden. IDz heeft niet standaard een python editor dus deze moet toegevoegd worden. Klik bij \textquote{file types} op \textit{add} \\
 
-Geef hier .py in en klik op ok \\
+Geef hier \textquote{.py} in en klik op \textit{ok} \\
 
-In de lijst van extensies en ziet hier normaal .py tussenstaan \\
+In de lijst van extensies staat nu .py \\
 
 Selecteer de py extensie en bij \textquote{associated editors} komen er 3 opties:
 \begin{itemize}
@@ -69,7 +69,7 @@ Selecteer de py extensie en bij \textquote{associated editors} komen er 3 opties
 Selecteer \textquote{Python Editor} en klik op \textit{Default}. \\
 
 
-Als je een python script opent zal dit automatisch gebeuren in de python editor en zijn alle functies van Pydev beschikbaar.
+Als een Python script geopend wordt, zal dit automatisch gebeuren in de python editor en zijn alle functies van Pydev beschikbaar.
 
 
 

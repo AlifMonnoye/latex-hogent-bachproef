@@ -88,18 +88,49 @@ zFS is iets minder bekend en kan gebruikt worden in plaats van of als toevoeging
     \label{fig:zFS}
 \end{figure}
 
-In figuur \ref{fig:zFS} worden de bestanden opgehaald vanuit het zFS bestandsysteem door middel van de interactieve interface. Doankzij de API's tussen het logische -en fysieke bestandsysteem worden de juiste bestanden opgehaald en teruggegeven aan de gebruiker. \\
+In figuur \ref{fig:zFS} worden de bestanden opgehaald vanuit het zFS bestandsysteem door middel van de interactieve interface. Dankzij de API's tussen het logische -en fysieke bestandsysteem worden de juiste bestanden opgehaald en teruggegeven aan de gebruiker. \\
 
 Unix bestanden op de mainframe worden bijna op dezelfde manier gebruikt als op een traditioneel unix systeem. Het kan een Java, C++ of Python programma bevatten. Deze programma's kunnen ook bestanden lezen of schrijven in een JSON of YAML formaat. Die kunnen op hun beurt dan gebruikt worden om analyses te doen op bepaalde data. Het hangt dus allemaal af van de use case om te zien op welke manier deze unix bestanden het best gebruikt worden. \autocite{Precisely2020} \\
 
-Deze omgeving werkt ook met omgevingsvariabelen die invloed hebben op hoe het systeem werkt. Veel van deze variablen worden opgezet bij het inloggen maar de gebruiker kan deze zelf aanpassen. \autocite{HenryStocker2017}
+Deze omgeving werkt ook met omgevingsvariabelen die invloed hebben op hoe het systeem werkt. Veel van deze variablen worden opgezet bij het inloggen maar de gebruiker kan deze zelf aanpassen. Deze kunnen verwijzen naar de directory waar de gebruiker zich in bevinnd, maar is ook nodig voor bepaalde packages om hun installatiepad te vinden. \autocite{HenryStocker2017}
+
+\subsection{Python in z/OS}
+Omdat we een Python interpreter zullen opzetten, zal er hier vooral gefocust worden op Python in z/OS. Dit is één van de meest gebruikte programmeertalen op de dag van vandaag door zijn verschillende doeleinden en begin vriendelijkheid \autocite{Johnson2023}. Ook IBM heeft dit opgemerkt en heeft besloten om dit compatibel te maken met de mainframe. De meest gebruikte doeleinden zijn voor Data analyse -en visualisatie, machine learning en software development. Voor de laatste speelt de flexibiliteit en de kracht van de programmeertaal een grote rol omdat er zowel heel simpele als zeer complexe applicaties geschreven kunnen worden. In software development worden vaak API's ontwikkeld met verschillende packages. \autocite{Kosourova2022} \\
+
+Naast programmeren, heeft dit ook de mogelijkheid om Python commando's uit te voeren in de terminal van USS. Met het Python commando kan er bijvoorbeeld een virtuele omgeving aangemaakt worden. Dit is een directory met een bepaalde bestandsstructuur en bevat een bin subdirectory die verwijst naar de Python interpreter en verschillende packages die geïnstalleerd zijn in deze omgeving.  \autocite{UniPrinceton2022} \\
+Het is gebouwd op een bestaande Python installatie en gebruikt tools zoals pip om packages te installeren \autocite{PSF2024}. \\
+
+Een Python virtuele omgeving zorgt voor een stabiele en herproduceerbare omgeving waar de gebruiker in volledige controle is over welke packages en hun versie geïnstalleerd zijn. Hierdoor heeft de gebruiker geen problemen met administratierechten diie voorkomen als je zonder deze omgeving werkt. Er is geen limiet op het aantal virtuele omgevingen die iemand kan opstellen en deze zijn gemaakt om eenvoudig te activeren en deactiveren. \autocite{UniPrinceton2022} \\
+
+Bij het aanmaken zijn er verschillende opties mogelijk. De meest belangrijke voor dit onderzoek is de \textit{--system-site-packages} optie. Dit laat de gemaakte virtuele omgeving toe om packages te gebruiken die al geïnstalleerd zijn op het systeem. \autocite{PSF2024}.
+
+Het aanmaken van een Python virtuele omgeving met de packages van het systeem zou als volgt gebeuren:
+\begin{lstlisting}
+    $ python -m venv /Path/To/venv --system-site-packages
+\end{lstlisting}
+
+In de meegegeven directory worden subdirectories aangemaakt die nodig zijn om de virtuele omgeving te onderhouden. Om het te activeren moet het \textit{activate} script in de \textit{bin} subdirectory uitgevoerd worden. \autocite{PSF2024} \\
+Afhankelijk van het systeem, wordt een verschillend \textit{activate} script gebruikt. In bash noemt dit \textquote{activate} en wordt uitgevoerd als volgt:
+\begin{lstlisting}
+    $ source ./bin/activate
+\end{lstlisting}
+
+Om deze omgeving af te sluiten wordt volgend commando ingegeven:
+\begin{lstlisting}
+    $ deactivate
+\end{lstlisting}
+
+Voor het activeren, moet er specifiek verwezen worden naar het \textit{activate} script in de bin subdirectory. Het deactiveren kan in elke directory.
 
 \subsection{Python AI toolkit for z/OS}
-Omdat we een Python interpreter zullen opzetten, zal er hier vooral gefocust worden op Python in z/OS. In Python wordt er vaak gebruik gemaakt van externe packages die publiek beschikbaar zijn. Deze moeten wel geïnstalleerd zijn op het systeem om er gebruik van te maken en dit kan een probleem zijn in \acrshort{uss}. Door de beveiliging in een mainframe is het niet altijd even makkelijk om packages of andere direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
+In Python wordt er vaak gebruik gemaakt van externe packages die publiek beschikbaar zijn. Deze moeten wel geïnstalleerd zijn op het systeem om er gebruik van te maken en dit kan een probleem zijn in \acrshort{uss}. Door de beveiliging in een mainframe is het niet altijd even makkelijk om packages of andere direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
 
 In de aankondiging door Evan \textcite{Rivera2023} werd deze toolkit beschreven als een bekende en flexibele ervaring voor developers tijdens het ontwerpen van AI oplossingen. Het biedt open source software en deze kunnen eenvoudig geïnstalleerd worden door de Package Installer for Python (pip). \\
 
 De Python AI toolkit is dus een bibliotheek met verschillende, wereldwijd gebruikte Python packages voor AI en Machine learning workloads bijvoorbeeld NumPy, SciPy, Jupyter, etc. Elk van deze packages is volledig onderzocht geweest voor potentiële problemen in het systeem waardoor alles in deze toolkit voldoet aan de beveiligingsvoorwaarden zoals andere z/OS producten. \autocite{Bostian2023}
+
+\subsection{Z Open Automation Utilities}
+Python alleen op de mainframe is niet voldoende. Vaak willen developers datasets in z/OS kunnen lezen of schrijven en Python biedt hier geen functies voor aan. IBM is dan opgekomen met de Z Open Automation Utilities (ZOAU). Dit bevat functies om acties uit te voeren op datasets in z/OS of op het systeem zelf. Dit is ontworpen door IBM om het zo natuurlijk mogelijk te laten aanvoelen voor developers die weinig kennis hebben over z/OS. Zo zijn de functies zeer gelijkaardig als hun tegenliggende Unix commando's. Een commando om een lijst van datasets weer te geven bijvoorbeeld is \textit{dls}. Dit is geïnspireerd op het \textit{ls} Unix commando om de inhoud te zien van een bepaalde directory. ZOAU bevat ook een \textit{zopen} statement om datasets te openen voor te lezen of schrijven. In Unix is dit het \textit{open} statement. \autocite{IBM2023a}
 
 \subsection{Andere besturingssystemen}
 Zoals eerder vermeld is z/OS niet het enige besturingssysteem dat beschikbaar is op de mainframe. Hoewel dit door IBM aangeboden wordt, zijn er andere mogelijkheden die elk hun eigen sterktes en zwaktes hebben. \\
@@ -129,12 +160,22 @@ Dit programma is vooral ontwikkelt om een envoudige IDE te bieden om in te progr
 
 Zoals vermeld zal er gebruik worden gemaakt van IDz versie 16.0.2 . In het overzicht van \textcite{IBM2024}, ondersteund deze versie syntax veranderingen voor COBOL 6.4, PL/1 6.1 en REXX. Er is ook een ZUnit update wat vooral het gebruik van deze tool makkelijker maakt. \\
 
-ZUnit staat voor z/OS Automated Unit Testing en is een framework dat gebruikt wordt in IDz om COBOL en PL/1 programma's te testen. Hiervoor maakt het gebruik van verschillende `samples` die door IBM ontworpen zijn (bv. Enterprise COBOL CALL02.cbl sample test case). Het gebruik van deze tool maakt het makkelijker voor developers om hun code (geschreven in COBOL of Pl/1) te testen op de mainframe. Dit maakt het schrijven van code in IDz veel efficiënter. \autocite{IBM2024a}
+ZUnit staat voor z/OS Automated Unit Testing en is een framework dat gebruikt wordt in IDz om COBOL en PL/1 programma's te testen. Hiervoor maakt het gebruik van verschillende `samples` die door IBM ontworpen zijn (bv. Enterprise COBOL CALL02.cbl sample test case). Het gebruik van deze tool maakt het makkelijker voor developers om hun code (geschreven in COBOL of Pl/1) te testen op de mainframe. Dit maakt het schrijven van code in IDz veel efficiënter. \autocite{IBM2024a} \\
+
+Het is ook mogelijk om bestanden van de lokale machine te kopiëren naar de mainframe in de USS omgeving. Belangrijk hierbij is de manier waarop het bestand wordt gekopieerd. In IDz noemt dit \textquote{File Transfer Mode} en heeft 2 opties: 
+\begin{itemize}
+    \item Text
+    \item Binary
+\end{itemize}
+Afhankelijk van het bestand wordt text of binary gekozen en het wordt ingesteld op basis van de extensie van het bestand.
 
 \subsection{Eclipse IDE}
 zoals eerder vermeld is IDz gebaseerd op de Eclipse Integrated Development Environment (IDE) wat ontwikkeld is door de Eclipse Foundation in 2001. Het is begonnen sinds IBM 3 miljoen lijnen code van hun Java tools heeft gedoneerd om een open source IDE te creëren. Het is dus Java gebaseerd maar is kan nogsteeds gebruikt worden voor andere programeertalen zoals Python door de verschillende plug-ins die beschikbaar zijn gemaakt door de community achter Eclipse. \autocite{Hanna2021} \\
 
-Eclipse zelf heeft ook de mogelijkheid om verder uit te breiden door plug-ins. Dit zijn toevoegingen aan de gebruikte software die het mogelijk maken om applicaties, computer programma's en web browsers aan te passen. Dit zijn ook add ons die extra functionaliteiten kunnen bieden aan het gebruikte programma. \autocite{George2021}
+Eclipse zelf heeft ook de mogelijkheid om verder uit te breiden door plug-ins. Dit zijn toevoegingen aan de gebruikte software die het mogelijk maken om applicaties, computer programma's en web browsers aan te passen. Dit zijn ook add ons die extra functionaliteiten kunnen bieden aan het gebruikte programma. \autocite{George2021} 
+
+\subsection{Pydev}
+Pydev in een voorbeeld van een plug-in die opgezet kan worden in Eclipse om een Python IDE op te gebruiken.  Dit biedt functies zoals code completion, code analysis, debugging, code coverage en nog meer. De meest recente versie is versie 12.0.0 wat uitkwam op 1 februari 2024 en had updates voor de debugger en code analyse. Dit is enkel beschikbaar voor Python 3.8 en hoger waardoor oudere versies nodig zijn als iemand een Python versie lager gebruikt. Het is volledig open source en hangt af van externe sponsors om verder ontwikkeld te worden. \autocite{Pydev2024}
 
 \subsection{Wizards}
 Een programma zoals IDz heeft veel mogelijkheden om instellingen aan te passen door middel van wizards. Dit is een serie van pagina's dat de gebruiker begeleidt om een complexe taak uit te voeren. Elke pagina vraagt wat informatie en als de gebruiker op 'finish' klikt wordt de taak uitgevoerd. Er is ook altijd een mogelijkheid om het proces stop te zetten. \autocite{Eclipse2006}
@@ -197,7 +238,7 @@ Batch jobs worden uitgevoerd door middel van Job Control Language (JCL). Dit is 
     \item EXEC - dit bepaald het programma die uitgevoerd moet worden. Een JCL kan meerdere EXEC statements bevatten waarbij elke statement een \textit{job step} wordt genoemd
     \item DD - Dit bepaald de input en/of output bestanden die de batch job nodig heeft.
 \end{itemize}
-Dit kan zowel in TSO als in ISPF uitgevoerd worden. \autocite{IBM} \\
+Hoewel dit niet veel functies zijn, bestaan er wel veel verschillende parameters die meegegeven kunnen worden en die de uitvoer van het programma zullen beïnvloeden. Dit is wat JCL moeilijk maakt om te schrijven. Dit kan zowel in TSO als in ISPF uitgevoerd worden. \autocite{IBM} \\
 
 In DNB wordt de JCL opgesplitst in 2 programma's:
 
@@ -207,10 +248,24 @@ In DNB wordt de JCL opgesplitst in 2 programma's:
 \end{itemize}
 Voor het uitvoeren wordt er enkel verwezen naar de Job card en die roept op zijn beurt de procedure op. \\
 
-
+\newpage
 \section{Samenvatting}
-Hier komt de samenvatting van de literatuurstudie
+Omdat het hoofdbesturingssysteem z/OS van een mainframe niet gekend is door velen en gebruik maakt van verschillende programmeertalen en manieren van data opslaan, heeft IBM ervoor gezorgd dat er een Unix systeem aanwezig is genaamd de USS. Hierdoor kunnen gebruikers die niet bekend zijn met z/OS toch nog gebruik maken van dit systeem. Dit biedt dankzij IBM verschillende tools om packages te installeren via de Python AI toolkit for z/OS en om interactie te hebben met datasets via de Z Open Automation Utilities (ZOAU). Beide zijn beschikbaar voor Python en Java. \\
 
+Via IBM Developer for z/OS (IDz) kunnen gebruikers bestanden in de USS openen en aanpassen. Via een externe SSH connectie kunnen deze getest worden. IDz is gebaseerd op Java waardoor er een Java interpreter aanwezig is. Dit is niet hetzelfde voor Python en dit heeft als gevolg dat er geen Python interpreter aanwezig is. In IDz kan er wel gebruik worden gemaakt van verschillende plug-ins die dit mogelijk kunnen maken. \\
 
+Hoewel de USS omgmeving het eenvoudiger maakt om applicaties te schrijven, is het (voorlopig) niet de bedoeling dat deze de applicaties die in COBOL of PL/1 geschreven zijn te vervangen. Deze programmeertalen zijn zeer belangrijk voor batch en online jobs uit te voeren opo de mainframe en zijn kritisch voor een bedrijf zoals een bank om hun infrastructuur staande te houden en de juiste services te kunnen bieden aan de klanten. 
+
+\newpage
 \section{Conclusie}
-Hier komt de conclusie van de literatuurstudie
+Deze literatuurstudie heeft een overzicht gegeven van IBM hun mainframes om duidelijkheid te scheppen over de omgeving waarin er gewerkt wordt. Dit ging over het hoofdbesturingssysteem z/OS en zijn verschillende onderdelen zoals TSO, ISPF, datasets en programmeertalen. Hoe er gemoderniseerd wordt door IBM door middel van de USS omgeving speelt ook een grote rol. Verschillende tools die gebruikt worden in deze modernisatie zoals IDz, de Python AI toolkit en ZOAU zijn zeer belangrijk om het gebruik van Python en Java zo efficiënt mogelijk te laten gebeuren. \\
+
+De plug-in Pydev speelt een belangrijke rol aangezien dit geimplementeerd wordt in deze bachelorproef. \\
+
+Tenslotte werden Batch en OLTP jobs besproken om zo de hoofdfunctie van een mainframe in een bankomgeving duidelijk te maken.\\
+
+Door deze analyse kunnen we concluderen dat Pydev een goede functie kan zijn in IDz aangezien er geen Python interpreter aanwezig is in dit programma. Om het schrijven van Python applicaties nog efficiënter te maken, is dit zeer belangrijk. Aangezien IDz Eclipse based is, zou het geen complexe opgave moeten zijn om dit te implementeren. IDz heeft ook de mogelijkheid om een connectie te maken met de USS omgeving dus is er mogelijks een manier om via IDz Python applicaties uit te voeren op de mainframe. \\
+
+Python en Java zullen meer gebruikt worden door bedrijven omdat ze vrezen voor een sterk werknemerstekort in de toekomst. Hoewel dit onderzoek het eenvoudiger maakt om Python applicaties te schrijven, is het interessant om te onderzoeken of batch en OLTP jobs geschreven in COBOL en PL/1, volledig vervangen kunnen worden door applicaties in de USS omgeving geschreven in Python en Java. \\
+
+Deze literatuurstudie heeft mijn inzicht in de complexe omgeving van een IBM mainframe sterk doen groeien en mij aangemoedigd om verdere kennis op te doen in het gebied van USS en hoe dit samen met het traditionele z/OS systeem een sterke combinatie kan vormen.

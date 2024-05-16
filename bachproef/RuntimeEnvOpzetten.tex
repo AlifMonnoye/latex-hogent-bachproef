@@ -5,31 +5,31 @@
 \chapter{Runtime environment opzetten}
 \label{ch:runtime-environment}
 \section{Uitvoeren van Python scripts op een lokale machine via IDz}
-In IDz is er de mogelijkheid om programma's uit te voeren op de lokale machine waarop IDz uitgevoerd wordt. Hiervoor is er een Python executable nodig op deze machine. Deze moet geïnstalleerd zijn en in IDz moet er een vewijzing naar gedaan worden. \\
+In IDz is er de mogelijkheid om programma's uit te voeren op de lokale machine waarop IDz uitgevoerd wordt. Hiervoor moet Python geïnstalleerd zijn op deze machine en in IDz moet er een vewijzing naar gedaan worden. \\
 
 DNB heeft strenge regels op het installeren van externe software op laptops die een connectie kunnen maken met de mainframe. Door deze veiligheidsredenen is er geen mogelijkheid om Python te installeren en kan deze stap ook niet uitgevoerd worden. \\
 
 Moest dit kunnen kan er naar de Python executable verwezen worden in IDz via \textit{Window -> preferences -> Pydev -> Interpreters -> Python Interpreter}. \\
-Hier klik je op \textit{New...} en dan verschijnt er een wizard om de interpreter te kiezen. Zoek de geïnstalleerde Python interpreter en klik op \textit{Apply}. \\
+Door te klikken op \textit{New...}, verschijnt er een wizard om de interpreter te kiezen. Zoek de geïnstalleerde Python interpreter en klik op \textit{Apply}. \\
 
-Als je rechtsklikt op een Python bestand en naar \textit{Run} navigeert, zie je de Python interpreter staan. \\
+Door rechts te klikken op een Python bestand en naar \textit{Run} navigeren, kan het programma uitgevoerd worden. \\
 Vermoedelijk zal dit het Python script uitvoeren op de gebruikte machine en niet in de USS omgeving op de mainframe. 
 
 
 \section{Uitvoeren van Python scripts in de USS omgeving via IDz}
-De Python interpreter is niet nodig op de lokale machine voor het uitvoeren van Python programma's in de USS omgeving. Hiervoor moeten we de remote systems explorer perspectief openen via \textit{Window -> Perspective -> Open Perspective -> Other -> Remote System Explorer}. \\
+De Python interpreter is niet nodig op de lokale machine voor het uitvoeren van Python programma's in de USS omgeving. Hiervoor moet het remote systems explorer perspectief geopend worden via \textit{Window -> Perspective -> Open Perspective -> Other -> Remote System Explorer}. \\
 
 Maak een connectie met de USS omgeving met de juiste inloggegevens en navigeer naar het tablad \textit{Remote Shell}. \\
 
-Deze zal leeg zijn maar door te klikken op de 3 puntjes met als naam \textit{View Menu} kunnen we de connectie toevoegen. Klik op \textit{Launch} en kies de juiste connectie. Dit zou 2 connecties moeten tonen. De eerste is de connectie met de lokale machine en de tweede is die met de USS omgeving. Als je de connectie met de USS omgeving kiest zal het 2 keuzes geven:
+Deze zal leeg zijn maar door te klikken op de 3 puntjes met als naam \textit{View Menu} kan de connectie toegevoegd worden. Klik op \textit{Launch} en kies de juiste connectie. Dit zou 2 connecties moeten tonen. De eerste is de connectie met de lokale machine en de tweede is die met de USS omgeving. Selecteer de connectie met de USS omgeving, dit zal 2 keuzes geven:
 
 \begin{itemize}
     \item[1] z/OS UNIX Shells
     \item[2] TSO Commands
 \end{itemize}
 
-Om met de USS omgeving connectie te maken kiezen we optie 1: \textit{z/OS UNIX Shells}. De tweede optie is om TSO commando's te geven in de z/OS omgeving waarmee we verbonden zijn. \\
+Om met de USS omgeving connectie te maken, wordt optie 1 gekozen: \textit{z/OS UNIX Shells}. De tweede optie is om TSO commando's te geven in de z/OS omgeving waarmee een verbinding gemaakt is. \\
 
-Nu zal er een kleine terminal opstarten waar we zijn ingelogd op de mainframe in de USS omgeving. Hierin kunnen we dus navigeren naar verschillende directories met Python bestanden in en uitvoeren met het Python commando. We kunnen ook directories of bestanden aanmaken in deze terminal zonder een externe ssh connectie nodig te hebben. \\
+Dit zal een terminal opstarten waar er commando's ingegeven kunnen worden in de USS omgeving. Hierdoor kan er genavigeerd worden naar verschillende directories met Python bestanden in. Deze kunnen uitgevoerd  worden met het Python commando. Dit heeft ook als functie om directories of bestanden aan te maken in deze terminal zonder een externe ssh connectie nodig te hebben. \\
 
-Belangrijk om te vermelden is dat de Python installer moet zijn gedefinieerd anders kun je geen Python bestanden uitvoeren in USS. Dit is een globale variabele die je moet initializeren.
+%Belangrijk om te vermelden is dat de Python installer moet zijn gedefinieerd anders kun je geen Python bestanden uitvoeren in USS. Dit is een globale variabele die je moet initializeren.
