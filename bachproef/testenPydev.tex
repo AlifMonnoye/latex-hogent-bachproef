@@ -3,37 +3,38 @@
 %%=============================================================================
 \chapter{Testen Runtime environment}
 \label{ch:test-runtime}
-In dit hoofdstuk zal er onderzocht worden hoe krachtig de ingebouwde terminal van IDz is en wat zijn limitaties zijn. Dit gebeurd voor hoofdstuk \ref{ch:test-pydev} omdat hier de omgeving wordt opgegezet om het testscript in uit te voeren. \\
-
+In dit hoofdstuk zal er onderzocht worden hoe krachtig de ingebouwde terminal van IDz is en wat zijn limitaties zijn. Dit gebeurd voor hoofdstuk \ref{ch:test-pydev} omdat in dit hoofdstuk de omgeving wordt opgegezet om de test API in uit te voeren. \\
+Er wordt verwacht dat Python correct geïnstalleerd is in de USS omgeving.
 
 \section{Opzetten testomgeving}
 Alle bestanden die worden geschreven om te testen zullen aangemaakt worden in de directory \textit{/tmp/BPtestfolder}. 
-Deze wordt aangemaakt via de Bash commando's : 
+Deze wordt aangemaakt via de Bash commando's: 
 
 \begin{lstlisting}
     $ mkdir /tmp/BPtestfolder
     $ cd /tmp/BPtestfolder
 \end{lstlisting}
 
-Er wordt verwacht dat Python correct is geïnstalleerd in de USS omgeving.
-
 \section{Test script aanmaken en uitvoeren}
-In de pas aangemaakte directory wordt er een test.py bestand aangemaakt die \textit{Hello World} zal afdrukken op het scherm. Aangezien dit geen groot programma is, zal dit met het \textit{echo} commando geschreven worden in het Python bestand als volgt:\
+In de pas aangemaakte directory wordt er een test.py bestand aangemaakt die \textquote{Hello World} zal afdrukken op het scherm. Aangezien dit geen groot programma is, zal dit met het \textit{echo} commando geschreven worden in het Python bestand als volgt:
 
 \begin{lstlisting}
     $ touch test.py
     $ echo `print('Hello World')` >> test.py
     $ python test.py
+    
 \end{lstlisting}
 
-Dit programma geeft \textit{Hello World} terug en werkt dus perfect.
+Dit programma geeft \textquote{Hello World} terug en werkt dus perfect.
 
 \section{Opzetten Python virtuele omgeving}
-Een Python virtuele omgeving wordt vaak gebruikt om toegangsrechten te ontwijken en een eigen omgeving opzetten waar de gebruiker toegang heeft tot alle functies zoals bijvoorbeeld packages installeren. Deze virtuele omgeving zullen we proberen opzetten en activeren in IDz. Als dit lukt zullen we packages installeren en testen of we deze kunnen gebruiken.
+Een Python virtuele omgeving wordt vaak gebruikt om toegangsrechten te ontwijken en een eigen omgeving op te zetten waar de gebruiker toegang heeft tot alle functies zoals bijvoorbeeld packages installeren. Deze virtuele omgeving zal opgezet en geactiveerd worden in IDz. Als dit lukt zullen de nodige packages, die gebruikt worden in de test API, geïnstalleerd worden. \\
+
+Om de virtuele omgeving aan te maken, gebruikten we het python venv commando. Deze omgeving wordt geactiveerd door middel van het \textquote{active} script in de bin subdirectory. Deze 2 stappen gebeuren als volgt:
 
 \begin{lstlisting}
-    $ python -m venv --system-site-packages ./virtual_env
-    $ cd virtual_env/bin
+    $ python -m venv --system-site-packages ./virtualEnv
+    $ cd virtualEnv/bin
     $ activate
     $ pip list
 \end{lstlisting}
@@ -53,7 +54,7 @@ Er zal ook gebruik worden gemaakt van de ZOAU maar deze zijn al geïnstalleerd o
 Alle nodige packages zullen opgeslagen worden in de directory \textit{/tmp/BPtestfolder/virtual\_env/packages}. Via het \textit{cp} commando worden de packages uit de Python AI toolkit gekopiëerd naar de aangemaakte directory: \\
 
 \begin{lstlisting}
-    $ mkdir /tmp/BPtestfolder/virtual_env/packages
+    $ mkdir /tmp/BPtestfolder/virtualEnv/packages
     $ cp /Path/To/AI/Toolkit/jsonschema-4.17.3-py3-none-any.whl \
                                          /tmp/BPtestfolder/virtual\_env/packages
 \end{lstlisting} 
