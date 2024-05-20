@@ -14,12 +14,15 @@
 % Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
 %onderzoek?
 
-Deze proof of concept biedt een meerwaarde aan de modernisatie van het mainframe systeem die er volgens mij zit aan te komen. Deze systemen zijn nog heel belangrijk maar werkt met te oude technieken waardoor er niet veel mensen zijn die ze kunnen onderhouden. Het toevoegen van modernere manieren van werken is niet voldoende, ze moeten ook efficiënt zijn om mee te kunnen werken wat niet het geval is in de standaard versie van IDz. \\
+Deze proof of concept biedt een meerwaarde aan de modernisatie van het mainframe systeem die sterk bezig is. Deze systemen zijn nog heel belangrijk maar werkt met te oude technieken waardoor er niet veel mensen zijn die ze kunnen onderhouden. Het toevoegen van modernere manieren van werken is niet voldoende, ze moeten ook efficiënt zijn om mee te kunnen werken wat niet het geval is in de huidige versie van IDz. Dit kan opgelost worden door middel van de Pydev plug-in. \\
 
-Het opstellen van deze plug-in is niet zeer complex maar er zijn een paar instellingen die niet voor de hand liggend zijn en voor problemen kunnen zorgen. Aangezien IDz ook veel verschillende functionaliteiten heeft weten veel mensen niet waar ze moeten zoeken als ze iets zoals dit willen opzetten. \\
+Het opstellen van deze plug-in is niet zeer complex maar er zijn instellingen die niet voor de hand liggend zijn en voor problemen kunnen zorgen. Aangezien IDz ook veel verschillende functionaliteiten heeft, is het moeilijk om te weten waar er gezocht moet worden bij het opstellen van deze plug-in. \\
 
-Het is zeer makkelijk om alles in 1 IDE te hebben tijdens het programmeren omdat je niet telkens van programma naar programma moet springen. Persoonlijk vind ik de terminal in Idz om de Python scripts in uit te voeren niet veel beter om in te werken en verkies zelf liever een ssh connectie via powershell. 
-Tijdens het testen heb ik gemerkt dat iets complexere zaken niet direct lukken zoals een Python virtuele omgeving opzetten. In de USS omgeving maakt dit het moeilijk om packages te installeren die gebruikt worden in bijna alle Python programma's. \\
+Het is zeer eenvoudig om applicaties te schrijven en direct te testen in hetzelfde programma. Door de Pydev plug-in is het schrijven zeer efficiënt. De terminal in Idz om Python applicaties in uit te voeren daarentegen brengt wat problemen met zich mee die niet voorkomen in een externe ssh connectie.
+Tijdens het testen kwamen er problemen op bij iets complexere zaken bijvoorbeeld het uitvoeren van de API of zelfs het opzetten van de Python virtuele omgeving. \\
 
-Zelf had ik niet verwacht dat het mogelijk was om Python programma's uit te voeren in USS via IDz en was deels verbaasd toen ik ondervond dat het wel kon. Dit toont voor mij nog eens aan hoe groot Eclipse based programma's zoals IDz kunnen zijn. 
+Het hoofddoel van dit onderzoek was om een Python interpreter op te zetten in IDz door middel van de Pydev plug-in wat goed gelukt is. Dit maakt het mogelijk om Python applicaties direct te schrijven op de mainframe zonder een andere IDE te moeten gebruiken. Voor het opstellen werd er niet verwacht dat dit veel problemen met zich ging meebrengen behalve voor een paar instellingen. \\
+Dit maakt het testen deels eenvoudiger maar wordt best gedaan in een externe ssh connectie om problemen te vermijden. Het is nog niet helemaal duidelijk wat de oorzaken zijn van de problemen in de terminal in IDz. \\
+
+Dit onderzoek heeft het duidelijk gemaakt dat Python compatibel is met de mainframe en nu is er ook een mogelijkheid om applicaties in deze programmeertaal direct te schrijven op de mainframe. Tools zoals ZOAU en de Python AI toolkit for z/OS maken de mogelijkheden enorm groot waardoor er zeer complexe applicaties geschreven kunnen worden. Door de afname van skills in COBOL en PL/1, is het interessant om te onderzoeken of Python en Java de oudere programmeertalen voor batch en online jobs volledig kan vervangen en of dit invloed zou hebben op de snelheid waarin deze jobs worden uitgevoerd.
 

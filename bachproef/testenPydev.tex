@@ -107,14 +107,15 @@ Moesten deze variabelen niet gewijzigd zijn, zou het systeem volgende foutmeldin
 \chapter{Testen Pydev}
 \label{ch:test-pydev}
 
-Om Pydev te testen, zal er een API in IDz geschreven worden. Deze API heeft als functie om van een batch job, de JCL Job card en JCL Procedure aan elkaar te schrijven in een PDS member. Hierdoor testen we het gebruik van de packages die geïnstalleerd zijn, alsook de verbinding met z/OS. \\
+Om Pydev te testen, zal er een API in IDz geschreven worden. Deze API heeft als functie om van een batch job, de JCL Job card en JCL Procedure aan elkaar te schrijven in een PDS member. Hierdoor wordt het gebruik van geïnstalleerde packages alsook de verbinding met z/OS getest. \\
 
-Het doel van dit hoofdstuk blijft nog steeds de ervaring testen om een volledig Python programma te schrijven door middel van Pydev en zien hoe efficiënt dit eigenlijk is. Er zal hier ook gebruik worden gemaakt van de ZOAU om datasets te lezen en schrijven. Er is ook een kleine JSON file aanwezig die de naam van de header -en procedure JCL bevat. \\
+Het doel van dit hoofdstuk blijft de ervaring testen om een volledig Python programma te schrijven door middel van Pydev en zien hoe efficiënt dit is. Er zal gebruik worden gemaakt van de ZOAU om datasets te lezen en schrijven. Er is ook een kleine JSON file aanwezig die de naam van de job card -en procedure JCL bevat. \\
 
-Door deze verschillende technologieën te gebruiken testen we niet enkel hoe complexe programma's err geschreven kunnen worden in Pydev, maar ook hoe efficiënt het is om op de mainframe gebruik te maken van deze moderne technieken in combinatie met de oudere.
+Door deze verschillende technologieën te gebruiken, wordt niet enkel getest hoe complexe programma's er geschreven kunnen worden in Pydev, maar ook hoe efficiënt het is om op de mainframe gebruik te maken van deze moderne technieken in combinatie met de oudere.
 
 \section{Schrijven van een test API}
-Verder staat de test API die geschreven werd. Het bevat 1 functie die 2 JCL's uit het JSON bestand van een meegegeven job ophaald en aan elkaar schrijft in een dataset die gedefinieerd is in de variabele \textit{dsMemberPath}. 
+Er werd een test API geschreven. Deze bevat een functie die 2 JCL's uit het JSON bestand van een meegegeven job ophaald en aan elkaar schrijft. Dit zal geschreven worden in een dataset die gedefinieerd is in de variabele \textquote{dsMemberPath}. Deze functie maakt gebruik van 2 andere functies om het JSON bestand te lezen en om te schrijven naar een dataset. De API werd geschreven als volgt: \\
+
 \begin{lstlisting}
     from fastapi import FastAPI
     import json
@@ -233,32 +234,45 @@ Verder staat de test API die geschreven werd. Het bevat 1 functie die 2 JCL's ui
     
 \end{lstlisting}
 \vspace{10 mm}
-Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Dit wordt opgeslagen in de variabele \textquote{proc}. Van deze job wordt de job card JCL en procedure JCL opgehaald.\\
+Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Dit wordt opgeslagen in de variabele \textquote{proc}. Van deze job wordt de job card JCL en procedure JCL opgehaald door middel van de functie \textquote{get\_values}. Hier wordt een JSON bestand gelezen die de naam van de PDS bevat waar de JCL members in opgeslagen zijn. Dit is een andere dataset voor de job card en de procedure.\\
 
-Er moet eerst gecontroleerd worden of deze JCL's bestaan. Er bestaat een \textquote{datasets.exists} functie in ZOAU maar deze is vooral bedoeld voor een sequentiële dataset. Omdat de JCL bestanden in een PDS member wordt opgeslagen, kan dit niet gebruikt worden. Hiervoor wordt er gebruik gemaakt van de \textquote{datasets.list\_members} functie. Zoals de naam vermeld, geeft dit een lijst van members in een PDS terug. Als de naam van de job in deze lijst zit, bestaat de JCL. \\
+Hierna moet er gecontroleerd worden of deze JCL's bestaan. Er bestaat een \textquote{datasets.exists} functie in ZOAU maar dit is vooral bedoeld om te controleren of een sequentiële dataset bestaat. Omdat de JCL bestanden in een PDS member wordt opgeslagen, kan dit niet gebruikt worden. Hierdoor wordt er gebruik gemaakt van de \textquote{datasets.list\_members} functie. Zoals de naam vermeld, geeft dit een lijst van members in een PDS terug. Als de naam van de job in deze lijst zit, bestaat de JCL. \\
  
-Om de datasets te lezen, wordt er gebruik gemaakt van het \textit{zopen} statement uit de ZOAU. Dit is het equivalent van het traditionele \textit{open} statement in Python om een bestand te openen. Hier worden er 3 positionele parameters gebruikt: 
+Om de datasets te lezen, wordt er gebruik gemaakt van het \textit{zopen} statement uit de ZOAU. Dit is het equivalent van het traditionele \textit{open} statement in Python om een bestand te openen. De \textquote{zopen} functie opent dus een dataset en hier worden er 3 positionele parameters gebruikt: 
 \begin{itemize}
     \item[1] Het te openen bestand. Dit bevat de naam van de dataset.
-    \item[2] Dit bepaald wat er gebeurd wordt met het bestand. \textit{\textquote{r}} voor te lezen en \textit{\textquote{w}} om te schrijven
+    \item[2] Dit bepaald wat er gebeurd wordt met het bestand. \textit{\textquote{r}} voor te lezen en \textit{\textquote{w}} voor te schrijven
     \item[3] De encoding van het meegegeven bestand
 \end{itemize} 
-Het is belangrijk om de encoding mee te geven bij het oproepen van deze functie. Datasets worden opgeslagen in de encoding \textit{IBM-1047} en dit wordt gedefinieerd als \textit{'cp1047'}
+Het is belangrijk om de encoding mee te geven bij het oproepen van deze functie. Datasets worden opgeslagen in de encoding \textit{IBM-1047} en dit wordt gedefinieerd als \textit{'cp1047'} \\
+
+Om de data te schrijven in een PDS member, zullen alle records in volgorde opgeslagen worden in een list. De job card en procedure zitten in dezelfde list genaamd \textquote{records}. Eerst wordt de job card opgehaald en daarna de procedure. Deze records worden dan geschreven in de PDS member gedefinieerd in de variabele \textquote{dsMemberPath}. Voor het schrijven, wordt er gebruik gemaakt van de functie \textquote{write\_into\_dataset} die 2 argumenten meekrijgt: de naam van de PDS member waarin er geschreven wordt en de lijst met alle records. Deze functie maakt gebruik van de ZOAU functie \textquote{datasets.write}. Als deze dataset niet bestaat, wordt deze automatisch aangemaakt.
 
 
 \section{Uitvoeren van de volledige applicatie}
-Om de API uit te voeren zal er gebruik worden gemaakt van de Uvicorn package met het volgende commando:
+Om de API uit te voeren zal er gebruik worden gemaakt van de Uvicorn package met het volgend Bash commando:
 
 \begin{lstlisting}
     $ python -m uvicorn main:app
+    
+\end{lstlisting}
+Dit commando moet uitgevoerd worden in dezelfde directory als het python bestand. De API zal hierdoor luisteren op poort 8000 van het loopback adres van z/OS voor inkomende verzoeken. \\
+
+Om te testen of het Python programma werkt, wordt er een nieuwe Python applicatie ontwikkeld die uitgevoerd wordt terwijl de API aan het luisteren is voor binnenkomende verzoeken. Voor deze applicatie wordt de \textquote{requests} package gebruikt. 
+
+\begin{lstlisting}
+    Hier komt de Python test applicatie
 \end{lstlisting}
 
-De API zou hierdoor moeten luisteren op poort 8000 van het loopback adres van z/OS voor inkomende verzoeken. 
-
+In deze applicatie wordt er een request verzonden naar het loopback adres van de mainframe met de correcte url die de job \textquote{job} bevat. 
 
 \chapter{Evaluatie test}
 \label{ch:eval-test}
-Bij het uitvoeren van de API gaf dit een foutmelding in IDz maar niet in de ssh connectie. Er lijkst
+Deze test applicatie maakte gebruik van de meeste functies waarvoor Python bedoeld is in combinatie met de mainframe. Een API wordt vaak geschreven in Python en kan dus ook uitgevoerd worden op de mainframe. Het lezen van JSON bestanden is ook een zeer belangrijke functie. Dit in combinatie met het gebruik van datasets op z/OS maakt Python alleen maar krachtiger. \\
+
+Het schrijven van de API ging vrij vlot met Pydev waardoor het zeer nuttig is om deze plug-in te implementeren. Dit werkte perfect met code completion voor traditionele statements zoals \textquote{return} of \textquote{with}. Als er variabelen gedeclareerd werden, konden deze ook automatisch ingevuld worden. Het werkt zoals een IDE zou moeten werken. \\
+
+Hoewel het schrijven van de API vlot ging, was het uitvoeren in IDz niet zeer efficiënt. Er waren problemen met het opstarten van de Python virtuele omgeving wat niet voorkwam in een externe ssh connectie. De oorzaak van dit probleem is nog niet helemaal duidelijk. Het uitvoeren van de API bracht ook problemen met zich mee. Dit maakt het duidelijk dat het testen van Python applicaties in de IDz terminal lukt als deze niet zeer complex zijn.
 
 
 
