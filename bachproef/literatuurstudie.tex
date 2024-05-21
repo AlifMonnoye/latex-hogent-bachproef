@@ -63,6 +63,26 @@ Een VSAM biedt een complexere manier van toegang tot verschillende soorten data 
     \item Lineair Data Set (LDS): \\Dit houdt data bij in een byte stream en is de enige vorm van dit soort in een traditionele z/OS file.
 \end{itemize}
 \autocite{IBM}
+
+\subsection{Andere besturingssystemen}
+Zoals eerder vermeld is z/OS niet het enige besturingssysteem dat beschikbaar is op de mainframe. Hoewel dit door IBM aangeboden wordt, zijn er andere mogelijkheden die elk hun eigen sterktes en zwaktes hebben. \\
+
+\begin{itemize}
+    \item z/Virtual Machine (z/VM)\\
+    Dit is een type 1 hypervisor en kan gebruikt worden om meerdere besturingssystemen in te hosten. Dit bestaat uit een control program (cp) en een conversation monitoring system (CMS). De cp is verantwoordelijk voor het creëren van meerdere virtuele machines op basis van de fysieke hardware middelen. Het zorgt ook voor data en applicatie beveiliging voor alle systemen die in het systeem zitten. De CMS zit in een eigen virtuele machine en biedt een interactieve sessie tussen de andere virtuele machines en eindgebruikers. \autocite{IBMb} \\
+    
+    \item z/Virual Storage Extended (z/VSE) \\
+    Dit besturingssysteem is vooral nuttig voor kleinere bedrijven die geen complexe batch -of transactie jobs moeten verwerken. Het is mogelijk dat naarmate ze groeien, ze overgaan naar z/OS als z/VSE niet genoeg blijkt te zijn. Het design van dit besturingssysteem maakt het perfect voor meer routine batch jobs parallel uit te voeren. Meestal wordt z/VM ook gebruikt als een terminal interface voor development en systeembeheer in z/VSE. \autocite{IBMb} \\
+    
+    \item Linux for System z \\
+    Dit is zoals de naam zegt, Linux op de mainframe. Er zijn hier 2 verschillende distributies voor: Linux for S/390 (gebruikt 31-bit adressering) en Linux for System z (gebruikt 64-bit adressering) \\
+    Linux for System Z refereerd naar Linux for S/390. Dit besturingssysteem maakt niet gebruik van een 3270 terminal maar X-Windows based terminals. Dit bestaat uit een cli waarmee er een telnet of ssh connectie gemaakt wordt met het Linux for System z besturingssysteem. Dit is ook volledig in de encoding ASCII en niet EBCDIC. \autocite{IBMb} \\
+    
+    \item z/Transaction Processing Facility (z/TPF) \\
+    Dit besturingssysteem is vooral nuttig voor bedrijven die veel transacties moeten uitvoeren zoals een bank of vliegmaatschappij. Dit kan gebruik maken van verschillende mainframes om tienduizenden transacties per seconde uit te voeren zonder enige onderbreking. \autocite{IBMb}
+\end{itemize}
+
+
 \subsection{Unix op een mainframe}
 IBM heeft veel ingezet op modernisatie. Zo is er een Unix System Services (USS) omgeving bijgekomen die geïntegreerd is in het traditionele besturingssysteem z/OS. Er is ook een volledige mainframe die enkel Linux heeft als besturingssysteem namelijk de LinuxOne. In dit onderzoek zal er gebruik worden gemaakt van een mainframe met z/OS die een USS omgeving bevat dus zal een LinuxOne niet besproken worden. \\
 
@@ -94,7 +114,7 @@ Unix bestanden op de mainframe worden bijna op dezelfde manier gebruikt als op e
 
 Deze omgeving werkt ook met omgevingsvariabelen die invloed hebben op hoe het systeem werkt. Veel van deze variablen worden opgezet bij het inloggen maar de gebruiker kan deze zelf aanpassen. Deze kunnen verwijzen naar de directory waar de gebruiker zich in bevindt, maar zijn ook nodig voor bepaalde packages om hun installatiepad te vinden. \autocite{HenryStocker2017}
 
-\subsection{Python in z/OS}
+\section{Python in z/OS}
 Aangezien er een Python interpreter opzetten zal worden, wordt er hier vooral gefocust op Python in z/OS. Dit is één van de meest gebruikte programmeertalen op de dag van vandaag door zijn verschillende doeleinden en begin vriendelijkheid \autocite{Johnson2023}. Ook IBM heeft dit opgemerkt en besloot om dit compatibel te maken met de mainframe. De meest gebruikte doeleinden zijn voor Data analyse -en visualisatie, machine learning en software development. Voor de laatste speelt de flexibiliteit en de kracht van de programmeertaal een grote rol omdat er zowel heel simpele als zeer complexe applicaties geschreven kunnen worden. In software development worden vaak API's ontwikkeld met verschillende packages. \autocite{Kosourova2022} \\
 
 Naast programmeren, heeft dit ook de mogelijkheid om Python commando's uit te voeren in de terminal van USS. Met het python commando kan er bijvoorbeeld een virtuele omgeving aangemaakt worden. Dit is een directory met een bepaalde bestandsstructuur en bevat een bin subdirectory die verwijst naar de Python interpreter en verschillende packages die geïnstalleerd zijn in deze omgeving.  \autocite{UniPrinceton2022} \\
@@ -125,8 +145,18 @@ Om deze omgeving af te sluiten, wordt volgend commando ingegeven:
 
 Voor het activeren moet er specifiek verwezen worden naar het \textit{activate} script in de bin subdirectory. Het deactiveren kan in eender welke directory.
 
+\subsection{Packages in Python}
+In Python wordt er vaak gebruik gemaakt van externe packages en modules die gebruikt kunnen worden door programmeurs tijdens het schrijven van een applicatie. \\
+Een module is een python bestand wat bestaat uit definities en statements. Dit kan bestaan uit variabelen en functies die gerelateerd zijn. Via het \textquote{import} statement, kunnen de functies in een module gebruikt worden in een extern Python applicatie \autocite{Singh2024}. Dit zorgt ervoor dat programmeurs niet zelf de code moeten schrijven waardoor ze veel tijd kunnen winnen. Dit zorgt er ook voor dat repetitieve code niet elke keer opnieuw geschreven moet worden.\\
+
+Een packages is een directory waar verschillende modules in opgeslagen worden en bevatten in sommige gevallen subdirectories. Omdat alles in een directory zit, zijn de modules met elkaar verbonden via de naam van de package. Dit bevat een \textquote{init.py} bestand wat het duidelijk maakt voor Python dat dit een package is. Dit bestand kan leeg zijn of code bevat die uitgevoerd wordt als de package geïnitialiseerd wordt. \autocite{Udacity2021} \\
+
+Een voorbeeld van een package is FastAPI: dit kan gebruikt worden om API's te ontwikkelen. Tijdens het ontwikkelen, wordt er automatisch een interactieve documentatie opgesteld zodat de gebruiker dit niet hoeft te doen. Dit maakt gebruik van een andere package genaamd \textquote{pydantic} en dit zorgt ervoor dat de declaraties van datatypes hetzelfde blijft als in Python. Een andere package genaamd \textquote{starlette} zorgt voor sterke performantie, startup en shutdown events en support voor achtergrond taken tijdens het uitvoeren. \autocite{FastAPI} \\
+
+Om een API uit te voeren, kan er gebruik worden gemaakt van de \textquote{Uvicorn} package. Dit is een web server wat inkomende verzoeken van gebruikers ontvangt. Dit werkt samen met FastAPI om de inkomende verzoeken correct te verwerken. Dit zorgt ervoor dat Uvicorn focust op de netwerk connectie en inkomende verzoeken, en FastAPI op het verwerken van deze verzoeken. \autocite{Sentry2024}
+
 \subsection{Python AI toolkit for z/OS}
-In Python wordt er vaak gebruik gemaakt van externe packages die publiek beschikbaar zijn. Deze moeten wel geïnstalleerd zijn op het systeem om er gebruik van te maken en dit kan een probleem zijn in USS. Door de beveiliging in een mainframe is het niet altijd even makkelijk om packages direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
+Om gebruik te maken van deze packages met modules, moeten deze geïnstalleerd zijn op het systeem en dit kan een probleem zijn in USS. Door de beveiliging op de mainframe is het niet simpel om packages direct te installeren in z/OS \autocite{IBM2021} en hierdoor heeft IBM een Python AI toolkit for z/OS opgezet. \\
 
 In de aankondiging door Evan \textcite{Rivera2023} werd deze toolkit beschreven als een bekende en flexibele ervaring voor developers tijdens het ontwerpen van AI oplossingen. Het biedt open source software aan en deze kunnen eenvoudig geïnstalleerd worden door de Package Installer for Python (pip). \\
 
@@ -134,25 +164,6 @@ De Python AI toolkit is dus een bibliotheek met verschillende, wereldwijd gebrui
 
 \subsection{Z Open Automation Utilities}
 Python alleen op de mainframe is niet voldoende. Vaak willen developers datasets in z/OS kunnen lezen of schrijven en Python biedt hier geen functies voor aan. IBM is dan opgekomen met de Z Open Automation Utilities (ZOAU). Dit bevat functies om acties uit te voeren op datasets in z/OS of op het systeem zelf. Dit is ontworpen door IBM om het zo natuurlijk mogelijk te laten aanvoelen voor developers die weinig kennis hebben over z/OS. Zo zijn de functies zeer gelijkaardig als hun tegenliggende Unix commando's. Een commando om een lijst van datasets weer te geven bijvoorbeeld is \textit{dls}. Dit is geïnspireerd op het \textit{ls} Unix commando om de inhoud te zien van een bepaalde directory. ZOAU bevat ook een \textit{zopen} statement om datasets te openen voor te lezen of schrijven. In Python is dit het \textit{open} statement. \autocite{IBM2023a}
-
-\subsection{Andere besturingssystemen}
-Zoals eerder vermeld is z/OS niet het enige besturingssysteem dat beschikbaar is op de mainframe. Hoewel dit door IBM aangeboden wordt, zijn er andere mogelijkheden die elk hun eigen sterktes en zwaktes hebben. \\
-
-\begin{itemize}
-    \item z/Virtual Machine (z/VM)\\
-    Dit is een type 1 hypervisor en kan gebruikt worden om meerdere besturingssystemen in te hosten. Dit bestaat uit een control program (cp) en een conversation monitoring system (CMS). De cp is verantwoordelijk voor het creëren van meerdere virtuele machines op basis van de fysieke hardware middelen. Het zorgt ook voor data en applicatie beveiliging voor alle systemen die in het systeem zitten. De CMS zit in een eigen virtuele machine en biedt een interactieve sessie tussen de andere virtuele machines en eindgebruikers. \autocite{IBMb} \\
-    
-    \item z/Virual Storage Extended (z/VSE) \\
-    Dit besturingssysteem is vooral nuttig voor kleinere bedrijven die geen complexe batch -of transactie jobs moeten verwerken. Het is mogelijk dat naarmate ze groeien, ze overgaan naar z/OS als z/VSE niet genoeg blijkt te zijn. Het design van dit besturingssysteem maakt het perfect voor meer routine batch jobs parallel uit te voeren. Meestal wordt z/VM ook gebruikt als een terminal interface voor development en systeembeheer in z/VSE. \autocite{IBMb} \\
-    
-    \item Linux for System z \\
-    Dit is zoals de naam zegt, Linux op de mainframe. Er zijn hier 2 verschillende distributies voor: Linux for S/390 (gebruikt 31-bit adressering) en Linux for System z (gebruikt 64-bit adressering) \\
-    Linux for System Z refereerd naar Linux for S/390. Dit besturingssysteem maakt niet gebruik van een 3270 terminal maar X-Windows based terminals. Dit bestaat uit een cli waarmee er een telnet of ssh connectie gemaakt wordt met het Linux for System z besturingssysteem. Dit is ook volledig in de encoding ASCII en niet EBCDIC. \autocite{IBMb} \\
-    
-    \item z/Transaction Processing Facility (z/TPF) \\
-    Dit besturingssysteem is vooral nuttig voor bedrijven die veel transacties moeten uitvoeren zoals een bank of vliegmaatschappij. Dit kan gebruik maken van verschillende mainframes om tienduizenden transacties per seconde uit te voeren zonder enige onderbreking. \autocite{IBMb}
-\end{itemize}
-
 
 \section{IBM Developer for z/OS}
 \label{sec:IBM Developer for z/OS (IDz)}

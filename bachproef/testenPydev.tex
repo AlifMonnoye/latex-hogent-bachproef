@@ -233,8 +233,17 @@ Er werd een test API geschreven. Deze bevat een functie die 2 JCL's uit het JSON
     
     
 \end{lstlisting}
-\vspace{10 mm}
-Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Dit wordt opgeslagen in de variabele \textquote{proc}. Van deze job wordt de job card JCL en procedure JCL opgehaald door middel van de functie \textquote{get\_values}. Hier wordt een JSON bestand gelezen die de naam van de PDS bevat waar de JCL members in opgeslagen zijn. Dit is een andere dataset voor de job card en de procedure.\\
+\vspace{5 mm}
+Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Dit wordt opgeslagen in de variabele \textquote{proc}. Van deze job wordt de job card JCL en procedure JCL opgehaald door middel van de functie \textquote{get\_values}. Hier wordt een JSON bestand gelezen die de naam van de PDS bevat waar de JCL members in opgeslagen zijn. Dit is een andere dataset voor de job card en de procedure. Het JSON bestand ziet er als volgt uit: \\
+
+\begin{lstlisting}
+    {
+        {
+            `HEADER`: ``
+            `BODY`: ``
+        }
+    }
+\end{lstlisting}
 
 Hierna moet er gecontroleerd worden of deze JCL's bestaan. Er bestaat een \textquote{datasets.exists} functie in ZOAU maar dit is vooral bedoeld om te controleren of een sequentiële dataset bestaat. Omdat de JCL bestanden in een PDS member wordt opgeslagen, kan dit niet gebruikt worden. Hierdoor wordt er gebruik gemaakt van de \textquote{datasets.list\_members} functie. Zoals de naam vermeld, geeft dit een lijst van members in een PDS terug. Als de naam van de job in deze lijst zit, bestaat de JCL. \\
  
@@ -261,10 +270,15 @@ Dit commando moet uitgevoerd worden in dezelfde directory als het python bestand
 Om te testen of het Python programma werkt, wordt er een nieuwe Python applicatie ontwikkeld die uitgevoerd wordt terwijl de API aan het luisteren is voor binnenkomende verzoeken. Voor deze applicatie wordt de \textquote{requests} package gebruikt. 
 
 \begin{lstlisting}
-    Hier komt de Python test applicatie
+    import requests
+    
+    url = `http://127.0.0.1/api/proc/bn379`
+    
+    x = requests.get(url)
+    print(x)
 \end{lstlisting}
 
-In deze applicatie wordt er een request verzonden naar het loopback adres van de mainframe met de correcte url die de job \textquote{job} bevat. 
+In deze applicatie wordt er een request verzonden naar het loopback adres van de mainframe met de correcte url die de job \textquote{bn379} bevat. 
 
 \chapter{Evaluatie test}
 \label{ch:eval-test}
