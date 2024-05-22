@@ -238,10 +238,8 @@ Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Dit wordt
 
 \begin{lstlisting}
     {
-        {
-            `HEADER`: ``
-            `BODY`: ``
-        }
+        `HEADER`: ``
+        `BODY`: ``
     }
 \end{lstlisting}
 
@@ -272,10 +270,9 @@ Om te testen of het Python programma werkt, wordt er een nieuwe Python applicati
 \begin{lstlisting}
     import requests
     
-    url = `http://127.0.0.1/api/proc/bn379`
-    
-    x = requests.get(url)
-    print(x)
+    api_url = `http://127.0.0.1:8000/api/proc/bn379700`    
+    response = requests.get(api_url)
+    print(response.text)
 \end{lstlisting}
 
 In deze applicatie wordt er een request verzonden naar het loopback adres van de mainframe met de correcte url die de job \textquote{bn379} bevat. 
