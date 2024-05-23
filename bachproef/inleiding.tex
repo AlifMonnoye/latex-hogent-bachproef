@@ -7,20 +7,21 @@
 
 \section{Probleemstelling}%
 \label{sec:probleemstelling}
-IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java en Python toegankelijk te maken op de Mainframe. Hoewel deze talen ondersteund worden, is het niet altijd even makkelijk om programma's hierin te schrijven. IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om in een bekend programma scripts te openen en aan te passen die opgeslagen zijn op een mainframe. Aangezien dit Eclipse based is, is er geen Python interpreter die gebruikt kan worden waardoor Python scripts enkel geopend en aangepast kunnen worden in een text editor. Dit komt vanzelfsprekend niet met een syntaxcheck, code completion, etc \\ \\
-Dit is een probleem voor developers zoals Stian Botnevik van DNB om Python code te schrijven in dit programma. Hoewel scripts vaak ook  lokaal worden geschreven in een programma zoals Visual Studio Code en dan worden overgezet naar de mainframe, moeten er nogsteeds aanpassingen gebeuren door de verschillen in runtime environment. In een klein Python programma lukt dit wel nog in een text editor maar als ze wat groter zijn, wordt dit veel moeilijker.
+IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java en Python toegankelijk te maken op de mainframe. Hoewel deze talen ondersteund worden, is het niet altijd even makkelijk om programma's hierin te schrijven. IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om in een bekend programma scripts die opgeslagen zijn op een mainframe, te openen en aan te passen. Aangezien dit Eclipse based is, is er geen Python-interpreter die gebruikt kan worden, waardoor Python-applicaties enkel kunnen worden geopend en aangepast in een text editor. Dit komt vanzelfsprekend niet met een syntaxcheck, code completion, enz. \\ 
+
+Dit is een probleem voor developers zoals Stian Botnevik van DNB om Python-code te schrijven in dit programma. Hoewel scripts vaak ook  lokaal worden geschreven in een programma zoals Visual Studio Code en dan worden overgezet naar de mainframe, moeten er nogsteeds aanpassingen gebeuren door de verschillen in runtime environment. In een klein Python programma lukt dit wel nog in een text editor maar als ze wat groter zijn, wordt dit veel moeilijker.
 
 
 \section{Onderzoeksvraag}%
 \label{sec:onderzoeksvraag}
-In dit onderzoek zal er gewerkt worden met de Pydev plug-in voor Eclipse en zullen er stap voor stap instructies gegeven worden over hoe dit opgezet wordt in IBM Developer for z/OS. Aangezien dit programma verschillend is van Eclipse kunnen er problemen opkomen die niet gebeuren in het standaard Eclipse programma. \\
+In dit onderzoek wordt er gewerkt met de Pydev plug-in voor Eclipse en worden er stap voor stap instructies gegeven over hoe dit opgezet wordt in IBM Developer for z/OS. Aangezien dit programma verschillend is van Eclipse, kunnen er problemen opduiken die niet voorkomen in het standaard Eclipse-programma. \\
 
-Eens dit is opgezet, zal er onderzocht worden of deze scripts uitgevoerd kunnen worden  in de Mainframe omgeving via IBM Developer for z/OS. Hier zal er een Python API geschreven worden die doormiddel van de Z Open Automation Utilities 2 datasets zal lezen en 1 zal schrijven. In deze testfase zal er een oplossing geboden worden voor de meest voorkomende problemen bij het uitvoeren van Python applicaties op de mainframe.
+Eens dit is opgezet, wordt er onderzocht of deze scripts kunnen worden uitgevoerd in de mainframe via IBM Developer for z/OS. Hier wordt er een Python-API geschreven die doormiddel van de Z Open Automation Utilities 2 datasets zal lezen en 1 zal schrijven. In deze testfase wordt er een oplossing geboden voor de meest voorkomende problemen bij het uitvoeren van Python-applicaties op de mainframe.
 
 
 \section{Onderzoeksdoelstelling}%
 \label{sec:onderzoeksdoelstelling}
-De doelstelling is om een Python interpreter op te zetten in IBM Developer for z/OS door middel van Pydev. Verder volgt er een stappenplan om een terminal te openen die verbonden is met de mainframe om Python applicaties in uit te voeren.
+De doelstelling is om een Python-interpreter op te zetten in IBM Developer for z/OS door middel van Pydev. Verder volgt er een stappenplan om een terminal te openen die verbonden is met de mainframe om Python applicaties in uit te voeren.
 
 \section{Opzet van deze bachelorproef}%
 \label{sec:opzet-bachelorproef}
@@ -35,7 +36,7 @@ In Hoofdstuk~\ref{ch:stand-van-zaken} wordt een overzicht gegeven van de stand v
 
 In Hoofdstuk~\ref{ch:methodologie} wordt de methodologie toegelicht en worden de gebruikte onderzoekstechnieken besproken om een antwoord te kunnen formuleren op de onderzoeksvragen. \\
 
-In Hoofdstuk~\ref{ch:literatuurstudie} wordt de gebruikte terminologie in detail besproken samen met andere onderwerpen relevant voor het onderzoek. \\
+In Hoofdstuk~\ref{ch:literatuurstudie} wordt de gebruikte terminologie in detail besproken samen met andere onderwerpen die relevant zijn voor het onderzoek. \\
 
 In Hoofdstuk~\ref{ch:opzetten-pydev} wordt de proof of concept duidelijk weergegeven en besproken. \\
 
@@ -43,8 +44,8 @@ In Hoofdstuk~\ref{ch:runtime-environment} wordt de connectie met de USS omgeving
 
 In Hoofdstuk~\ref{ch:test-runtime} wordt de runtime environment getest om Python scripts in uit te voeren. \\
 
-In Hoofdstuk~\ref{ch:test-pydev} worden de functies van Pydev getest door een Python API te schrijven. Deze zal ook direct getest worden. \\
+In Hoofdstuk~\ref{ch:test-pydev} worden de functies van Pydev getest door een Python API te schrijven. Deze wordt ook direct getest. \\
 
-In Hoofdstuk~\ref{ch:eval-test} zal de testmethode geëvalueerd worden. \\
+In Hoofdstuk~\ref{ch:eval-test} wordt de testmethode geëvalueerd. \\
 
 In Hoofdstuk~\ref{ch:conclusie}, tenslotte, wordt de conclusie gegeven en een antwoord geformuleerd op de onderzoeksvragen. Daarbij wordt ook een aanzet gegeven voor toekomstig onderzoek binnen dit domein.

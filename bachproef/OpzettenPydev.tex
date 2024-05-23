@@ -2,74 +2,74 @@
 %% Opzetten Pydev in IDz
 %%=============================================================================
 
-\chapter{Opzetten Pydev}
+\chapter{Pydev opzetten}
 \label{ch:opzetten-pydev}
 
-Het programma waarin het onderzoek uitgevoerd zal worden is IBM Developer for z/OS (IDz) versie 16.0.2. IDz is gebaseerd op Eclipse versie 4.23.0 . \\ In dit onderzoek zal versie 8.2.0 van PyDev geïnstalleerd worden. Dit is een oudere versie maar het best compatibel met IDz, de andere versies brengen problemen met zich mee tijdens en na de installatie.
-Versie 8.2.0 bevat onder andere een debugger, een code formatter en code analyse. Het is belangrijk om te weten dat IDz door IBM beschikbaar wordt gesteld en ze dus support zullen bezorgen waar nodig moesten er problemen zijn met hun programma. Dit is niet het geval met PyDev omdat dit door een externe partij is ontwikkeld en dus niet ondersteund wordt door IBM. \\
+Het programma waarin het onderzoek wordt uitgevoerd, is IBM Developer for z/OS (IDz) versie 16.0.2. IDz is gebaseerd op Eclipse versie 4.23.0 . \\ In dit onderzoek wordt versie 8.2.0 van PyDev geïnstalleerd. Dit is een oudere versie, maar ze is het best compatibel met IDz; de andere versies brengen problemen met zich mee tijdens en na de installatie.
+Versie 8.2.0 bevat onder andere een debugger, een code formatter en code analyse. Het is belangrijk om te weten dat IDz door IBM beschikbaar wordt gesteld en dat IBM dus support zal bieden waar nodig mochten er problemen zijn met hun programma. Dit is niet het geval met PyDev omdat dit door een externe partij is ontwikkeld en dus niet ondersteund wordt door IBM. \\
 
 \section{Vereisten voor installatie} 
 \\ \\
 \begin{itemize}
-    \item Eclipse versie 4.6 based programma nodig - IDz
-    \item Java 11 of hoger
-    \item Python 2.6 of hoger
+    \item Eclipse versie 4.6 based programma nodig - IDz;
+    \item Java 11 of hoger;
+    \item Python 2.6 of hoger.
 \end{itemize}
 
 
 \section{Installatie} 
 \\ \\
-Pydev kan geïnstalleerd worden via de Github repository \url{https://github.com/fabioz/Pydev/releases}. \\Dit zal een .zip installeren die uitgepakt moet worden in een directory naar keuze. Het uitpakken kan een enige tijd duren. \\
+Pydev kan geïnstalleerd worden via de Github repository \url{https://github.com/fabioz/Pydev/releases}. \\Hierdoor wordt een .zip geïnstalleerd die uitgepakt moet worden in een directory naar keuze. Het uitpakken kan enige tijd duren. \\
 
-In IDz wordt er genavigeerd naar \textit{help -> install New Software}  \\
+Navigeer in IDz naar \textit{help -> install New Software}  \\
 
-Hier komt er een installatie wizard waar Pydev geïnstalleerd kan worden in IDz via \textit{add -> local} \\
+Hier komt er een installatie wizard waar Pydev geïnstalleerd kan worden in IDz via \textit{add -> local}. \\
 
-De map waar Pydev in is uitgepakt wordt geselecteerd. Verder wordt er geklikt op \textit{add} \\
+Selecteer de map waarin Pydev is uitgepakt. Klik vervolgens op \textit{add} \\
 
-Een scherm met de installatie opties komt tevoorschijn. Moest dit leeg zijn, kan dit veranderd worden door de checkbox \textquote{Group items by category} uit te vinken. Hierna komen 3 opties tevoorschijn:
+Er verschijnt een scherm met de installatie opties. Als dit leeg is, kan dit veranderd worden door de checkbox \textquote{Group items by category} uit te vinken. Hierna komen 3 opties tevoorschijn:
 
 \begin{itemize}
-    \item PyDev for Eclipse 8.2.0.202102211157
-    \item PyDev for Eclipse Developer Resources 8.2.0.202102211157
-    \item PyDev Mylyn Integration 0.6.0
+    \item PyDev for Eclipse 8.2.0.202102211157;
+    \item PyDev for Eclipse Developer Resources 8.2.0.202102211157;
+    \item PyDev Mylyn Integration 0.6.0.
 \end{itemize}
 
-De eerste is noodzakelijk en de tweede optioneel. De derde mag niet aangevinkt worden aangezien MyLyn niet geïnstalleerd is in IDz waardoor het opzetten van PyDev zal falen. \\ 
+De eerste is noodzakelijk en de tweede is optioneel. De derde mag niet aangevinkt worden aangezien MyLyn niet geïnstalleerd is in IDz, waardoor het opzetten van PyDev zal mislukken. \\ 
 
 Klik op \textit{next}, dit zal alles opzetten en kan even duren. \\
 
-Als dit gedaan is, wordt er een overzicht gegeven van de installatie details. Om de installatie te beginnen wordt er geklikt op \textit{finish}. \\
+Wanneer dit gedaan is, wordt er een overzicht gegeven van de installatie details. Klik op \textit{finish} om de installatie te beginnen. \\
 
 In de balk rechtsonder wordt de status van de installatie weergegeven. \\
 
-Als het klaar is met installeren zal IDz een pop-up geven om het programma herop te starten. Moesten er nog niet opgeslagen projecten open staan, worden deze best opgeslaan voor het heropstarten. Anders wordt er geklikt op \textit{Restart Now} \\ 
+Wanneer de installatie voltooid is, geeft IDz een pop-up om het programma opnieuw op te starten. Als er nog niet opgeslagen projecten open staan, worden deze best opgeslagen voor het vóór het heropstarten. Klik in het andere geval op \textit{Restart Now} \\ 
 
-Om te zien of de installatie gelukt is wordt er genavigeert naar \textit{help -> about -> Installation details} \\
+Navigeer om te zien of de installatie gelukt is naar \textit{help -> about -> Installation details}. \\
 
-Geef in de zoekbalk \textquote{Pydev}. Hier zou de geïnstalleerde software moeten staan \\ 
+Geef in de zoekbalk \textquote{Pydev} in. Hier zou de geïnstalleerde software moeten staan. \\ 
 
-Als er een Python script geopend wordt, zal dit nogsteeds gebeuren in de interne text editor. Om dit te wijzigen moet de file associations aangepast worden. Deze zullen bepalen welke editor er gebruikt wordt bij een bepaalde extensie. Hier wordt de Python editor van Pydev gelinkt aan de .py extensie. \\
+Als er een Python script geopend wordt, zal dit nogsteeds gebeuren in de interne text editor. Om dit te wijzigen, moeten de file associations aangepast worden. Deze zullen bepalen welke editor er gebruikt wordt bij een bepaalde extensie. Hier wordt de Python editor van Pydev gelinkt aan de .py-extensie. \\
 
 Ga naar \textit{Window -> Preferences -> General -> Editors -> File Associations} \\
 
-Hier komt een lijst met allemaal extensies en het programma waarmee ze geopend worden. IDz heeft niet standaard een python editor dus deze moet toegevoegd worden. Klik bij \textquote{file types} op \textit{add} \\
+Hier komt een lijst met allemaal extensies en het programma waarmee ze geopend worden. IDz heeft niet standaard een python-editor, dus deze moet toegevoegd worden. Klik bij \textquote{file types} op \textit{add}. \\
 
-Geef hier \textquote{.py} in en klik op \textit{ok} \\
+Geef hier \textquote{.py} in en klik op \textit{ok}. \\
 
-In de lijst van extensies staat nu .py \\
+In de lijst van extensies staat nu .py. \\
 
-Selecteer de py extensie en bij \textquote{associated editors} komen er 3 opties:
+Selecteer de .py-extensie en bij \textquote{associated editors} komen er 3 opties:
 \begin{itemize}
-    \item Python Editor
-    \item Text Editor
-    \item Generic Text Editor
+    \item Python Editor;
+    \item Text Editor;
+    \item Generic Text Editor.
 \end{itemize}
 \\
 Selecteer \textquote{Python Editor} en klik op \textit{Default}. \\
 
 
-Als een Python script geopend wordt, zal dit automatisch gebeuren in de python editor en zijn alle functies van Pydev beschikbaar.
+Als een Python-applicatie geopend wordt, zal dit automatisch gebeuren in de Python-editor en zijn alle functies van Pydev beschikbaar.
 
 
 

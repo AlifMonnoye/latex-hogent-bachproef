@@ -1,14 +1,14 @@
 %%=============================================================================
 %% Testen runtime environment in IDz
 %%=============================================================================
-\chapter{Testen Runtime environment}
+\chapter{Runtime environment testen}
 \label{ch:test-runtime}
-In dit hoofdstuk zal er getest worden hoe krachtig de ingebouwde terminal van IDz is en wat zijn limitaties zijn. Dit gebeurd voor hoofdstuk \ref{ch:test-pydev} omdat in dit hoofdstuk de omgeving wordt opgegezet waarin de API uitgevoerd zal worden. \\
-Er wordt verwacht dat Python correct geïnstalleerd is in de USS omgeving.
+In dit hoofdstuk wordt er getest hoe krachtig de ingebouwde terminal van IDz is en wat zijn beperkingen zijn. Dit gebeurt vóór hoofdstuk \ref{ch:test-pydev} omdat in dit hoofdstuk de omgeving wordt opgezet waarin de API zal worden uitgevoerd. \\
+Er wordt verwacht dat Python correct geïnstalleerd is in de USS-omgeving.
 
-\section{Opzetten testomgeving}
-Alle bestanden die worden geschreven om te testen zullen aangemaakt worden in de directory \textit{/tmp/BPtestfolder}. 
-Deze wordt aangemaakt via de Bash commando's: 
+\section{Testomgeving opzetten}
+Alle bestanden die worden geschreven om te testen, zullen worden aangemaakt in de directory \textit{/tmp/BPtestfolder}. 
+Deze wordt aangemaakt via de Bash-commando's: 
 
 \begin{lstlisting}
     $ mkdir /tmp/BPtestfolder
@@ -26,12 +26,12 @@ Om te testen of Python correct is geconfigureerd, is het best om een simpele app
     
 \end{lstlisting}
 
-In de pas aangemaakte directory wordt het bestand \textquote{test.py} aangemaakt wat \textquote{Hello World} zal afdrukken op het scherm. Aangezien dit geen groot programma is, zal dit met het \textit{echo} commando geschreven worden in het Python. Tijdens het uivoeren geeft dit programma \textquote{Hello World} terug en werkt dus perfect.
+In de pas aangemaakte directory wordt het bestand \textquote{test.py} aangemaakt, dat \textquote{Hello World} op het scherm weergeeft. Aangezien dit geen groot programma is, wordt dit met het \textit{echo}-commando geschreven in het Python-bestand. Tijdens het uivoeren geeft dit programma \textquote{Hello World} terug, wat aangeeft dat het perfect werkt.
 
-\section{Opzetten Python virtuele omgeving}
-Een Python virtuele omgeving wordt vooral gebruikt om een eigen omgeving op te zetten waar de gebruiker toegang heeft tot alle functies zoals bijvoorbeeld packages installeren. Om de API uit te voeren zijn er verschillende packages nodig dus zal er gebruik worden gemaakt van zo een virtuele omgeving. Dit zal opgezet en geactiveerd worden in IDz. Als dit lukt zullen de nodige packages, die gebruikt worden in de test API, geïnstalleerd worden. \\
+\section{Python virtuele omgeving opzetten}
+Een Python virtuele omgeving wordt vooral gebruikt om een eigen omgeving op te zetten waar de gebruiker toegang heeft tot alle functies, zoals bijvoorbeeld packages installeren. Om de API uit te voeren, zijn er verschillende packages nodig, dus wordt er gebruik gemaakt van een dergelijke virtuele omgeving. Deze wordt opgezet en geactiveerd in IDz. Als dit lukt, zullen de nodige packages, die gebruikt worden in de test API, worden geïnstalleerd. \\
 
-Om de virtuele omgeving aan te maken, wordt het python \textquote{venv} commando gebruikt. Deze omgeving wordt geactiveerd door middel van het \textquote{activate} script in de \textit{bin} subdirectory. Deze 2 stappen gebeuren als volgt:
+Om de virtuele omgeving aan te maken, wordt het Python \textquote{venv}-commando gebruikt. Deze omgeving wordt geactiveerd door middel van het \textquote{activate}-script in de \textit{bin} subdirectory. Deze 2 stappen gebeuren als volgt:
 
 \begin{lstlisting}
     $ python -m venv --system-site-packages ./virtualEnv
@@ -40,19 +40,19 @@ Om de virtuele omgeving aan te maken, wordt het python \textquote{venv} commando
     $ pip list
 \end{lstlisting}
 
-Hoewel de virtuele omgeving aangemaakt wordt, kan deze niet opgestart worden met het source commando wat wel gaat in een ssh connectie. In IDz moet er genavigeerd worden naar de \textit{bin} subdirectory en het \textit{activate} programma hierin uitvoeren. Om te werken met de virtuele omgeving moeten alle commando's in de \textit{bin} subdirectory gebeuren anders zal het niet lukken.
-Het commando \textit{pip list} wordt gebruikt om te testen of de virtuele omgeving actief is. Moest het niet actief zijn, zou dit commando niet lukken. Het geeft een lijst van geïnstalleerde packages terug die geïnstalleerd zijn. Voorlopig zijn dit de packages die al op het systeem stonden. Bij het aanmaken van de virtuele omgeving werden deze overgenomen door middel van de \textit{--system-site-packages} optie.
+Hoewel de virtuele omgeving aangemaakt wordt, kan deze niet opgestart worden met het source commando, wat wel gaat in een ssh-connectie. In IDz moet er genavigeerd worden naar de \textit{bin} subdirectory om hierin het \textit{activate} programma uit te voeren. Om met de virtuele omgeving te werken, moeten alle commando's in de \textit{bin} subdirectory gebeuren anders zal het niet lukken.
+Het commando \textit{pip list} wordt gebruikt om te testen of de virtuele omgeving actief is. Als het niet actief is, zal dit commando niet lukken. Het geeft een lijst van geïnstalleerde packages in de omgeving. Voorlopig zijn dit de packages die al op het systeem stonden. Bij het aanmaken van de virtuele omgeving werden deze overgenomen door middel van de optie \textit{--system-site-packages}.
 
-\section{Installeren van packages}
-Zoals eerder vermeld zijn er nog packages nodig waar Python programma's gebruik van kunnen maken. Deze zullen geïnstalleerd worden van de Python AI toolkit for z/OS of van de Pypi website. De packages die geïnstalleerd zullen worden zijn nodig voor het testprogramma dat wordt geschreven in hoofdstuk \ref{ch:test-pydev}. Deze packages zijn \textit{FastApi}, \textit{Uvicorn} en \textit{Jsonschema}. \\
+\section{Packages installeren}
+Zoals eerder vermeld zijn er nog packages nodig waar Python-programma's gebruik van kunnen maken. Deze zullen geïnstalleerd worden van de Python AI toolkit for z/OS of van de Pypi website. De packages die geïnstalleerd zullen worden zijn nodig voor het testprogramma dat wordt geschreven in hoofdstuk \ref{ch:test-pydev}. Deze packages zijn \textit{FastApi}, \textit{Uvicorn} en \textit{Jsonschema}. \\
 
-FastAPI en Uvicorn maken geen onderdeel uit van de Python AI toolkit dus zullen geïnstalleerd moeten worden van \url{https://pypi.org/}. Het is belangrijk om alle packages waarvan FastAPI gebruik maakt, ook te installeren. Dit installatiebestand heeft als extensie \textquote{.whl} en via drag and drop is het mogelijk om deze in de USS omgeving te plaatsen vanaf de lokale machine. Dit moet in File Transfer Mode \textquote{binary} gebeuren omdat het anders niet correct geformateerd is. Dit kan ingesteld worden in IDz via \textit{Window -> Preferences -> Remote Systems -> Files}. Hier wordt een lijst van extensies weergegeven en hoe ze worden overgezet naar de USS omgeving. Om een .whl bestand correct over te zetten naar de mainframe, wordt \textit{Add...} geselecteerd. Hier is het mogelijk om een extensie van een bestand in te geven en in dit geval is dit \textquote{.whl}. Dit bestandstype komt in de lijst terecht en als dit geselecteerd is, moet de \textit{Default File Transfer Mode} op \textit{Binary} staan. Nu is het mogelijk om installatiebestanden in USS te krijgen in het juiste formaat. \\
+FastAPI en Uvicorn maken geen onderdeel uit van de Python AI toolkit en moeten geïnstalleerd worden van \url{https://pypi.org/}. Het is belangrijk om alle packages waarvan FastAPI gebruik maakt, ook te installeren. Dit installatiebestand heeft als extensie \textquote{.whl} en via drag and drop is het mogelijk om deze in de USS-omgeving te plaatsen vanaf de lokale machine. Dit moet in File Transfer Mode \textquote{binary} gebeuren omdat het anders niet correct geformatteerd is. Dit kan worden ingesteld in IDz via \textit{Window -> Preferences -> Remote Systems -> Files}. Hier wordt een lijst gegeven van extensies en de wijze waarop ze worden overgezet naar de USS-omgeving. Om een .whl-bestand correct over te zetten naar de mainframe, wordt \textit{Add...} geselecteerd. Hier is het mogelijk om een extensie van een bestand in te geven, en in dit geval is dit \textquote{.whl}. Dit bestandstype komt in de lijst terecht en als dit geselecteerd is, moet de \textit{Default File Transfer Mode} op \textit{Binary} staan. Nu is het mogelijk om installatiebestanden in USS te krijgen in het juiste formaat. \\
 
-Jsonschema is beschikbaar via de Python AI toolkit en staat dus al op de mainframe. Dit is ook een .whl bestand. \\
+Jsonschema is beschikbaar via de Python AI toolkit en staat dus al op de mainframe. Dit is ook een .whl-bestand. \\
 
-Er zal ook gebruik worden gemaakt van de ZOAU maar deze zijn al geïnstalleerd op het systeem en hebben geen verdere configuratie nodig. \\
+Er wordt ook gebruik gemaakt van de ZOAU, maar deze zijn al geïnstalleerd op het systeem en hebben geen verdere configuratie nodig. \\
 
-Alle nodige packages zullen opgeslagen worden in de directory \textit{/tmp/BPtestfolder/virtualE nv/packages}. Via het \textit{cp} commando worden de packages uit de Python AI toolkit gekopiëerd naar de aangemaakte directory: \\
+Alle nodige packages worden opgeslagen in de directory \textit{/tmp/BPtestfolder/virtualEnv/packages}. Via het \textit{cp}-commando worden de packages uit de Python AI toolkit gekopieerd naar de aangemaakte directory: \\
 
 \begin{lstlisting}
     $ mkdir /tmp/BPtestfolder/virtualEnv/packages
@@ -60,7 +60,7 @@ Alle nodige packages zullen opgeslagen worden in de directory \textit{/tmp/BPtes
                                          /tmp/BPtestfolder/virtualEnv/packages
 \end{lstlisting} 
 
-Al deze packages moeten apart geïnstalleerd worden via het \textit{pip install} commando. Aangezien deze bestanden op het systeem staan, wordt de optie \textit{--no-index} toegevoegd. Dit laat het systeem weten dat het niet online moet zoeken om de packages te installeren. De installatie gebeurd als volgt:\\
+Al deze packages moeten apart geïnstalleerd worden via het \textit{pip install}-commando. Aangezien deze bestanden op het systeem staan, wordt de optie \textit{--no-index} toegevoegd. Dit laat het systeem weten dat het niet online moet zoeken om de packages te installeren. De installatie gebeurt als volgt:\\
 \begin{lstlisting}
     $ pip install ../packages/annotated_types-0.4.0-py3-none-any.whl --no-index
     $ pip install ../packages/typing_extensions-4.10.0-py3-none-any.whl --no-index
@@ -83,7 +83,7 @@ Al deze packages moeten apart geïnstalleerd worden via het \textit{pip install}
 \end{lstlisting}
 
 \section{Omgevingsvariabelen instellen}
-Zoals eerder vermeld, zal er gebruik worden gemaakt van ZOAU om datasets te lezen en schrijven. Deze package is al geïnstalleerd maar er zullen nog omgevingsvariabelen ingesteld moeten worden zodat dit correct werkt. De omgeveringsvariabelen die gewijzigd moeten worden zijn \textit{ZOAU\_HOME}, \textit{PATH} en \textit{LIBPATH}. Hiervoor gebruiken we het \textit{export} commando als volgt: \\
+Zoals eerder vermeld, wordt er gebruik gemaakt van ZOAU om datasets te lezen en te schrijven. Deze package is al geïnstalleerd maar er moeten nog omgevingsvariabelen worden ingesteld zodat dit correct werkt. De omgevingsvariabelen die gewijzigd moeten worden, zijn \textit{ZOAU\_HOME}, \textit{PATH} en \textit{LIBPATH}. Hiervoor wordt het het \textit{export}-commando gebruikt als volgt: \\
 
 \begin{lstlisting}
     $ export ZOAU_HOME=/pp/idz/v16r0/zoautil/
@@ -92,7 +92,7 @@ Zoals eerder vermeld, zal er gebruik worden gemaakt van ZOAU om datasets te leze
     
 \end{lstlisting}
 
-Moesten deze variabelen niet gewijzigd zijn, zou het systeem volgende foutmelding geven:
+Als deze variabelen niet gewijzigd zijn, geeft het systeem volgende foutmelding:
 \begin{lstlisting}
     CEE3201S The system detected an operation exception 
                                         (System Completion Code=0C1).
@@ -104,17 +104,17 @@ Moesten deze variabelen niet gewijzigd zijn, zou het systeem volgende foutmeldin
 %%=============================================================================
 %% Testen runtime environment in IDz
 %%=============================================================================
-\chapter{Testen Pydev}
+\chapter{Pydev testen}
 \label{ch:test-pydev}
 
-Om Pydev te testen, zal er een API in IDz geschreven worden. Deze API heeft als functie om van een batch job, de JCL Job card en JCL Procedure aan elkaar te schrijven in een PDS member. Hierdoor wordt het gebruik van geïnstalleerde packages alsook de verbinding met z/OS getest. \\
+Om Pydev te testen, wordt er een API in IDz geschreven. Deze API heeft als functie om van een batch job de JCL Job card en JCL Procedure aan elkaar te schrijven in een PDS-member. Hierdoor wordt het gebruik van geïnstalleerde packages alsook de verbinding met z/OS getest. \\
 
-Het doel van dit hoofdstuk blijft de ervaring testen om een volledig Python programma te schrijven door middel van Pydev en zien hoe efficiënt dit is. Er zal gebruik worden gemaakt van de ZOAU om datasets te lezen en schrijven. Er is ook een kleine JSON file aanwezig die de naam van de job card -en procedure JCL bevat. \\
+Het doel van dit hoofdstuk blijft om de ervaring te testen om een volledige Python-applicatie te schrijven door middel van Pydev en te zien hoe efficiënt dit is. Er wordt gebruikgemaakt van de ZOAU om datasets te lezen en te schrijven. Er is ook een klein JSON-bestand aanwezig die de naam van de job card -en procedure JCL bevat. \\
 
-Door deze verschillende technologieën te gebruiken, wordt niet enkel getest hoe complexe programma's er geschreven kunnen worden in Pydev, maar ook hoe efficiënt het is om op de mainframe gebruik te maken van deze moderne technieken in combinatie met de oudere.
+Door deze verschillende technologieën te gebruiken, wordt niet enkel getest welke complexe programma's er geschreven kunnen worden in Pydev, maar ook hoe efficiënt het is om op de mainframe gebruik te maken van deze moderne technieken in combinatie met de oudere.
 
 \section{Schrijven van een test API}
-Er werd een test API geschreven. Deze bevat een functie die 2 JCL's uit het JSON bestand van een meegegeven job ophaald en aan elkaar schrijft. Dit zal geschreven worden in een dataset die gedefinieerd is in de variabele \textquote{dsMemberPath}. Deze functie maakt gebruik van 2 andere functies om het JSON bestand te lezen en om te schrijven naar een dataset. De API werd geschreven als volgt: \\
+Er werd een test API geschreven. Deze bevat een functie die 2 JCL's uit het JSON-bestand van een meegegeven job ophaalt en aan elkaar schrijft. Dit wordt geschreven in een dataset die gedefinieerd is in de variabele \textquote{dsMemberPath}. Deze functie maakt gebruik van 2 andere functies om het JSON-bestand te lezen en om te schrijven naar een dataset. De API werd geschreven als volgt: \\
 
 \begin{lstlisting}
     from fastapi import FastAPI
@@ -234,43 +234,43 @@ Er werd een test API geschreven. Deze bevat een functie die 2 JCL's uit het JSON
     
 \end{lstlisting}
 \vspace{5 mm}
-Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Dit wordt opgeslagen in de variabele \textquote{proc}. Van deze job wordt de job card JCL en procedure JCL opgehaald door middel van de functie \textquote{get\_values}. Hier wordt een JSON bestand gelezen die de naam van de PDS bevat waar de JCL members in opgeslagen zijn. Dit is een andere dataset voor de job card en de procedure. Het JSON bestand ziet er als volgt uit: \\
+Bij het oproepen van de API geeft de gebruiker de naam van de job mee. Deze wordt opgeslagen in de variabele \textquote{proc}. Van deze job wordt de JCL job card en JCL procedure opgehaald door middel van de functie \textquote{get\_values}. Hier wordt een JSON bestand gelezen dat de naam van de PDS bevat waarin de JCL members opgeslagen zijn. Dit is een andere dataset voor de job card en de procedure. Het JSON bestand ziet er als volgt uit: \\
 
 \begin{lstlisting}
     {
-        `HEADER`: ``
-        `BODY`: ``
+        `HEADER`: `HOG0007.JOB.CNTL`
+        `BODY`: `HOG0007.PROC.CNTL`
     }
 \end{lstlisting}
 
-Hierna moet er gecontroleerd worden of deze JCL's bestaan. Er bestaat een \textquote{datasets.exists} functie in ZOAU maar dit is vooral bedoeld om te controleren of een sequentiële dataset bestaat. Omdat de JCL bestanden in een PDS member wordt opgeslagen, kan dit niet gebruikt worden. Hierdoor wordt er gebruik gemaakt van de \textquote{datasets.list\_members} functie. Zoals de naam vermeld, geeft dit een lijst van members in een PDS terug. Als de naam van de job in deze lijst zit, bestaat de JCL. \\
+Hierna moet er gecontroleerd worden of deze JCL's bestaan. Er bestaat een \textquote{datasets.exists} functie in ZOAU maar deze is bedoeld om te controleren of een sequentiële dataset bestaat. Omdat de JCL bestanden in een PDS-member worden opgeslagen, kan dit niet gebruikt worden. Daarom wordt er gebruik gemaakt van de \textquote{datasets.list\_members} functie. Zoals de naam vermeldt, geeft dit een lijst van members in een PDS terug. Als de naam van de job in deze lijst voorkomt, bestaat de JCL. \\
  
 Om de datasets te lezen, wordt er gebruik gemaakt van het \textit{zopen} statement uit de ZOAU. Dit is het equivalent van het traditionele \textit{open} statement in Python om een bestand te openen. De \textquote{zopen} functie opent dus een dataset en hier worden er 3 positionele parameters gebruikt: 
 \begin{itemize}
     \item[1] Het te openen bestand. Dit bevat de naam van de dataset.
-    \item[2] Dit bepaald wat er gebeurd wordt met het bestand. \textit{\textquote{r}} voor te lezen en \textit{\textquote{w}} voor te schrijven
+    \item[2] Dit bepaalt wat er gebeurt met het bestand. \textit{\textquote{r}} voor te lezen en \textit{\textquote{w}} voor te schrijven
     \item[3] De encoding van het meegegeven bestand
 \end{itemize} 
-Het is belangrijk om de encoding mee te geven bij het oproepen van deze functie. Datasets worden opgeslagen in de encoding \textit{IBM-1047} en dit wordt gedefinieerd als \textit{'cp1047'} \\
+Het is belangrijk om de encoding mee te geven bij het oproepen van deze functie. Datasets worden opgeslagen in de encoding \textit{IBM-1047} en dit wordt gedefinieerd als \textit{'cp1047'}. \\
 
-Om de data te schrijven in een PDS member, zullen alle records in volgorde opgeslagen worden in een list. De job card en procedure zitten in dezelfde list genaamd \textquote{records}. Eerst wordt de job card opgehaald en daarna de procedure. Deze records worden dan geschreven in de PDS member gedefinieerd in de variabele \textquote{dsMemberPath}. Voor het schrijven, wordt er gebruik gemaakt van de functie \textquote{write\_into\_dataset} die 2 argumenten meekrijgt: de naam van de PDS member waarin er geschreven wordt en de lijst met alle records. Deze functie maakt gebruik van de ZOAU functie \textquote{datasets.write}. Als deze dataset niet bestaat, wordt deze automatisch aangemaakt.
+Om de data te schrijven in een PDS-member, worden alle records in volgorde opgeslagen in een list. De job card en procedure zitten in dezelfde list genaamd \textquote{records}. Eerst wordt de job card opgehaald en daarna de procedure. Deze records worden dan geschreven in de PDS-member die is gedefinieerd in de variabele \textquote{dsMemberPath}. Voor het schrijven wordt er gebruik gemaakt van de functie \textquote{write\_into\_dataset} die 2 argumenten meekrijgt: de naam van de PDS-member waarin er geschreven wordt en de lijst met alle records. Deze functie maakt gebruik van de ZOAU functie \textquote{datasets.write}. Als deze dataset niet bestaat, wordt ze automatisch aangemaakt.
 
 
-\section{Uitvoeren van de volledige applicatie}
-Om de API uit te voeren zal er gebruik worden gemaakt van de Uvicorn package met het volgend Bash commando:
+\section{De volledige applicatie uitvoeren}
+Om de API uit te voeren, wordt er gebruik gemaakt van de Uvicorn package met het volgend Bash-commando:
 
 \begin{lstlisting}
     $ python -m uvicorn main:app
     
 \end{lstlisting}
-Dit commando moet uitgevoerd worden in dezelfde directory als het python bestand. De API zal hierdoor luisteren op poort 8000 van het loopback adres van z/OS voor inkomende verzoeken. \\
+Dit commando moet uitgevoerd worden in dezelfde directory als het Python-bestand. De API luistert hierdoor op poort 8000 van het loopback adres van z/OS voor inkomende verzoeken. \\
 
-Om te testen of het Python programma werkt, wordt er een nieuwe Python applicatie ontwikkeld die uitgevoerd wordt terwijl de API aan het luisteren is voor binnenkomende verzoeken. Voor deze applicatie wordt de \textquote{requests} package gebruikt. 
+Om te testen of het Python programma werkt, wordt er een nieuwe Python applicatie ontwikkeld die wordt uitgevoerd terwijl de API aan het luisteren is voor binnenkomende verzoeken. Voor deze applicatie wordt de \textquote{requests} package gebruikt. 
 
 \begin{lstlisting}
     import requests
     
-    api_url = `http://127.0.0.1:8000/api/proc/bn379700`    
+    api_url = `http://127.0.0.1:8000/api/proc/TC379700`    
     response = requests.get(api_url)
     print(response.text)
 \end{lstlisting}
@@ -281,9 +281,9 @@ In deze applicatie wordt er een request verzonden naar het loopback adres van de
 \label{ch:eval-test}
 Deze test applicatie maakte gebruik van de meeste functies waarvoor Python bedoeld is in combinatie met de mainframe. Een API wordt vaak geschreven in Python en kan dus ook uitgevoerd worden op de mainframe. Het lezen van JSON bestanden is ook een zeer belangrijke functie. Dit in combinatie met het gebruik van datasets op z/OS maakt Python alleen maar krachtiger. \\
 
-Het schrijven van de API ging vrij vlot met Pydev waardoor het zeer nuttig is om deze plug-in te implementeren. Dit werkte perfect met code completion voor traditionele statements zoals \textquote{return} of \textquote{with}. Als er variabelen gedeclareerd werden, konden deze ook automatisch ingevuld worden. Het werkt zoals een IDE zou moeten werken. \\
+Het schrijven van de API ging vrij vlot met Pydev, waardoor het zeer nuttig is om deze plug-in te implementeren. Dit werkte perfect met code completion voor traditionele statements zoals \textquote{return} of \textquote{with}. Als er variabelen gedeclareerd werden, konden deze ook automatisch ingevuld worden. Het werkt zoals een IDE zou moeten werken. \\
 
-Hoewel het schrijven van de API vlot ging, was het uitvoeren in IDz niet zeer efficiënt. Er waren problemen met het opstarten van de Python virtuele omgeving wat niet voorkwam in een externe ssh connectie. De oorzaak van dit probleem is nog niet helemaal duidelijk. Het uitvoeren van de API bracht ook problemen met zich mee. Dit maakt het duidelijk dat het testen van Python applicaties in de IDz terminal lukt als deze niet zeer complex zijn.
+Hoewel het schrijven van de API vlot ging, was het uitvoeren in IDz niet zeer efficiënt. Er waren problemen met het opstarten van de Python virtuele omgeving wat niet voorkwam in een externe ssh connectie. De oorzaak van dit probleem is nog niet helemaal duidelijk. Het uitvoeren van de API bracht ook problemen met zich mee. Dit maakt duidelijk dat het testen van Python-applicaties in de IDz-terminal lukt als deze niet zeer complex zijn.
 
 
 
