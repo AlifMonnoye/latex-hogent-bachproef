@@ -9,78 +9,115 @@
 % Info over de opleiding
 \course{Bachelorproef}
 \studyprogramme{toegepaste informatica}
-\academicyear{2022-2023}
+\academicyear{2023-2024}
 \institution{Hogeschool Gent, Valentin Vaerwyckweg 1, 9000 Gent}
 
 % Info over de bachelorproef
-\title{Titel van uw bachelorproef}
-\subtitle{Ondertitel (eventueel)}
-\author{Voornaam Naam}
-\email{voornaam.familienaam@student.hogent.be}
-\supervisor{Voornaam Naam}
-\cosupervisor{Voornaam Naam (Bedrijf)}
+\title{Implementeren van Pydev in IBM Developer for z/OS om Python-applicaties uit te voeren op de mainframe.}
+% \subtitle{Ondertitel (eventueel)}
+\author{Alif Monnoye}
+\email{alif.monnoye@student.hogent.be}
+\supervisor{Leendert Blondeel}
+\cosupervisor{Njaal Sletten (DNB)}
 
 % Indien ingevuld, wordt deze informatie toegevoegd aan het einde van de
 % abstract. Zet in commentaar als je dit niet wilt.
-\specialisation{Systeem- en Netwerkbeheer}
-\keywords{Lambda-calculus, Scheme}
-\projectrepo{https://github.com/user/repo}
+\specialisation{Mainframe Expert}
+\keywords{Python, Mainframe, Pydev, IDz, USS}
+\projectrepo{https://github.com/AlifMonnoye/latex-hogent-bachproef}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-It's only a model.
-You don't vote for kings. Who's that then? We found them. Ni! Ni! Ni! Ni!
-The nose? On second thoughts, let's not go there. It is a silly place. Bloody Peasant! And the hat. She's a witch! Where'd you get the coconuts?
+IBM heeft voor zijn IBM Z Systems de deur opengezet naar vernieuwing door Java
+en Python toegankelijk te maken op de mainframe. Hoewel deze talen ondersteund
+worden, is het niet altijd even makkelijk om programma’s hierin te schrijven.
+IBM Developer for z/OS is een stap in de goede richting door zijn functionaliteit om
+in een bekend programma bestanden die opgeslagen zijn op de mainframe te openen
+en aan te passen. Aangezien dit Eclipse based is, is er geen Python-interpreter
+waardoor Python scripts moeten worden aangepast in een text editor.
+Deze paper is een proof of concept voor het opstellen van Pydev als Python IDE in
+IBM Developer for z/OS. Hierdoor kunnen Python developers efficiënter code schrijven
+en aanpassen in de Unix System Services omgeving van de mainframe.
+In dit onderzoek wordt er gewerkt met de Pydev-plug-in voor Eclipse en worden er
+instructies gegeven over hoe dit ingesteld wordt. Ook wordt er onderzocht of deze
+scripts uitgevoerd kunnen worden via IBM Developer for z/OS in de mainframeomgeving.
+Om dit onderzoek te testen, zal er een Python API geschreven worden in IBM Developer
+for z/OS. Deze zal uitgevoerd worden via dit programma op de Unix System
+Services omgeving. Deze omgeving brengt andere problemen met zich mee die
+opgelost zullen worden.
+Het resultaat is een volledige proof of concept om een Python IDE in IBM Developer
+for z/OS op te zetten. Verder volgt configuratie om een verbinding te maken
+met de Unix System Services omgeving om Python-applicaties in uit te voeren. In
+de testfase van dit onderzoek wordt een API geschreven en een stappenplan gegeven
+over de benodigdheden om Python-applicaties in de gebruikte omgeving
+uit te voeren. Dit is belangrijk voor de programmeurs van DNB die werken in dit
+programma en voorlopig hun Python code moeten testen via een externe ssh connectie.
 \end{abstract}
 
 \begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
 
 \section{Introductie}
 
-Be quiet! Found them? In Mercia?! The coconut's tropical! But you are dressed as one… Well, what do you want? Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.
-
-Well, what do you want? It's only a model. Camelot! We found them. We shall say `Ni' again to you, if you do not appease us.
-
-The nose? Shut up! Burn her! I am your king. You don't vote for kings.
-
-You can't expect to wield supreme power just `cause some watery tart threw a sword at you! Well, we did do the nose. I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
-
-Why do you think that she is a witch? We want a shrubbery!! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave before I am forced to taunt you a second time!
+In de huidige technologische wereld is het moeilijk
+bij te houden welke mogelijkheden er zijn om
+bepaalde projecten uit te voeren. Zo heb je altijd
+nieuwe technieken die net iets efficiënter of
+krachtiger zijn dan een ander. Door deze voortgaande
+evolutie zullen individuen niet direct op
+de hoogte zijn van recente ontwikkelingen, maar
+vergeten ze ook de oudere toepassingen van een
+bepaalde techniek. Dit is vooral merkbaar bij IBM
+hun z Systems of mainframes die zo belangrijk,
+maar zo snel vergeten worden in de IT wereld.
+Hoewel het een zeer hoogwaardige technologie
+is, zijn de technieken nog steeds zeer oud. Hier
+wordt wel op ingezet door modernere talen zoals
+Java en Python compatibel te maken met dit systeem.
+Een veel gebruikte tool, aangeboden door
+IBM, is IBM Developer for z/OS. Dit is een Eclipse
+based programma geschreven in Java en kan een
+connectie maken met de mainframe en zijn opgeslagen
+bestanden. Dit maakt het eenvoudiger
+voor gebruikers om verschillende bestanden
+te openen en wijzigen maar heeft geen Python
+interpreter waardoor het voor developers nogsteeds
+niet zo efficiënt om Python programma’s mee aan te passen.
 
 \section{Experimenten}
 
-A newt? Camelot! Why? No, no, no! Yes, yes. A bit. But she's got a wart.
+In dit onderzoek wordt er gewerkt met de Pydev plug-in voor Eclipse en worden er
+stap voor stap instructies gegeven over hoe dit opgezet wordt in IBM Developer for
+z/OS. Aangezien dit programma verschillend is van Eclipse, kunnen er problemen
+opduiken die niet voorkomen in het standaard Eclipse-programma. \\ \\
+De efficiëntie van Pydev wordt getest door een API te schrijven die doormiddel van de Z Open Automation Utilities 2 datasets zal lezen en 1 zal
+schrijven. In deze testfase wordt er een oplossing geboden voor de meest voorkomende problemen bij het uitvoeren van Python-applicaties op de mainframe. \\ \\
+Eens dit is opgezet, wordt er onderzocht of deze scripts kunnen worden uitgevoerd op de mainframe via IBM Developer for z/OS. De doelstelling van deze fase is het uitvoeren van de geschreven API in IBM hun programma. Als dit lukt, wordt er gekeken of er limitaties zijn vergeleken me een externe ssh connectie.  
 
-Shut up! I dunno. Must be a king. Who's that then? Look, my liege! On second thoughts, let's not go there. It is a silly place.
+\section{Gebruikte methodes}\\ \\
 
-Shut up! Will you shut up?! No, no, no! Yes, yes. A bit. But she's got a wart. He hasn't got shit all over him. It's only a model. It's only a model.
+Om Pydev op te zetten in IBM Developer for z/OS, moest dit geïnstalleerd worden van hun website. Er werd gekozen voor een oudere versie omdat dit het meest compatibel was. \\
+De geschreven applicatie maakt gebruik van de package FastAPI om inkomende verzoeken af te handelen. Dit moet geïnstalleerd worden via \url{https://pypi.org} samen met alle packages waarop FastAPI gebouwd is. \\
+Deze API leest van een JSON bestand dus moet de package Jsonschema ook geïnstalleerd zijn. Dit kan via de Python AI toolkit for IBM z/OS.
+Verder wordt er nog gebruik gemaakt van de Z Open Automation Utilities om verschillende soort acties uit te voeren op data opgeslagen op de mainframe. \\ \\
+Om de API uit te voeren, wordt er een Python virtuele omgeving aangemaakt zodat er geen problemen zijn met administratierechten. Hierin worden de packages geïnstalleerd. De nodige omgevingsvariabelen worden ook correct opgezet in deze omgeving. De applicatie wordt opgeslagen in de IBM-1047 encoding wat EBCDIC is en dus geen ASCII. 
 
-Bring her forward! I don't want to talk to you no more, you empty-headed animal food trough water! I fart in your general direction! Your mother was a hamster and your father smelt of elderberries! Now leave 
+\section{Conclusies}\\ \\
 
-\section{Sectie met figuur}
+Het gebruik van Pydev is zeker aan te raden in IDz om efficiënter Python applicaties te schrijven voor de mainframe. Hoewel het niet even performant is als andere editors zoals Visual Studio Code, is dit makkelijker voor Python developers om direct applicaties te maken in de mainframe omgeving. Hoewel het schrijven in IDz makkelijker is, is dit niet het geval voor het testen van deze applicaties. Dit is momenteel het meest performant in een externe ssh connectie.
 
-De {\LaTeX} figure-omgeving bepaalt zelf waar een afbeelding komt en dat is meestal niet op de plek in de tekst waar de figure-omgeving gedefinieerd wordt. Als je wilt forceren dat afbeeldingen toch in de flow van de tekst blijven, dan kan je dat zoals hieronder:
+\section{Toekomstig onderzoek}\\ \\
 
-\begin{center}
-  \captionsetup{type=figure}
-  \includegraphics[width=1.0\linewidth]{grail}
-  \captionof{figure}{He hasn't got shit all over him. The nose? Where'd you get the coconuts? What do you mean? We shall say `Ni' again to you, if you do not appease us}
-\end{center}
-
-Let er wel op dat dit tot problemen met bladschikking kan leiden.
-
-\section{Conclusies}
-
-Don't underestimate the Force. Oh God, my uncle. How am I ever gonna explain this? I suggest you try it again, Luke. This time, let go your conscious self and act on instinct. Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force.
-
-\section{Toekomstig onderzoek}
-
-I care. So, what do you think of her, Han? No! Alderaan is peaceful. We have no weapons. You can't possibly… I have traced the Rebel spies to her. Now she is my only link to finding their secret base.
-
-Kid, I've flown from one side of this galaxy to the other. I've seen a lot of strange stuff, but I've never seen anything to make me believe there's one all-powerful Force controlling everything. There's no mystical energy field that controls my destiny. It's all a lot of simple tricks and nonsense. You are a part of the Rebel Alliance and a traitor! Take her away! 
+Dit onderzoek heeft duidelijk gemaakt dat Python compatibel is met de mainframe
+en nu is er ook een mogelijkheid om applicaties in deze programmeertaal
+direct te schrijven op de mainframe. Tools zoals ZOAU en de Python AI toolkit for
+z/OS maken de mogelijkheden enorm groot waardoor er zeer complexe applicaties
+geschreven kunnen worden. Door de afname van skills in COBOL en PL/1, is het interessant
+om te onderzoeken of Python en Java de oudere programmeertalen voor
+batch- en online-jobs volledig kunnen vervangen en of dit invloed zou hebben op
+de snelheid waarmee deze jobs worden uitgevoerd.
 
 \end{multicols}
 \end{document}
